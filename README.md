@@ -28,6 +28,8 @@ HighCrypto is Korea's premier cryptocurrency marketing agency with the motto "Re
 - News article distribution
 - SNS channel management
 - YouTube/Telegram influencer collaborations
+- AMA sessions
+- Meetup events
 
 ## Getting Started
 
