@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,15 +12,14 @@
         body, html {
             margin: 0;
             padding: 0;
-            overflow-x: hidden;
-            font-family: 'Montserrat', sans-serif;
+            overflow: hidden;
         }
         .slide-container {
-            width: 100%;
-            min-height: 100vh;
+            width: 1280px;
+            min-height: 720px;
             overflow: hidden;
             position: relative;
-            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
         }
         .bg-gradient {
             background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
@@ -58,146 +58,10 @@
             50% { transform: translateY(-30px) rotate(10deg); }
             100% { transform: translateY(0) rotate(0deg); }
         }
-
-        /* 반응형 스타일 추가 */
-        @media (max-width: 1280px) {
-            .crypto-icon.text-9xl {
-                font-size: 6rem;
-            }
-            .crypto-icon.text-8xl {
-                font-size: 5rem;
-            }
-            .crypto-icon.text-7xl {
-                font-size: 4rem;
-            }
-        }
-        
-        @media (max-width: 1024px) {
-            h1 {
-                font-size: 2.25rem !important;
-                line-height: 1.2 !important;
-            }
-            h2 {
-                font-size: 1.75rem !important;
-            }
-            .crypto-icon.text-9xl {
-                font-size: 5rem;
-            }
-            .crypto-icon.text-8xl {
-                font-size: 4rem;
-            }
-            .crypto-icon.text-7xl {
-                font-size: 3.5rem;
-            }
-            .coin-float .w-16 {
-                width: 3rem;
-                height: 3rem;
-            }
-            .coin-float .w-14 {
-                width: 2.5rem;
-                height: 2.5rem;
-            }
-            .coin-float .w-12 {
-                width: 2rem;
-                height: 2rem;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .text-5xl {
-                font-size: 2rem !important;
-            }
-            .text-4xl {
-                font-size: 1.75rem !important;
-            }
-            .text-xl {
-                font-size: 1.1rem !important;
-            }
-            .text-lg {
-                font-size: 1rem !important;
-            }
-            .mb-16 {
-                margin-bottom: 2rem !important;
-            }
-            .mb-6 {
-                margin-bottom: 1rem !important;
-            }
-            .my-8 {
-                margin-top: 1rem !important;
-                margin-bottom: 1rem !important;
-            }
-            .mt-16 {
-                margin-top: 2rem !important;
-            }
-            
-            /* 배경 요소 재배치 */
-            .crypto-icon {
-                opacity: 0.1;
-            }
-            
-            /* 코인 아이콘 위치 조정 */
-            .coin-float {
-                position: relative;
-                display: inline-block;
-                margin: 0.5rem;
-            }
-            .coin-container {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                align-items: center;
-                margin-top: 1rem;
-            }
-        }
-        
-        @media (max-width: 640px) {
-            h1 {
-                font-size: 1.75rem !important;
-            }
-            h2 {
-                font-size: 1.5rem !important;
-            }
-            .text-4xl {
-                font-size: 1.5rem !important;
-            }
-            .p-10 {
-                padding: 1.25rem !important;
-            }
-            .crypto-icon.text-9xl, 
-            .crypto-icon.text-8xl, 
-            .crypto-icon.text-7xl {
-                font-size: 0; /* 아주 작은 화면에서 숨김 */
-            }
-            .h-1 {
-                height: 2px !important;
-            }
-            .w-40 {
-                width: 6rem !important;
-            }
-            
-            /* 동전 아이콘 더 작게 */
-            .coin-float .w-16, 
-            .coin-float .w-14, 
-            .coin-float .w-12 {
-                width: 2rem !important;
-                height: 2rem !important;
-                font-size: 0.75rem !important;
-            }
-            .coin-float .border-4 {
-                border-width: 2px !important;
-            }
-        }
-        
-        /* 자동 높이 계산을 위한 컨테이너 */
-        .auto-height-container {
-            width: 100%;
-            height: auto;
-            min-height: 100vh;
-        }
     </style>
 </head>
 <body>
-    <div class="slide-container bg-gradient flex flex-col items-center justify-center text-white p-5 sm:p-8 md:p-10 auto-height-container">
+    <div class="slide-container bg-gradient flex flex-col items-center justify-center text-white p-10 relative">
         <!-- Background elements -->
         <div class="crypto-icon text-9xl text-yellow-400" style="top: 10%; left: 5%;">
             <i class="fab fa-bitcoin"></i>
@@ -213,82 +77,41 @@
         </div>
         
         <!-- Main content -->
-        <div class="z-10 text-center max-w-3xl px-4 mt-8 md:mt-16">
+        <div class="z-10 text-center mt-16">
             <div class="mb-3">
-                <span class="text-xl md:text-xl font-bold px-3 sm:px-5 py-2 rounded-full bg-white text-blue-900 shadow-lg inline-block">
+                <span class="text-xl font-bold px-5 py-2 rounded-full bg-white text-blue-900 shadow-lg inline-block">
                     HighCrypto
                 </span>
             </div>
             
-            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-6 title-shadow leading-tight">
-                Korean Marketing Proposal for <br class="hidden sm:block"><span class="highlight">Global Cryptocurrency Projects</span>
+            <h1 class="text-5xl font-bold mb-6 title-shadow leading-tight">
+                Korean Marketing Proposal for <br><span class="highlight">Global Cryptocurrency Projects</span>
             </h1>
             
-            <div class="h-1 w-24 sm:w-40 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 rounded-full mx-auto my-4 sm:my-8"></div>
+            <div class="h-1 w-40 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 rounded-full mx-auto my-8"></div>
             
-            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-4 glow">
+            <h2 class="text-4xl font-bold mb-4 glow">
                 Reach Higher with HighCrypto
             </h2>
             
-            <p class="text-lg sm:text-xl text-blue-100 mb-8 sm:mb-16">
+            <p class="text-xl text-blue-100 mb-16">
                 Korea's Premier Crypto Marketing Agency
             </p>
             
-            <!-- 모바일에서 flexbox로 변경 -->
-            <div class="coin-container">
-                <div class="coin-float">
-                    <div class="w-12 sm:w-16 h-12 sm:h-16 rounded-full bg-yellow-500 flex items-center justify-center text-yellow-800 font-bold text-xs sm:text-lg border-4 border-yellow-400 shadow-lg">BTC</div>
-                </div>
-                <div class="coin-float">
-                    <div class="w-10 sm:w-14 h-10 sm:h-14 rounded-full bg-blue-500 flex items-center justify-center text-blue-800 font-bold text-xs sm:text-lg border-4 border-blue-400 shadow-lg">ETH</div>
-                </div>
-                <div class="coin-float">
-                    <div class="w-10 sm:w-12 h-10 sm:h-12 rounded-full bg-green-500 flex items-center justify-center text-green-800 font-bold text-xs sm:text-lg border-4 border-green-400 shadow-lg">XRP</div>
-                </div>
-                <div class="coin-float">
-                    <div class="w-12 sm:w-16 h-12 sm:h-16 rounded-full bg-purple-500 flex items-center justify-center text-purple-800 font-bold text-xs sm:text-lg border-4 border-purple-400 shadow-lg">KRW</div>
-                </div>
+            <!-- Animated coin icons - Repositioned to avoid text overlap -->
+            <div class="coin-float" style="bottom: 80px; left: 250px;">
+                <div class="w-16 h-16 rounded-full bg-yellow-500 flex items-center justify-center text-yellow-800 font-bold text-lg border-4 border-yellow-400 shadow-lg">BTC</div>
+            </div>
+            <div class="coin-float" style="bottom: 60px; left: 400px; animation-delay: 2s;">
+                <div class="w-14 h-14 rounded-full bg-blue-500 flex items-center justify-center text-blue-800 font-bold text-lg border-4 border-blue-400 shadow-lg">ETH</div>
+            </div>
+            <div class="coin-float" style="bottom: 60px; right: 400px; animation-delay: 1s;">
+                <div class="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center text-green-800 font-bold text-lg border-4 border-green-400 shadow-lg">XRP</div>
+            </div>
+            <div class="coin-float" style="bottom: 80px; right: 250px; animation-delay: 3s;">
+                <div class="w-16 h-16 rounded-full bg-purple-500 flex items-center justify-center text-purple-800 font-bold text-lg border-4 border-purple-400 shadow-lg">KRW</div>
             </div>
         </div>
     </div>
-    
-    <script>
-        // 페이지 로드 완료 시 부모 프레임에 높이 전달
-        window.addEventListener('load', function() {
-            // 초기 높이 계산 및 전송
-            sendHeightToParent();
-            
-            // 윈도우 크기 변경 시 높이 재계산
-            window.addEventListener('resize', sendHeightToParent);
-        });
-        
-        // 부모에게 메시지 수신 리스너 추가
-        window.addEventListener('message', function(event) {
-            // 높이 계산 요청 메시지인 경우
-            if (event.data && typeof event.data === 'object' && event.data.type === 'requestResize') {
-                sendHeightToParent();
-            }
-        });
-        
-        // 부모 프레임에 현재 문서 높이 전송
-        function sendHeightToParent() {
-            // 문서 전체 높이 계산
-            const height = Math.max(
-                document.body.scrollHeight,
-                document.body.offsetHeight,
-                document.documentElement.clientHeight,
-                document.documentElement.scrollHeight,
-                document.documentElement.offsetHeight
-            );
-            
-            // 부모 프레임에 메시지 전송
-            if (window.parent) {
-                window.parent.postMessage({
-                    type: 'resize',
-                    height: height
-                }, '*');
-            }
-        }
-    </script>
 </body>
 </html>
