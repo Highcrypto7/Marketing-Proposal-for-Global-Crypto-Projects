@@ -92,45 +92,32 @@
         /* 컨텐츠 영역 - 네비바 공간 확보 */
         .content {
             padding-top: 80px;
-            width: 100%;
-            box-sizing: border-box;
-            overflow-x: hidden; /* 가로 스크롤 방지 */
         }
 
         .slide-container {
             width: 100%;
             max-width: 1280px;
             margin: 0 auto 30px auto; /* 슬라이드 간 간격 및 중앙 정렬 */
-            overflow: visible; /* 중요: 하단 잘림 방지를 위해 overflow 변경 */
-        }
-        
-        /* iframe 컨테이너 */
-        .iframe-wrapper {
-            position: relative;
-            width: 100%;
-            max-width: 1280px;
-            margin: 0 auto;
-            overflow: visible; /* 중요: 내용이 잘리지 않도록 설정 */
+            overflow: hidden;
+            text-align: center; /* 중앙 정렬 */
         }
         
         iframe {
-            width: 1280px; /* 원래 너비 */
+            max-width: 100%; /* 화면 너비에 맞게 최대 너비 제한 */
             border: none;
-            display: block;
-            margin: 0 auto; /* 중앙 정렬 */
-            transform-origin: top center; /* 중요: 상단 중앙을 기준으로 변형 */
+            display: inline-block; /* 중앙 정렬을 위해 변경 */
         }
         
         /* 각 슬라이드별 최적 높이 설정 */
-        #slide1-frame { height: 720px; }
-        #slide2-frame { height: 720px; }
-        #slide3-frame { height: 720px; }
-        #slide4-frame { height: 780px; }
-        #slide5-frame { height: 720px; }
-        #slide6-frame { height: 720px; }
-        #slide7-frame { height: 720px; }
-        #slide8-frame { height: 720px; }
-        #slide9-frame { height: 720px; }
+        #slide1-frame { height: 720px; width: 1280px; }
+        #slide2-frame { height: 720px; width: 1280px; }
+        #slide3-frame { height: 720px; width: 1280px; }
+        #slide4-frame { height: 780px; width: 1280px; }
+        #slide5-frame { height: 720px; width: 1280px; }
+        #slide6-frame { height: 720px; width: 1280px; }
+        #slide7-frame { height: 720px; width: 1280px; }
+        #slide8-frame { height: 720px; width: 1280px; }
+        #slide9-frame { height: 720px; width: 1280px; }
         
         /* 구분선 스타일 변경 - 새 디자인에 맞게 */
         .slide-divider {
@@ -138,7 +125,6 @@
             background: linear-gradient(to right, transparent, #4a9bff, #a368ff, #ff61ab, transparent);
             width: 80%;
             margin: 0 auto 30px auto;
-            clear: both;
         }
         
         /* 맨 위로 가기 버튼 */
@@ -233,81 +219,63 @@
     <div class="content">
         <!-- 슬라이드 1 -->
         <div id="slide1" class="slide-container">
-            <div class="iframe-wrapper">
-                <iframe id="slide1-frame" src="slide 1.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
-            </div>
+            <iframe id="slide1-frame" src="slide 1.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 2 -->
         <div id="slide2" class="slide-container">
-            <div class="iframe-wrapper">
-                <iframe id="slide2-frame" src="slide 2.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
-            </div>
+            <iframe id="slide2-frame" src="slide 2.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 3 -->
         <div id="slide3" class="slide-container">
-            <div class="iframe-wrapper">
-                <iframe id="slide3-frame" src="slide 3.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
-            </div>
+            <iframe id="slide3-frame" src="slide 3.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 4 -->
         <div id="slide4" class="slide-container">
-            <div class="iframe-wrapper">
-                <iframe id="slide4-frame" src="slide 4-17.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
-            </div>
+            <iframe id="slide4-frame" src="slide 4-17.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 5 -->
         <div id="slide5" class="slide-container">
-            <div class="iframe-wrapper">
-                <iframe id="slide5-frame" src="slide 5-5.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
-            </div>
+            <iframe id="slide5-frame" src="slide 5-5.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 6 -->
         <div id="slide6" class="slide-container">
-            <div class="iframe-wrapper">
-                <iframe id="slide6-frame" src="slide 6-3.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
-            </div>
+            <iframe id="slide6-frame" src="slide 6-3.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 7 -->
         <div id="slide7" class="slide-container">
-            <div class="iframe-wrapper">
-                <iframe id="slide7-frame" src="slide 7-4.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
-            </div>
+            <iframe id="slide7-frame" src="slide 7-4.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 8 -->
         <div id="slide8" class="slide-container">
-            <div class="iframe-wrapper">
-                <iframe id="slide8-frame" src="slide 8-1.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
-            </div>
+            <iframe id="slide8-frame" src="slide 8-1.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 9 -->
         <div id="slide9" class="slide-container">
-            <div class="iframe-wrapper">
-                <iframe id="slide9-frame" src="slide 9.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
-            </div>
+            <iframe id="slide9-frame" src="slide 9.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
         </div>
     </div>
 
@@ -315,43 +283,6 @@
     <a href="#slide1" class="back-to-top">↑</a>
 
     <script>
-        // iframe 크기 조절 함수
-        function scaleIframes() {
-            const wrappers = document.querySelectorAll('.iframe-wrapper');
-            const containerWidth = document.querySelector('.slide-container').clientWidth;
-            const scale = Math.min(1, containerWidth / 1280); // 1280px 기준으로 비율 계산
-            
-            // 각 iframe 크기 조절
-            wrappers.forEach(wrapper => {
-                const iframe = wrapper.querySelector('iframe');
-                if (!iframe) return;
-                
-                // iframe 스케일 설정
-                iframe.style.transform = `scale(${scale})`;
-                
-                // 스케일에 맞게 컨테이너 높이 조정
-                const originalHeight = parseInt(iframe.getAttribute('height') || iframe.style.height || iframe.height || 720);
-                const scaledHeight = originalHeight * scale;
-                
-                // 컨테이너의 높이를 조정하여 iframe이 완전히 표시되도록 함
-                wrapper.style.height = scaledHeight + 'px';
-                
-                // iframe의 너비 조정 (중앙 정렬 유지)
-                iframe.style.maxWidth = '100%';
-                
-                // 중요: 스케일 변경으로 인해 가려지는 부분 없도록 여백 설정
-                wrapper.style.marginBottom = (originalHeight - scaledHeight) + 'px';
-            });
-        }
-        
-        // 초기 로드 및 창 크기 변경 시 크기 조절 적용
-        window.addEventListener('DOMContentLoaded', function() {
-            // 페이지 로드 후 약간 지연시켜 실행 (iframe이 모두 로드되도록)
-            setTimeout(scaleIframes, 300);
-        });
-        window.addEventListener('load', scaleIframes);
-        window.addEventListener('resize', scaleIframes);
-        
         // 모바일 메뉴 토글 기능
         document.addEventListener('DOMContentLoaded', function() {
             const menuToggle = document.getElementById('menuToggle');
@@ -406,28 +337,6 @@
                         link.classList.add('active');
                     }
                 });
-            });
-        });
-        
-        // iframe이 모두 로드된 후 한 번 더 크기 조정 (더 안정적인 로드)
-        window.addEventListener('load', function() {
-            // iframe이 모두 로드된 후에도 한 번 더 크기 조정 함수 실행
-            const iframes = document.querySelectorAll('iframe');
-            let loadedCount = 0;
-            
-            function checkAllLoaded() {
-                loadedCount++;
-                if (loadedCount === iframes.length) {
-                    scaleIframes();
-                }
-            }
-            
-            iframes.forEach(function(iframe) {
-                if (iframe.complete) {
-                    checkAllLoaded();
-                } else {
-                    iframe.onload = checkAllLoaded;
-                }
             });
         });
     </script>
