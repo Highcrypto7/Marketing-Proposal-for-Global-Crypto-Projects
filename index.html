@@ -102,25 +102,22 @@
             max-width: 1280px;
             margin: 0 auto 30px auto; /* 슬라이드 간 간격 및 중앙 정렬 */
             overflow: hidden;
-            text-align: center; /* 중앙 정렬 추가 */
+            display: flex;
+            justify-content: center; /* 중앙 정렬 */
         }
         
-        /* 프레임 크기 조절 */
+        /* 프레임 크기 조절 컨테이너 */
         .scale-frame-container {
-            position: relative;
             width: 100%;
-            max-width: 1280px;
-            margin: 0 auto;
             overflow: hidden;
+            display: flex;
+            justify-content: center;
         }
         
         iframe {
             width: 1280px; /* 원래 너비 유지 */
             border: none;
-            display: inline-block; /* 중앙 정렬을 위해 변경 */
             overflow: hidden;
-            transform-origin: 0 0; /* 왼쪽 상단 기준으로 변형 */
-            margin: 0 auto; /* 중앙 정렬 */
         }
         
         /* 각 슬라이드별 최적 높이 설정 */
@@ -234,63 +231,81 @@
     <div class="content">
         <!-- 슬라이드 1 -->
         <div id="slide1" class="slide-container">
-            <iframe id="slide1-frame" src="slide 1.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            <div class="scale-frame-container">
+                <iframe id="slide1-frame" src="slide 1.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            </div>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 2 -->
         <div id="slide2" class="slide-container">
-            <iframe id="slide2-frame" src="slide 2.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            <div class="scale-frame-container">
+                <iframe id="slide2-frame" src="slide 2.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            </div>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 3 -->
         <div id="slide3" class="slide-container">
-            <iframe id="slide3-frame" src="slide 3.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            <div class="scale-frame-container">
+                <iframe id="slide3-frame" src="slide 3.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            </div>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 4 -->
         <div id="slide4" class="slide-container">
-            <iframe id="slide4-frame" src="slide 4-17.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            <div class="scale-frame-container">
+                <iframe id="slide4-frame" src="slide 4-17.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            </div>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 5 -->
         <div id="slide5" class="slide-container">
-            <iframe id="slide5-frame" src="slide 5-5.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            <div class="scale-frame-container">
+                <iframe id="slide5-frame" src="slide 5-5.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            </div>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 6 -->
         <div id="slide6" class="slide-container">
-            <iframe id="slide6-frame" src="slide 6-3.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            <div class="scale-frame-container">
+                <iframe id="slide6-frame" src="slide 6-3.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            </div>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 7 -->
         <div id="slide7" class="slide-container">
-            <iframe id="slide7-frame" src="slide 7-4.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            <div class="scale-frame-container">
+                <iframe id="slide7-frame" src="slide 7-4.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            </div>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 8 -->
         <div id="slide8" class="slide-container">
-            <iframe id="slide8-frame" src="slide 8-1.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            <div class="scale-frame-container">
+                <iframe id="slide8-frame" src="slide 8-1.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            </div>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 9 -->
         <div id="slide9" class="slide-container">
-            <iframe id="slide9-frame" src="slide 9.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            <div class="scale-frame-container">
+                <iframe id="slide9-frame" src="slide 9.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            </div>
         </div>
     </div>
 
@@ -300,19 +315,22 @@
     <script>
         // iframe 크기 조절 함수
         function scaleIframes() {
-            const containers = document.querySelectorAll('.slide-container');
-            const containerWidth = containers[0].clientWidth;
+            const containers = document.querySelectorAll('.scale-frame-container');
+            const containerWidth = document.querySelector('.slide-container').clientWidth;
             const scale = Math.min(1, containerWidth / 1280); // 1280px 기준으로 비율 계산
             
             // 각 iframe 크기 조절
-            const iframes = document.querySelectorAll('iframe');
-            iframes.forEach(iframe => {
-                iframe.style.transform = `scale(${scale})`;
-                iframe.style.transformOrigin = 'center top'; // 가운데 위 기준점
+            containers.forEach(container => {
+                const iframe = container.querySelector('iframe');
+                if (!iframe) return;
                 
-                // iframe 컨테이너 높이 조정
-                const originalHeight = parseInt(iframe.style.height || iframe.height);
-                iframe.parentElement.style.height = (originalHeight * scale) + 'px';
+                // iframe 스케일 설정
+                iframe.style.transform = `scale(${scale})`;
+                iframe.style.transformOrigin = 'center top';
+                
+                // 컨테이너 높이 조정 - iframe 원래 높이에 스케일 적용
+                const originalHeight = parseInt(iframe.height || 720); // 기본값 720px
+                container.style.height = (originalHeight * scale) + 'px';
             });
         }
         
