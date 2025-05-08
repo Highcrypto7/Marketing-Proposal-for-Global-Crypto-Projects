@@ -7,36 +7,29 @@
     <meta name="description" content="Marketing proposal for global cryptocurrency projects entering the Korean market. Comprehensive marketing services and strategies for cryptocurrency projects in Korea.">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
     <style>
-        /* 기본 스타일 */
-        *, *::before, *::after {
-            box-sizing: border-box;
-        }
-        
         body {
             margin: 0;
             padding: 0;
-            background: #0f2027;
+            background: #0f2027; /* 새 배경색에 맞춰 변경 */
             font-family: 'Montserrat', sans-serif;
-            line-height: 1.6;
-            color: white;
         }
-        
         /* 네비게이션 바 스타일 */
         .navbar {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background-color: rgba(15, 32, 39, 0.95);
+            background-color: rgba(15, 32, 39, 0.95); /* 수정된 배경색에 맞춘 네비바 */
             backdrop-filter: blur(10px);
             box-shadow: 0 2px 10px rgba(0,0,0,0.3);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 20px;
+            padding: 15px 20px; /* 좌우 패딩 줄임 */
             z-index: 1000;
+            box-sizing: border-box;
+            flex-wrap: wrap; /* 모바일에서 줄바꿈 허용 */
         }
-        
         .navbar-brand {
             background: linear-gradient(90deg, #4a9bff, #a368ff, #ff61ab);
             -webkit-background-clip: text;
@@ -49,13 +42,52 @@
             align-items: center;
             min-width: 130px;
         }
-        
         .navbar-brand i {
             margin-right: 8px;
             background: linear-gradient(90deg, #4a9bff, #a368ff, #ff61ab);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+        }
+        .navbar-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap; /* 모바일에서 줄바꿈 허용 */
+            width: auto;
+            margin-left: auto; /* 오른쪽으로 밀기 */
+            padding-right: 10px; /* 오른쪽 패딩 추가 */
+        }
+        .navbar-menu li {
+            margin: 5px 6px; /* 상하 여백 추가 및 좌우 여백 조정 */
+        }
+        .navbar-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px; /* 폰트 크기 줄임 */
+            padding: 5px 6px; /* 패딩 더 줄임 */
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+            display: block; /* 전체 영역 클릭 가능하게 */
+        }
+        .navbar-menu a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #ff61ab; /* 그라데이션 색상 중 하나로 변경 */
+        }
+        .navbar-menu a.active {
+            position: relative;
+        }
+        .navbar-menu a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #4a9bff, #a368ff, #ff61ab);
+            border-radius: 2px;
         }
         
         /* 모바일 메뉴 토글 버튼 */
@@ -68,110 +100,43 @@
             cursor: pointer;
             padding: 5px;
         }
-        
-        .navbar-menu {
-            display: flex;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            flex-wrap: nowrap;
-            margin-left: auto;
-        }
-        
-        .navbar-menu li {
-            margin-left: 12px;
-        }
-        
-        .navbar-menu a {
-            color: white;
-            text-decoration: none;
-            font-size: 14px;
-            padding: 5px 6px;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-            display: block;
-        }
-        
-        .navbar-menu a:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-            color: #ff61ab;
-        }
-        
-        .navbar-menu a.active {
-            position: relative;
-        }
-        
-        .navbar-menu a.active::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, #4a9bff, #a368ff, #ff61ab);
-            border-radius: 2px;
-        }
 
-        /* 컨텐츠 영역 */
+        /* 컨텐츠 영역 - 네비바 공간 확보 */
         .content {
             padding-top: 80px;
             width: 100%;
-            max-width: 100%;
-            overflow-x: hidden;
+            box-sizing: border-box;
         }
 
         .slide-container {
             width: 100%;
             max-width: 1280px;
-            margin: 0 auto 30px;
+            margin: 0 auto 30px auto; /* 슬라이드 간 간격 및 중앙 정렬 */
             overflow: hidden;
-            position: relative;
+            padding: 0 15px; /* 모바일에서 좌우 여백 추가 */
+            box-sizing: border-box;
         }
-        
-        /* 슬라이드 스크롤 포장 영역 */
-        .slide-wrapper {
-            width: 100%;
-            overflow-x: auto;
-            overflow-y: hidden;
-            -webkit-overflow-scrolling: touch; /* iOS에서 부드러운 스크롤 */
-            scrollbar-width: none; /* Firefox */
-            -ms-overflow-style: none; /* IE and Edge */
-        }
-        
-        .slide-wrapper::-webkit-scrollbar {
-            display: none; /* Chrome, Safari, Opera */
-        }
-        
-        /* 고정 비율 컨테이너 */
-        .slide-scaler {
-            position: relative;
-            width: 1280px; /* 원본 슬라이드 너비 */
-            height: 720px; /* 원본 슬라이드 높이 */
-            transform-origin: top left;
-            margin: 0 auto;
-        }
-        
-        /* 특별 높이가 필요한 슬라이드들 */
-        #slide4 .slide-scaler {
-            height: 780px;
-        }
-        
         iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
-            height: 100%;
             border: none;
+            display: block;
+            overflow: hidden;
         }
         
-        /* 구분선 */
+        /* 반응형 높이 조정 */
+        .responsive-iframe {
+            width: 100%;
+            height: 100vh; /* 초기값으로 화면 높이의 100%로 설정 */
+            min-height: 500px; /* 최소 높이 설정 */
+            transition: height 0.3s ease; /* 높이 변경 애니메이션 */
+        }
+        
+        /* 구분선 스타일 변경 - 새 디자인에 맞게 */
         .slide-divider {
             height: 3px;
             background: linear-gradient(to right, transparent, #4a9bff, #a368ff, #ff61ab, transparent);
             width: 80%;
-            margin: 0 auto 30px;
+            margin: 0 auto 30px auto;
         }
         
         /* 맨 위로 가기 버튼 */
@@ -193,109 +158,16 @@
             z-index: 1000;
             transition: all 0.3s ease;
         }
-        
         .back-to-top:hover {
             background-color: #4ECDC4;
             color: #0f2027;
         }
         
-        /* 로딩 표시기 */
-        .loading {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            font-size: 18px;
-            text-align: center;
-            z-index: 5;
-        }
-        
-        .loading i {
-            font-size: 40px;
-            margin-bottom: 15px;
-            display: block;
-            animation: spin 2s infinite linear;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        /* 슬라이드 컨트롤 */
-        .slide-controls {
-            display: none; /* 기본적으로 숨김 */
-            position: absolute;
-            bottom: 10px;
-            left: 0;
-            width: 100%;
-            justify-content: center;
-            gap: 10px;
-            z-index: 10;
-        }
-        
-        .zoom-controls {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 5px 10px;
-            border-radius: 20px;
-        }
-        
-        .zoom-btn {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 18px;
-            cursor: pointer;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            transition: all 0.2s ease;
-        }
-        
-        .zoom-btn:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-        
-        /* 섹션 제목 */
-        .section-title {
-            background-color: rgba(15, 32, 39, 0.8);
-            color: white;
-            padding: 10px 20px;
-            font-size: 18px;
-            border-radius: 8px;
-            display: inline-block;
-            margin-bottom: 15px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-        
-        .section-title span {
-            color: #4ECDC4;
-            font-weight: bold;
-            margin-right: 10px;
-        }
-        
-        /* 반응형 스타일 */
-        @media (max-width: 1300px) {
-            .slide-container {
-                max-width: 95%;
-            }
-            
-            .slide-controls {
-                display: flex; /* 작은 화면에서는 표시 */
-            }
-        }
-        
+        /* 미디어 쿼리 추가 - 반응형 스타일 */
         @media (max-width: 768px) {
-            /* 태블릿 크기 */
             .navbar {
                 padding: 10px 15px;
+                justify-content: space-between;
             }
             
             .menu-toggle {
@@ -303,72 +175,50 @@
             }
             
             .navbar-menu {
-                position: fixed;
-                top: 60px;
-                left: 0;
+                display: none; /* 기본적으로 메뉴 숨김 */
                 width: 100%;
-                background-color: rgba(15, 32, 39, 0.95);
                 flex-direction: column;
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.3s ease;
-                z-index: 1000;
+                margin-top: 10px;
+                padding: 0;
             }
             
-            .navbar-menu.active {
-                max-height: 300px;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            .navbar-menu.show {
+                display: flex; /* 토글 버튼 클릭 시 메뉴 표시 */
             }
             
             .navbar-menu li {
-                margin: 0;
+                margin: 5px 0;
                 width: 100%;
                 text-align: center;
             }
             
             .navbar-menu a {
-                padding: 12px 15px;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                padding: 8px 0;
+                width: 100%;
+            }
+            
+            .content {
+                padding-top: 60px; /* 모바일에서 상단 여백 줄임 */
             }
             
             .slide-divider {
-                width: 90%;
-            }
-            
-            .section-title {
-                font-size: 16px;
-                padding: 8px 15px;
+                width: 90%; /* 모바일에서 구분선 폭 늘림 */
             }
         }
         
         @media (max-width: 480px) {
-            /* 모바일 크기 */
             .navbar-brand {
                 font-size: 18px;
-                min-width: auto;
-            }
-            
-            .slide-divider {
-                margin-bottom: 20px;
-            }
-            
-            .back-to-top {
-                width: 35px;
-                height: 35px;
-                font-size: 16px;
+                min-width: 110px;
             }
             
             .content {
-                padding-top: 60px;
+                padding-top: 50px;
             }
             
-            .section-title {
-                font-size: 14px;
-                padding: 5px 10px;
-                width: 90%;
-                text-align: center;
-                margin-left: auto;
-                margin-right: auto;
+            .slide-divider {
+                width: 95%;
+                margin: 0 auto 20px auto;
             }
         }
     </style>
@@ -379,10 +229,10 @@
         <a href="#" class="navbar-brand">
             <i class="fas fa-rocket"></i>HighCrypto
         </a>
-        <button class="menu-toggle" aria-label="Toggle menu">
+        <button class="menu-toggle" id="menuToggle">
             <i class="fas fa-bars"></i>
         </button>
-        <ul class="navbar-menu">
+        <ul class="navbar-menu" id="navMenu">
             <li><a href="#slide1" class="active">Home</a></li>
             <li><a href="#slide3">Overview</a></li>
             <li><a href="#slide4">Korean Market</a></li>
@@ -397,180 +247,63 @@
     <div class="content">
         <!-- 슬라이드 1 -->
         <div id="slide1" class="slide-container">
-            <div class="section-title"><span>01</span>Home</div>
-            <div class="slide-wrapper">
-                <div class="slide-scaler">
-                    <div class="loading"><i class="fas fa-spinner"></i>Loading...</div>
-                    <iframe id="slide1-frame" src="slide 1.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
-                </div>
-            </div>
-            <div class="slide-controls">
-                <div class="zoom-controls">
-                    <button class="zoom-btn zoom-out" aria-label="Zoom out"><i class="fas fa-search-minus"></i></button>
-                    <button class="zoom-btn zoom-reset" aria-label="Reset zoom"><i class="fas fa-redo"></i></button>
-                    <button class="zoom-btn zoom-in" aria-label="Zoom in"><i class="fas fa-search-plus"></i></button>
-                </div>
-            </div>
+            <iframe id="slide1-frame" class="responsive-iframe" src="slide 1.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 2 -->
         <div id="slide2" class="slide-container">
-            <div class="section-title"><span>02</span>Table of Contents</div>
-            <div class="slide-wrapper">
-                <div class="slide-scaler">
-                    <div class="loading"><i class="fas fa-spinner"></i>Loading...</div>
-                    <iframe id="slide2-frame" src="slide 2.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
-                </div>
-            </div>
-            <div class="slide-controls">
-                <div class="zoom-controls">
-                    <button class="zoom-btn zoom-out" aria-label="Zoom out"><i class="fas fa-search-minus"></i></button>
-                    <button class="zoom-btn zoom-reset" aria-label="Reset zoom"><i class="fas fa-redo"></i></button>
-                    <button class="zoom-btn zoom-in" aria-label="Zoom in"><i class="fas fa-search-plus"></i></button>
-                </div>
-            </div>
+            <iframe id="slide2-frame" class="responsive-iframe" src="slide 2.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 3 -->
         <div id="slide3" class="slide-container">
-            <div class="section-title"><span>03</span>Proposal Overview</div>
-            <div class="slide-wrapper">
-                <div class="slide-scaler">
-                    <div class="loading"><i class="fas fa-spinner"></i>Loading...</div>
-                    <iframe id="slide3-frame" src="slide 3.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
-                </div>
-            </div>
-            <div class="slide-controls">
-                <div class="zoom-controls">
-                    <button class="zoom-btn zoom-out" aria-label="Zoom out"><i class="fas fa-search-minus"></i></button>
-                    <button class="zoom-btn zoom-reset" aria-label="Reset zoom"><i class="fas fa-redo"></i></button>
-                    <button class="zoom-btn zoom-in" aria-label="Zoom in"><i class="fas fa-search-plus"></i></button>
-                </div>
-            </div>
+            <iframe id="slide3-frame" class="responsive-iframe" src="slide 3.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 4 -->
         <div id="slide4" class="slide-container">
-            <div class="section-title"><span>04</span>Korean Market</div>
-            <div class="slide-wrapper">
-                <div class="slide-scaler">
-                    <div class="loading"><i class="fas fa-spinner"></i>Loading...</div>
-                    <iframe id="slide4-frame" src="slide 4-17.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
-                </div>
-            </div>
-            <div class="slide-controls">
-                <div class="zoom-controls">
-                    <button class="zoom-btn zoom-out" aria-label="Zoom out"><i class="fas fa-search-minus"></i></button>
-                    <button class="zoom-btn zoom-reset" aria-label="Reset zoom"><i class="fas fa-redo"></i></button>
-                    <button class="zoom-btn zoom-in" aria-label="Zoom in"><i class="fas fa-search-plus"></i></button>
-                </div>
-            </div>
+            <iframe id="slide4-frame" class="responsive-iframe" src="slide 4-17.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 5 -->
         <div id="slide5" class="slide-container">
-            <div class="section-title"><span>05</span>Listing Requirements</div>
-            <div class="slide-wrapper">
-                <div class="slide-scaler">
-                    <div class="loading"><i class="fas fa-spinner"></i>Loading...</div>
-                    <iframe id="slide5-frame" src="slide 5-5.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
-                </div>
-            </div>
-            <div class="slide-controls">
-                <div class="zoom-controls">
-                    <button class="zoom-btn zoom-out" aria-label="Zoom out"><i class="fas fa-search-minus"></i></button>
-                    <button class="zoom-btn zoom-reset" aria-label="Reset zoom"><i class="fas fa-redo"></i></button>
-                    <button class="zoom-btn zoom-in" aria-label="Zoom in"><i class="fas fa-search-plus"></i></button>
-                </div>
-            </div>
+            <iframe id="slide5-frame" class="responsive-iframe" src="slide 5-5.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 6 -->
         <div id="slide6" class="slide-container">
-            <div class="section-title"><span>06</span>Marketing Services</div>
-            <div class="slide-wrapper">
-                <div class="slide-scaler">
-                    <div class="loading"><i class="fas fa-spinner"></i>Loading...</div>
-                    <iframe id="slide6-frame" src="slide 6-3.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
-                </div>
-            </div>
-            <div class="slide-controls">
-                <div class="zoom-controls">
-                    <button class="zoom-btn zoom-out" aria-label="Zoom out"><i class="fas fa-search-minus"></i></button>
-                    <button class="zoom-btn zoom-reset" aria-label="Reset zoom"><i class="fas fa-redo"></i></button>
-                    <button class="zoom-btn zoom-in" aria-label="Zoom in"><i class="fas fa-search-plus"></i></button>
-                </div>
-            </div>
+            <iframe id="slide6-frame" class="responsive-iframe" src="slide 6-3.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 7 -->
         <div id="slide7" class="slide-container">
-            <div class="section-title"><span>07</span>Service Packages</div>
-            <div class="slide-wrapper">
-                <div class="slide-scaler">
-                    <div class="loading"><i class="fas fa-spinner"></i>Loading...</div>
-                    <iframe id="slide7-frame" src="slide 7-4.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
-                </div>
-            </div>
-            <div class="slide-controls">
-                <div class="zoom-controls">
-                    <button class="zoom-btn zoom-out" aria-label="Zoom out"><i class="fas fa-search-minus"></i></button>
-                    <button class="zoom-btn zoom-reset" aria-label="Reset zoom"><i class="fas fa-redo"></i></button>
-                    <button class="zoom-btn zoom-in" aria-label="Zoom in"><i class="fas fa-search-plus"></i></button>
-                </div>
-            </div>
+            <iframe id="slide7-frame" class="responsive-iframe" src="slide 7-4.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 8 -->
         <div id="slide8" class="slide-container">
-            <div class="section-title"><span>08</span>Benefits & Conclusion</div>
-            <div class="slide-wrapper">
-                <div class="slide-scaler">
-                    <div class="loading"><i class="fas fa-spinner"></i>Loading...</div>
-                    <iframe id="slide8-frame" src="slide 8-1.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
-                </div>
-            </div>
-            <div class="slide-controls">
-                <div class="zoom-controls">
-                    <button class="zoom-btn zoom-out" aria-label="Zoom out"><i class="fas fa-search-minus"></i></button>
-                    <button class="zoom-btn zoom-reset" aria-label="Reset zoom"><i class="fas fa-redo"></i></button>
-                    <button class="zoom-btn zoom-in" aria-label="Zoom in"><i class="fas fa-search-plus"></i></button>
-                </div>
-            </div>
+            <iframe id="slide8-frame" class="responsive-iframe" src="slide 8-1.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 9 -->
         <div id="slide9" class="slide-container">
-            <div class="section-title"><span>09</span>Contact Information</div>
-            <div class="slide-wrapper">
-                <div class="slide-scaler">
-                    <div class="loading"><i class="fas fa-spinner"></i>Loading...</div>
-                    <iframe id="slide9-frame" src="slide 9.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
-                </div>
-            </div>
-            <div class="slide-controls">
-                <div class="zoom-controls">
-                    <button class="zoom-btn zoom-out" aria-label="Zoom out"><i class="fas fa-search-minus"></i></button>
-                    <button class="zoom-btn zoom-reset" aria-label="Reset zoom"><i class="fas fa-redo"></i></button>
-                    <button class="zoom-btn zoom-in" aria-label="Zoom in"><i class="fas fa-search-plus"></i></button>
-                </div>
-            </div>
+            <iframe id="slide9-frame" class="responsive-iframe" src="slide 9.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
         </div>
     </div>
 
@@ -578,142 +311,102 @@
     <a href="#slide1" class="back-to-top">↑</a>
 
     <script>
+        // 모바일 메뉴 토글 기능
         document.addEventListener('DOMContentLoaded', function() {
-            // 모바일 메뉴 토글 기능
-            const menuToggle = document.querySelector('.menu-toggle');
-            const navbarMenu = document.querySelector('.navbar-menu');
+            const menuToggle = document.getElementById('menuToggle');
+            const navMenu = document.getElementById('navMenu');
             
-            if (menuToggle) {
+            if (menuToggle && navMenu) {
                 menuToggle.addEventListener('click', function() {
-                    navbarMenu.classList.toggle('active');
-                    const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-                    menuToggle.setAttribute('aria-expanded', !isExpanded);
+                    navMenu.classList.toggle('show');
+                    // 아이콘 변경 (메뉴 <-> X)
+                    const icon = menuToggle.querySelector('i');
+                    if (icon.classList.contains('fa-bars')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+                
+                // 메뉴 항목 클릭 시 메뉴 닫기
+                const menuItems = navMenu.querySelectorAll('a');
+                menuItems.forEach(function(item) {
+                    item.addEventListener('click', function() {
+                        navMenu.classList.remove('show');
+                        // 아이콘 초기화
+                        const icon = menuToggle.querySelector('i');
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    });
                 });
             }
             
-            // 메뉴 링크 클릭 시 모바일 메뉴 닫기
-            const navLinks = document.querySelectorAll('.navbar-menu a');
-            navLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    if (window.innerWidth <= 768) {
-                        navbarMenu.classList.remove('active');
-                        if (menuToggle) {
-                            menuToggle.setAttribute('aria-expanded', 'false');
+            // iframe 리사이징 기능
+            function setupIframeResizing() {
+                // 모든 iframe에 메시지 이벤트 리스너 등록
+                window.addEventListener('message', function(event) {
+                    // 메시지에서 높이 정보 가져오기
+                    if (event.data && typeof event.data === 'object' && event.data.type === 'resize' && event.data.height) {
+                        // 해당 iframe 찾기
+                        const iframes = document.querySelectorAll('iframe.responsive-iframe');
+                        for (let iframe of iframes) {
+                            if (iframe.contentWindow === event.source) {
+                                // iframe 높이 설정
+                                iframe.style.height = event.data.height + 'px';
+                                break;
+                            }
                         }
                     }
-                    
-                    // 모든 링크의 활성 상태 제거
-                    navLinks.forEach(navLink => {
-                        navLink.classList.remove('active');
-                    });
-                    
-                    // 클릭한 링크 활성화
-                    this.classList.add('active');
                 });
-            });
+                
+                // 각 iframe 로드 완료 시 처리
+                const iframes = document.querySelectorAll('iframe.responsive-iframe');
+                iframes.forEach(function(iframe) {
+                    iframe.onload = function() {
+                        try {
+                            // iframe에 리사이징 스크립트 삽입 요청
+                            iframe.contentWindow.postMessage({ type: 'requestResize' }, '*');
+                            
+                            // 윈도우 리사이즈 이벤트에서도 높이 재계산 요청
+                            window.addEventListener('resize', function() {
+                                iframe.contentWindow.postMessage({ type: 'requestResize' }, '*');
+                            });
+                        } catch(e) {
+                            console.error('iframe 리사이징 설정 실패:', e);
+                        }
+                    };
+                });
+            }
             
-            // 스크롤 이벤트에 따른 메뉴 활성화
+            // iframe 리사이징 기능 초기화
+            setupIframeResizing();
+            
+            // 네비게이션 바 메뉴 활성화 설정
+            const navLinks = document.querySelectorAll('.navbar-menu a');
+            const sections = document.querySelectorAll('.slide-container');
+            
+            // 스크롤 이벤트로 현재 보이는 섹션에 따라 메뉴 활성화
             window.addEventListener('scroll', function() {
-                const scrollPosition = window.scrollY;
-                const sections = document.querySelectorAll('.slide-container');
                 let current = '';
                 
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop - 200;
-                    const sectionHeight = section.offsetHeight;
-                    
-                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                sections.forEach(function(section) {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if(pageYOffset >= (sectionTop - 200)) {
                         current = section.getAttribute('id');
                     }
                 });
                 
-                navLinks.forEach(link => {
+                navLinks.forEach(function(link) {
                     link.classList.remove('active');
-                    if (link.getAttribute('href') === '#' + current) {
+                    if(link.getAttribute('href') === '#' + current) {
                         link.classList.add('active');
                     }
                 });
             });
-            
-            // iframe 로딩 관리
-            const iframes = document.querySelectorAll('iframe');
-            
-            iframes.forEach(iframe => {
-                const container = iframe.closest('.slide-container');
-                const loading = container.querySelector('.loading');
-                
-                iframe.addEventListener('load', function() {
-                    // 로딩 표시기 숨기기
-                    if (loading) {
-                        loading.style.display = 'none';
-                    }
-                    
-                    // 부드러운 표시 효과
-                    iframe.style.transition = 'opacity 0.5s ease';
-                    iframe.style.opacity = '1';
-                });
-                
-                // 초기 상태는 투명하게 설정
-                iframe.style.opacity = '0';
-            });
-            
-            // 슬라이드 스케일링 처리
-            function updateSlideScalers() {
-                const slideWrappers = document.querySelectorAll('.slide-wrapper');
-                
-                slideWrappers.forEach(wrapper => {
-                    const scaler = wrapper.querySelector('.slide-scaler');
-                    const wrapperWidth = wrapper.offsetWidth;
-                    
-                    // 원본 크기보다 작은 경우에만 스케일 적용
-                    if (wrapperWidth < 1280) {
-                        const scale = wrapperWidth / 1280;
-                        scaler.style.transform = `scale(${scale})`;
-                        scaler.style.transformOrigin = 'top left';
-                        wrapper.style.height = `${scaler.offsetHeight * scale}px`;
-                    } else {
-                        scaler.style.transform = 'none';
-                        wrapper.style.height = `${scaler.offsetHeight}px`;
-                    }
-                });
-            }
-            
-            // 줌 컨트롤 관리
-            const slideContainers = document.querySelectorAll('.slide-container');
-            
-            slideContainers.forEach(container => {
-                const scaler = container.querySelector('.slide-scaler');
-                const zoomIn = container.querySelector('.zoom-in');
-                const zoomOut = container.querySelector('.zoom-out');
-                const zoomReset = container.querySelector('.zoom-reset');
-                
-                // 현재 스케일 값 저장
-                let currentScale = 1;
-                
-                if (zoomIn && zoomOut && zoomReset) {
-                    // 확대
-                    zoomIn.addEventListener('click', function() {
-                        currentScale += 0.1;
-                        if (currentScale > 2) currentScale = 2; // 최대 2배까지만
-                        scaler.style.transform = `scale(${currentScale})`;
-                        updateWrapperHeight(container, scaler, currentScale);
-                    });
-                    
-                    // 축소
-                    zoomOut.addEventListener('click', function() {
-                        currentScale -= 0.1;
-                        if (currentScale < 0.3) currentScale = 0.3; // 최소 30%까지만
-                        scaler.style.transform = `scale(${currentScale})`;
-                        updateWrapperHeight(container, scaler, currentScale);
-                    });
-                    
-                    // 리셋
-                    zoomReset.addEventListener('click', function() {
-                        currentScale = 1;
-                        scaler.style.transform = 'none';
-                        updateSlideScalers(); // 전체 업데이트
-                    });
-                }
-            });
-            
-            // 높이 업데이트
+        });
+    </script>
+</body>
+</html>
