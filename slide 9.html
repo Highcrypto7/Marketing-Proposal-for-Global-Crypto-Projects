@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Information</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            overflow: hidden;
+            position: relative;
+        }
+        .bg-gradient {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        }
+        .title-shadow {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .contact-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+        .contact-card:hover .contact-icon {
+            transform: rotate(15deg) scale(1.1);
+        }
+        .slogan-glow {
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+            animation: pulsate 2s infinite alternate;
+        }
+        @keyframes pulsate {
+            0% { text-shadow: 0 0 10px rgba(255, 255, 255, 0.3); }
+            100% { text-shadow: 0 0 30px rgba(255, 255, 255, 0.7), 0 0 40px rgba(79, 209, 197, 0.5); }
+        }
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        .crypto-bg-element {
+            position: absolute;
+            opacity: 0.05;
+            z-index: 0;
+        }
+        .highlight-text {
+            background: linear-gradient(90deg, #FF6B6B, #FFD166, #4ECDC4);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+        }
+        .social-btn {
+            transition: all 0.3s ease;
+        }
+        .social-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container bg-gradient flex flex-col items-center justify-start text-white p-8 relative">
+        <!-- Background elements -->
+        <div class="crypto-bg-element text-[500px]" style="right: -150px; bottom: -150px; transform: rotate(15deg);">
+            <i class="fas fa-globe-asia"></i>
+        </div>
+        <div class="crypto-bg-element text-[300px]" style="left: -100px; top: -50px; transform: rotate(-5deg);">
+            <i class="fas fa-coins"></i>
+        </div>
+        
+        <!-- Section label - kept in the top-left corner -->
+        <div class="absolute top-8 left-8 flex items-center">
+            <span class="bg-white text-blue-900 rounded-full px-4 py-1 font-bold text-sm shadow-lg">07</span>
+            <span class="ml-2 text-gray-300 font-semibold">Contact Us</span>
+        </div>
+        
+        <!-- Main content - moved title below the label with appropriate spacing -->
+        <div class="z-10 w-full max-w-5xl mx-auto mt-16">
+            <h1 class="text-4xl font-bold mb-10 title-shadow text-center">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
+                    Contact Information
+                </span>
+            </h1>
+            
+            <div class="flex justify-center mb-16">
+                <!-- Contact card with all information -->
+                <div class="contact-card p-10 w-full max-w-3xl">
+                    <div class="grid grid-cols-2 gap-8">
+                        <!-- Website -->
+                        <div class="flex flex-col items-center text-center">
+                            <div class="contact-icon bg-blue-600 text-white">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-blue-300">Website</h3>
+                            <a href="https://highcrypto.kr/" target="_blank" class="text-white hover:text-blue-300 transition-colors duration-300 font-medium break-all">
+                                https://highcrypto.kr/
+                            </a>
+                        </div>
+                        
+                        <!-- Email -->
+                        <div class="flex flex-col items-center text-center">
+                            <div class="contact-icon bg-purple-600 text-white">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-purple-300">Email</h3>
+                            <a href="mailto:ceo@highcrypto.kr" class="text-white hover:text-purple-300 transition-colors duration-300 font-medium">
+                                ceo@highcrypto.kr
+                            </a>
+                        </div>
+                        
+                        <!-- Telegram -->
+                        <div class="flex flex-col items-center text-center">
+                            <div class="contact-icon bg-blue-500 text-white">
+                                <i class="fab fa-telegram-plane"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-blue-300">Telegram</h3>
+                            <a href="https://t.me/highcrypto7" target="_blank" class="text-white hover:text-blue-300 transition-colors duration-300 font-medium">
+                                @highcrypto7
+                            </a>
+                        </div>
+                        
+                        <!-- Q&A -->
+                        <div class="flex flex-col items-center text-center">
+                            <div class="contact-icon bg-green-600 text-white">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-green-300">Q&A Available</h3>
+                            <p class="text-white font-medium">
+                                via Telegram or Zoom
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Social Media Buttons -->
+            <div class="flex justify-center space-x-6 mb-10">
+                <a href="#" class="social-btn w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center shadow-lg">
+                    <i class="fab fa-telegram-plane text-white text-xl"></i>
+                </a>
+                <a href="#" class="social-btn w-12 h-12 rounded-full bg-black flex items-center justify-center shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 1200 1227" fill="none">
+                        <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z" fill="white"/>
+                    </svg>
+                </a>
+                <a href="#" class="social-btn w-12 h-12 rounded-full bg-blue-700 flex items-center justify-center shadow-lg">
+                    <i class="fab fa-discord text-white text-xl"></i>
+                </a>
+                <a href="#" class="social-btn w-12 h-12 rounded-full bg-red-600 flex items-center justify-center shadow-lg">
+                    <i class="fab fa-youtube text-white text-xl"></i>
+                </a>
+            </div>
+            
+            <!-- Slogan -->
+            <div class="text-center">
+                <div class="inline-block px-5 py-3 bg-white text-blue-900 rounded-full font-bold mb-2">
+                    HighCrypto
+                </div>
+                <h2 class="text-3xl font-bold slogan-glow">
+                    Reach <span class="highlight-text">Higher</span> with HighCrypto
+                </h2>
+                <p class="mt-3 text-gray-300">
+                    Korea's Premier Crypto Marketing Agency
+                </p>
+            </div>
+            
+            <!-- Floating elements -->
+            <div class="absolute right-28 top-36 floating" style="animation-delay: 0.5s;">
+                <div class="w-20 h-20 rounded-full bg-gradient-to-r from-blue-400 to-purple-500 opacity-20"></div>
+            </div>
+            <div class="absolute left-32 bottom-40 floating" style="animation-delay: 1.5s;">
+                <div class="w-16 h-16 rounded-full bg-gradient-to-r from-purple-400 to-pink-500 opacity-20"></div>
+            </div>
+            <div class="absolute right-40 bottom-52 floating" style="animation-delay: 1s;">
+                <div class="w-12 h-12 rounded-full bg-gradient-to-r from-yellow-400 to-red-500 opacity-20"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

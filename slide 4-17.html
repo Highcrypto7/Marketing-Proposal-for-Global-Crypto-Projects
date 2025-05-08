@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Importance of the Korean Market</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            overflow: hidden;
+            position: relative;
+        }
+        .bg-gradient {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        }
+        .title-shadow {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .title-gradient {
+            background: linear-gradient(90deg, #4a9bff, #a368ff, #ff61ab);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 800;
+        }
+        .content-box {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .stat-highlight {
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+        .glow-border {
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-10px);
+        }
+        .crypto-bg-element {
+            position: absolute;
+            opacity: 0.05;
+            z-index: 0;
+        }
+        .highlight-green {
+            color: #10B981;
+            font-weight: 700;
+        }
+        .highlight-yellow {
+            color: #FBBF24;
+            font-weight: 700;
+        }
+        .highlight-red {
+            color: #EF4444;
+            font-weight: 700;
+        }
+        .chart-container {
+            position: relative;
+            width: 210px; /* 살짝 줄임 */
+            height: 210px; /* 살짝 줄임 */
+            margin: 0 auto;
+        }
+        .chart-center-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #FF6384;
+            text-shadow: 0 0 10px rgba(255, 99, 132, 0.3);
+        }
+        .chart-area {
+            height: 230px; /* 살짝 줄임 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .text-list-container {
+            margin-top: 10px; /* 텍스트 위로 올림 */
+        }
+        /* 박스별 텍스트 위치 조정 */
+        .text-list-box1 {
+            margin-top: 16px; /* 1번 박스 텍스트 위치 */
+        }
+        .text-list-box1 li {
+            margin-bottom: 10px; /* 1번 박스 텍스트 간격 */
+        }
+        .text-list-box2 {
+            margin-top: 16px; /* 2번 박스 텍스트 위치 */
+        }
+        .text-list-box2 li {
+            margin-bottom: 10px; /* 2번 박스 텍스트 간격 */
+        }
+        .text-list-box3 {
+            margin-top: 16px; /* 3번 박스 텍스트 위치 */
+        }
+        .text-list-box3 li {
+            margin-bottom: 14px; /* 3번 박스 텍스트 간격 - 늘림 */
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+        .floating-icon {
+            animation: float 3s ease-in-out infinite;
+        }
+        .upbit-label {
+            color: #FF6384;
+            font-weight: 800;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container bg-gradient flex flex-col items-center justify-start text-white p-8 relative">
+        <!-- Background elements -->
+        <div class="crypto-bg-element text-[300px]" style="top: 50%; right: 10%; transform: translateY(-50%);">
+            <i class="fas fa-won-sign"></i>
+        </div>
+        
+        <!-- Section label - kept in the top-left corner -->
+        <div class="absolute top-8 left-8 flex items-center">
+            <span class="bg-white text-blue-900 rounded-full px-4 py-1 font-bold text-sm shadow-lg">02</span>
+            <span class="ml-2 text-gray-300 font-semibold">Korean Market</span>
+        </div>
+        
+        <!-- Main content -->
+        <div class="z-10 w-full mt-16">
+            <!-- Main title - 크기 줄임 -->
+            <h1 class="text-4xl font-bold mb-2 title-shadow text-center">
+                <span class="title-gradient">
+                    Importance of the Korean Market
+                </span>
+            </h1>
+            
+            <!-- Subtitle added below title -->
+            <p class="text-center text-gray-300 mb-10">
+                Targeting Korean investors is crucial for maximizing your project's global potential and liquidity
+            </p>
+            
+            <div class="grid grid-cols-3 gap-6">
+                <!-- Section 1: High Cryptocurrency Investment Rate -->
+                <div class="content-box p-6 card-hover glow-border flex flex-col">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center mr-4 shadow-lg">
+                            <i class="fas fa-users text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">High Cryptocurrency<br/>Investment Rate</h3>
+                    </div>
+                    
+                    <div class="chart-area">
+                        <div class="chart-container">
+                            <canvas id="investmentChart"></canvas>
+                            <div class="chart-center-text">33%</div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-list-container">
+                        <ul class="text-list-box1">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-400 mt-1 mr-2"></i>
+                                <span><span class="highlight-green">1 in 3</span> wealthy Koreans invests in cryptocurrency</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-400 mt-1 mr-2"></i>
+                                <span><span class="highlight-yellow">25 million</span> people (nearly half of Korea's population) have cryptocurrency exchange accounts</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-400 mt-1 mr-2"></i>
+                                <span>One of the <span class="highlight-red">most active</span> cryptocurrency investment cultures globally</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Section 2: Global Influence of Korean Exchanges -->
+                <div class="content-box p-6 card-hover glow-border flex flex-col">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mr-4 shadow-lg">
+                            <i class="fas fa-exchange-alt text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Global Influence of<br/>Korean Exchanges</h3>
+                    </div>
+                    
+                    <div class="chart-area">
+                        <canvas id="exchangeChart" width="280" height="180"></canvas>
+                    </div>
+                    
+                    <div class="text-list-container">
+                        <ul class="text-list-box2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-400 mt-1 mr-2"></i>
+                                <span>Upbit ranked <span class="highlight-green">1st in Korea</span> and <span class="highlight-green">7th globally</span> in Forbes' trusted exchanges evaluation</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-400 mt-1 mr-2"></i>
+                                <span>Upbit ranks <span class="highlight-yellow">4th</span> among Spot market exchanges worldwide (CoinMarketCap)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-400 mt-1 mr-2"></i>
+                                <span>The <span class="highlight-red">'Kimchi Premium'</span>: higher prices due to intense Korean buying</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Section 3: Need to Enter the Korean Market -->
+                <div class="content-box p-6 card-hover glow-border flex flex-col">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center mr-4 shadow-lg">
+                            <i class="fas fa-rocket text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Need to Enter the<br/>Korean Market</h3>
+                    </div>
+                    
+                    <div class="chart-area">
+                        <div class="w-56 h-56 p-4 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center relative">
+                            <div class="w-40 h-40 bg-white bg-opacity-10 rounded-full absolute animate-ping"></div>
+                            <div class="text-center">
+                                <i class="fas fa-handshake text-5xl mb-2"></i>
+                                <p class="font-bold text-xl">Korean Liquidity</p>
+                                <p class="stat-highlight text-3xl font-bold">DECISIVE</p>
+                                <p class="text-sm">for project success</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-list-container">
+                        <ul class="text-list-box3">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-400 mt-1 mr-2"></i>
+                                <span>Koreans active in <span class="highlight-green">mining, nodes, airdrops, NFTs,</span> and <span class="highlight-green">P2E gaming</span></span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-400 mt-1 mr-2"></i>
+                                <span>Many trade large sums through <span class="highlight-yellow">foreign platforms</span></span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-400 mt-1 mr-2"></i>
+                                <span><span class="highlight-red">Local professional marketing</span> essential for market entry</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bottom note with icon -->
+            <div class="flex justify-center mt-6">
+                <div class="bg-white bg-opacity-10 px-6 py-3 rounded-full flex items-center">
+                    <div class="mr-3 floating-icon">
+                        <i class="fas fa-chart-line text-blue-400 text-xl"></i>
+                    </div>
+                    <p class="text-sm font-medium">
+                        Korean market represents a <span class="highlight-green">significant opportunity</span> with <span class="highlight-yellow">high investment rates</span> and <span class="highlight-red">global impact</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Investment Rate Chart - 원래 색상
+        const investmentCtx = document.getElementById('investmentChart').getContext('2d');
+        new Chart(investmentCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Crypto Investors', 'Non-Investors'],
+                datasets: [{
+                    data: [33, 67],
+                    backgroundColor: [
+                        '#FF6384', // 원본 색상
+                        '#36A2EB'  // 원본 색상
+                    ],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                label += context.parsed + '%';
+                                return label;
+                            }
+                        }
+                    }
+                },
+                cutout: '70%'
+            }
+        });
+        
+        // Exchange Ranking Chart - 원본 슬라이드와 동일한 방식으로 구현
+        const exchangeCtx = document.getElementById('exchangeChart').getContext('2d');
+        
+        // Rankings data
+        const rankings = [
+            { exchange: 'Binance', rank: 1, value: 100 },
+            { exchange: 'Bybit', rank: 2, value: 85 },
+            { exchange: 'Coinbase', rank: 3, value: 70 },
+            { exchange: 'Upbit', rank: 4, value: 65 },
+            { exchange: 'OKX', rank: 5, value: 50 }
+        ];
+        
+        // Sort exchanges by rank
+        rankings.sort((a, b) => a.rank - b.rank);
+        
+        new Chart(exchangeCtx, {
+            type: 'bar',
+            data: {
+                labels: rankings.map(item => item.exchange),
+                datasets: [{
+                    label: 'Global Exchange Ranking',
+                    data: rankings.map(item => item.value),
+                    backgroundColor: rankings.map(item => 
+                        item.exchange === 'Upbit' ? '#FF6384' : '#36A2EB' // 원본 색상
+                    ),
+                    borderWidth: 0,
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                indexAxis: 'y',
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const exchange = rankings[context.dataIndex];
+                                return `${exchange.exchange}: Rank ${exchange.rank}`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            display: false
+                        }
+                    },
+                    y: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            color: function(context) {
+                                if (context.tick && context.tick.label === 'Upbit') {
+                                    return '#FF6384';
+                                }
+                                return '#a0aec0';
+                            },
+                            font: function(context) {
+                                if (context.tick && context.tick.label === 'Upbit') {
+                                    return {
+                                        weight: 'bold',
+                                        size: 14
+                                    };
+                                }
+                                return {
+                                    weight: 'normal',
+                                    size: 12
+                                };
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

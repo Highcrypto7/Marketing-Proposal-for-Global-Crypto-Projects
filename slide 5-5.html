@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Korean Exchange Listing Requirements</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11.6.0/dist/mermaid.min.js"></script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            overflow: hidden;
+            position: relative;
+        }
+        .bg-gradient {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        }
+        .title-shadow {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .content-box {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+        .content-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .icon-header {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .korean-text {
+            color: #ff6b6b;
+            font-weight: 700;
+        }
+        .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-right: 5px;
+        }
+        .crypto-bg-element {
+            position: absolute;
+            opacity: 0.05;
+            z-index: 0;
+        }
+        .pulse {
+            animation: pulse 3s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(255, 255, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+        }
+        /* 더 밝은 색상의 그라데이션으로 변경 */
+        .title-gradient {
+            background: linear-gradient(90deg, #4a9bff, #a368ff, #ff61ab);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 800;
+        }
+        /* 아이콘 애니메이션 추가 */
+        .animate-pulse {
+            animation: iconPulse 2s infinite;
+        }
+        @keyframes iconPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container bg-gradient flex flex-col items-center justify-start text-white p-8 relative">
+        <!-- Background elements -->
+        <div class="crypto-bg-element text-[400px]" style="bottom: -100px; right: -100px;">
+            <i class="fab fa-ethereum"></i>
+        </div>
+        
+        <!-- Section label - standard position and style -->
+        <div class="absolute top-8 left-8 flex items-center">
+            <span class="bg-white text-blue-900 rounded-full px-4 py-1 font-bold text-sm shadow-lg">03</span>
+            <span class="ml-2 text-gray-300 font-semibold">Listing Requirements</span>
+        </div>
+        
+        <!-- Main content -->
+        <div class="z-10 w-full mt-14">
+            <!-- Main title - 크기 조정 -->
+            <h1 class="text-4xl font-extrabold mb-2 title-shadow text-center">
+                <span class="title-gradient">
+                    Korean Exchange Listing Requirements
+                </span>
+            </h1>
+            
+            <!-- Subtitle added below title -->
+            <p class="text-center text-gray-300 mb-8">
+                Strategic marketing is essential for meeting Korean exchange requirements and building investor trust
+            </p>
+            
+            <div class="grid grid-cols-2 gap-6 mb-4">
+                <!-- Section 1: Korean Exchange Listing Criteria -->
+                <div class="content-box p-6">
+                    <div class="flex items-center mb-3">
+                        <div class="icon-header bg-blue-600 mr-4">
+                            <i class="fas fa-clipboard-check text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Korean Exchange Listing Criteria</h3>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <!-- Very Strict 박스 위치 조정 -->
+                        <div class="flex items-center justify-center mb-4 mt-2">
+                            <span class="pulse px-4 py-2 bg-red-500 rounded-lg font-bold text-lg">Very Strict</span>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-3 mb-2">
+                            <div class="flex items-center">
+                                <i class="fas fa-exclamation-triangle text-yellow-400 mr-2"></i>
+                                <span>Cryptocurrency structure risk</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-eye-slash text-yellow-400 mr-2"></i>
+                                <span>Lack of transparency</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-shield-alt text-yellow-400 mr-2"></i>
+                                <span>Security characteristics</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-users text-yellow-400 mr-2"></i>
+                                <span>Community activity level</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white bg-opacity-10 p-3 rounded-lg">
+                        <p class="text-center italic font-medium">
+                            Community activity in <span class="korean-text">Korea</span> is an 
+                            <span class="underline">official requirement</span> for 
+                            <span class="korean-text">Upbit</span> and <span class="korean-text">Coinone</span> listing
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Section 2: Importance of Community Activity -->
+                <div class="content-box p-6">
+                    <div class="flex items-center mb-5">
+                        <div class="icon-header bg-green-600 mr-4">
+                            <i class="fas fa-comments text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Importance of Community Activity</h3>
+                    </div>
+                    
+                    <p class="mb-4">Mentions on key Korean communities matter:</p>
+                    
+                    <div class="grid grid-cols-3 gap-3 mb-5">
+                        <div class="bg-white bg-opacity-10 p-3 rounded-lg text-center">
+                            <h4 class="font-bold korean-text">DCinside</h4>
+                            <p class="text-xs mb-1">3M daily users</p>
+                            <p class="text-xs">227M monthly users</p>
+                        </div>
+                        <div class="bg-white bg-opacity-10 p-3 rounded-lg text-center">
+                            <h4 class="font-bold korean-text">Coinpan</h4>
+                            <p class="text-xs">5.2M monthly users</p>
+                        </div>
+                        <div class="bg-white bg-opacity-10 p-3 rounded-lg text-center">
+                            <h4 class="font-bold korean-text">Coinness</h4>
+                            <p class="text-xs">1.26M monthly users</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 위치를 아래로 조정 -->
+                    <div class="flex items-center justify-center mt-6">
+                        <i class="fas fa-bullhorn text-yellow-400 mr-2"></i>
+                        <p class="font-medium">Viral marketing is <span class="korean-text">essential</span> for both listing reviews & investor attraction</p>
+                    </div>
+                </div>
+                
+                <!-- Section 3: Influence of Naver Blog -->
+                <div class="content-box p-6">
+                    <div class="flex items-center mb-3">
+                        <div class="icon-header bg-yellow-500 mr-4">
+                            <i class="fab fa-blogger-b text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Influence of Naver Blog</h3>
+                    </div>
+                    
+                    <!-- Naver 박스 위치 조정 -->
+                    <div class="flex justify-center my-4">
+                        <div class="text-center pulse">
+                            <span class="text-4xl font-bold korean-text">Naver</span>
+                            <div class="mt-1">
+                                <span class="tag bg-green-500">1.635B</span>
+                                <span class="text-sm">monthly visitors</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <ul class="space-y-3 mt-5">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-400 mt-1 mr-2"></i>
+                            <span>Essential for project credibility & listing review</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-400 mt-1 mr-2"></i>
+                            <span>Official blog is crucial for projects</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-400 mt-1 mr-2"></i>
+                            <span><span class="korean-text">HighCrypto</span> managed <span class="korean-text">TRON's</span> Naver channel in Korea</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Section 4: Communication via Social Media -->
+                <div class="content-box p-6">
+                    <div class="flex items-center mb-5">
+                        <div class="icon-header bg-purple-600 mr-4">
+                            <i class="fas fa-hashtag text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Communication via Social Media</h3>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <div class="flex items-center mb-3">
+                            <i class="fas fa-language text-blue-400 text-xl mr-2"></i>
+                            <p>Evaluations consider <span class="korean-text">Korean language</span> communication</p>
+                        </div>
+                    </div>
+                    
+                    <p class="mb-3 font-semibold">Recommended Official Korean Channels:</p>
+                    
+                    <!-- 소셜미디어 아이콘 위치 조정 -->
+                    <div class="grid grid-cols-2 gap-3 mt-6">
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-black rounded flex items-center justify-center mr-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 1200 1227" fill="none">
+                                    <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z" fill="white"/>
+                                </svg>
+                            </div>
+                            <span>X (Twitter)</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-blue-500 rounded flex items-center justify-center mr-2">
+                                <i class="fab fa-telegram-plane text-white"></i>
+                            </div>
+                            <span>Telegram</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-red-600 rounded flex items-center justify-center mr-2">
+                                <i class="fab fa-youtube text-white"></i>
+                            </div>
+                            <span>YouTube</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-indigo-600 rounded flex items-center justify-center mr-2">
+                                <i class="fab fa-discord text-white"></i>
+                            </div>
+                            <span>Discord</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bottom note - 아이콘 추가 -->
+            <div class="flex justify-center mt-4">
+                <div class="bg-white bg-opacity-10 px-6 py-3 rounded-full flex items-center">
+                    <div class="mr-3 animate-pulse">
+                        <i class="fas fa-globe-asia text-blue-400 text-xl"></i>
+                    </div>
+                    <p class="text-sm font-medium">
+                        Korean market success starts with <span class="korean-text">proper localization</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

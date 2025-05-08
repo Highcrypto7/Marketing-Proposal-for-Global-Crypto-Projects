@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expected Benefits and Conclusion</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            overflow: hidden;
+            position: relative;
+        }
+        .bg-gradient {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        }
+        .title-shadow {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .benefit-card {
+            transition: all 0.3s ease;
+            transform-origin: center;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+        }
+        .benefit-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+        }
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            font-size: 28px;
+            margin-bottom: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        .benefit-card:hover .benefit-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        .glow {
+            animation: glow 2s infinite alternate;
+        }
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 10px -5px;
+            }
+            to {
+                box-shadow: 0 0 20px 5px;
+            }
+        }
+        .conclusion-box {
+            border-top: 2px dashed rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 0 0 20px 20px;
+        }
+        .highlight-text {
+            background: linear-gradient(90deg, #FF6B6B, #FFD166, #4ECDC4);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+        }
+        .crypto-bg-element {
+            position: absolute;
+            opacity: 0.05;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container bg-gradient flex flex-col items-center justify-start text-white p-8 relative">
+        <!-- Background elements -->
+        <div class="crypto-bg-element text-[300px]" style="top: 50%; left: -100px; transform: translateY(-50%) rotate(-15deg);">
+            <i class="fas fa-chart-line"></i>
+        </div>
+        
+        <!-- Section label - kept in the top-left corner -->
+        <div class="absolute top-8 left-8 flex items-center">
+            <span class="bg-white text-blue-900 rounded-full px-4 py-1 font-bold text-sm shadow-lg">06</span>
+            <span class="ml-2 text-gray-300 font-semibold">Benefits & Conclusion</span>
+        </div>
+        
+        <!-- Main content - moved title below the label with appropriate spacing -->
+        <div class="z-10 w-full mt-16">
+            <h1 class="text-4xl font-bold mb-2 title-shadow text-center">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
+                    Expected Benefits and Conclusion
+                </span>
+            </h1>
+            
+            <p class="text-center text-gray-300 mb-8">
+                Discover the key advantages your project will gain through our strategic Korean market approach
+            </p>
+            
+            <div class="grid grid-cols-3 gap-6 mb-6">
+                <!-- Benefit 1: Increased Chance of Korean Exchange Listing -->
+                <div class="benefit-card p-5">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="benefit-icon bg-blue-600 text-white glow">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-blue-300">Increased Chance of Korean Exchange Listing</h3>
+                        <p class="text-sm">
+                            Meets listing requirement of <span class="font-bold text-blue-200">active community presence</span> in Korea
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Benefit 2: Securing Korean Investor Liquidity -->
+                <div class="benefit-card p-5">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="benefit-icon bg-green-600 text-white glow">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-green-300">Securing Korean Investor Liquidity</h3>
+                        <p class="text-sm">
+                            Access to broad Korean investor base: <span class="font-bold text-green-200">CEX/DEX traders, airdrop farmers, NFT collectors, miners</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Benefit 3: Enhanced Project Credibility -->
+                <div class="benefit-card p-5">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="benefit-icon bg-yellow-500 text-white glow">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-yellow-300">Enhanced Project Credibility</h3>
+                        <p class="text-sm">
+                            Build trust through <span class="font-bold text-yellow-200">Korean-language content and channels</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Benefit 4: Improved Global Recognition -->
+                <div class="benefit-card p-5">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="benefit-icon bg-purple-600 text-white glow">
+                            <i class="fas fa-globe-asia"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-purple-300">Improved Global Recognition</h3>
+                        <p class="text-sm">
+                            Success in Korea <span class="font-bold text-purple-200">elevates your global presence</span> and attracts international attention
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Benefit 5: Securing Future Potential -->
+                <div class="benefit-card p-5">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="benefit-icon bg-pink-600 text-white glow">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-pink-300">Securing Future Potential</h3>
+                        <p class="text-sm">
+                            Establishes <span class="font-bold text-pink-200">foundation for future Korean business expansion</span> and partnerships
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Conclusion Box -->
+                <div class="benefit-card flex flex-col items-center justify-center text-center p-5">
+                    <div class="benefit-icon bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-white">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Let's Work Together</h3>
+                    <p class="text-sm">
+                        All packages can be <span class="highlight-text">customized</span> based on your specific needs
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Bottom summary -->
+            <div class="flex justify-center mt-6">
+                <div class="bg-white bg-opacity-10 px-8 py-4 rounded-xl max-w-3xl text-center">
+                    <p class="text-lg font-medium">
+                        Partner with <span class="highlight-text">HighCrypto</span> to unlock the full potential of the Korean crypto market
+                    </p>
+                    <div class="flex justify-center mt-3 space-x-6">
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                            <span class="text-sm">Local Expertise</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                            <span class="text-sm">Proven Results</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                            <span class="text-sm">Strategic Approach</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                            <span class="text-sm">Customized Solutions</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

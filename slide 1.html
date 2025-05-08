@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Korean Marketing Proposal for Global Cryptocurrency Projects</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            overflow: hidden;
+            position: relative;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .bg-gradient {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        }
+        .crypto-icon {
+            position: absolute;
+            opacity: 0.15;
+            transform: rotate(10deg);
+            filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        .glow {
+            text-shadow: 0 0 20px rgba(129, 226, 255, 0.8);
+        }
+        .title-shadow {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .highlight {
+            background: linear-gradient(90deg, #ff6b6b, #ffa36b, #ffd86b, #6bff9e, #6bb5ff, #a56bff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 800;
+        }
+        .coin-float {
+            position: absolute;
+            animation: coinFloat 8s ease-in-out infinite;
+        }
+        @keyframes coinFloat {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(10deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container bg-gradient flex flex-col items-center justify-center text-white p-10 relative">
+        <!-- Background elements -->
+        <div class="crypto-icon text-9xl text-yellow-400" style="top: 10%; left: 5%;">
+            <i class="fab fa-bitcoin"></i>
+        </div>
+        <div class="crypto-icon text-8xl text-blue-400" style="top: 15%; right: 8%; animation-delay: 1s;">
+            <i class="fab fa-ethereum"></i>
+        </div>
+        <div class="crypto-icon text-7xl text-green-400" style="bottom: 15%; left: 8%; animation-delay: 2s;">
+            <i class="fas fa-chart-line"></i>
+        </div>
+        <div class="crypto-icon text-8xl text-purple-400" style="bottom: 10%; right: 5%; animation-delay: 1.5s;">
+            <i class="fas fa-globe-asia"></i>
+        </div>
+        
+        <!-- Main content -->
+        <div class="z-10 text-center mt-16">
+            <div class="mb-3">
+                <span class="text-xl font-bold px-5 py-2 rounded-full bg-white text-blue-900 shadow-lg inline-block">
+                    HighCrypto
+                </span>
+            </div>
+            
+            <h1 class="text-5xl font-bold mb-6 title-shadow leading-tight">
+                Korean Marketing Proposal for <br><span class="highlight">Global Cryptocurrency Projects</span>
+            </h1>
+            
+            <div class="h-1 w-40 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 rounded-full mx-auto my-8"></div>
+            
+            <h2 class="text-4xl font-bold mb-4 glow">
+                Reach Higher with HighCrypto
+            </h2>
+            
+            <p class="text-xl text-blue-100 mb-16">
+                Korea's Premier Crypto Marketing Agency
+            </p>
+            
+            <!-- Animated coin icons - Repositioned to avoid text overlap -->
+            <div class="coin-float" style="bottom: 80px; left: 250px;">
+                <div class="w-16 h-16 rounded-full bg-yellow-500 flex items-center justify-center text-yellow-800 font-bold text-lg border-4 border-yellow-400 shadow-lg">BTC</div>
+            </div>
+            <div class="coin-float" style="bottom: 60px; left: 400px; animation-delay: 2s;">
+                <div class="w-14 h-14 rounded-full bg-blue-500 flex items-center justify-center text-blue-800 font-bold text-lg border-4 border-blue-400 shadow-lg">ETH</div>
+            </div>
+            <div class="coin-float" style="bottom: 60px; right: 400px; animation-delay: 1s;">
+                <div class="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center text-green-800 font-bold text-lg border-4 border-green-400 shadow-lg">XRP</div>
+            </div>
+            <div class="coin-float" style="bottom: 80px; right: 250px; animation-delay: 3s;">
+                <div class="w-16 h-16 rounded-full bg-purple-500 flex items-center justify-center text-purple-800 font-bold text-lg border-4 border-purple-400 shadow-lg">KRW</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
