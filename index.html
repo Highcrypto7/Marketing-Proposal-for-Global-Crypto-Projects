@@ -148,6 +148,61 @@
             background-color: #4ECDC4;
             color: #0f2027;
         }
+
+        /* 인쇄 설정 */
+        @media print {
+            /* 기본 페이지 여백 설정 */
+            @page {
+                margin: 0.5cm;
+                size: A4 portrait;
+            }
+            
+            /* 페이지 나누기 방지 */
+            .slide-container {
+                page-break-after: always;
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                max-width: none;
+                overflow: visible;
+            }
+            
+            /* iframe 인쇄 설정 */
+            iframe {
+                width: 100%;
+                height: 100vh !important;
+                transform-origin: top left;
+                transform: scale(1);
+                overflow: visible;
+                page-break-inside: avoid;
+            }
+            
+            /* 배경색 및 그라데이션 인쇄 */
+            body {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+                background: #0f2027 !important;
+            }
+            
+            /* 불필요한 요소 숨기기 */
+            .navbar, .back-to-top, .slide-divider {
+                display: none !important;
+            }
+            
+            /* 컨텐츠 영역 패딩 제거 */
+            .content {
+                padding-top: 0;
+            }
+            
+            /* 각 슬라이드 프레임 설정 */
+            #slide1-frame, #slide2-frame, #slide3-frame, 
+            #slide4-frame, #slide5-frame, #slide6-frame, 
+            #slide7-frame, #slide8-frame, #slide9-frame {
+                height: 100vh !important;
+                margin-bottom: 0;
+            }
+        }
     </style>
 </head>
 <body>
