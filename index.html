@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -99,25 +100,23 @@
             max-width: 1280px;
             margin: 0 auto 30px auto; /* 슬라이드 간 간격 및 중앙 정렬 */
             overflow: hidden;
-            text-align: center; /* 중앙 정렬 */
         }
-        
         iframe {
-            max-width: 100%; /* 화면 너비에 맞게 최대 너비 제한 */
+            width: 100%;
             border: none;
-            display: inline-block; /* 중앙 정렬을 위해 변경 */
+            display: block;
+            overflow: hidden;
         }
-        
         /* 각 슬라이드별 최적 높이 설정 */
-        #slide1-frame { height: 720px; width: 1280px; }
-        #slide2-frame { height: 720px; width: 1280px; }
-        #slide3-frame { height: 720px; width: 1280px; }
-        #slide4-frame { height: 780px; width: 1280px; }
-        #slide5-frame { height: 720px; width: 1280px; }
-        #slide6-frame { height: 720px; width: 1280px; }
-        #slide7-frame { height: 720px; width: 1280px; }
-        #slide8-frame { height: 720px; width: 1280px; }
-        #slide9-frame { height: 720px; width: 1280px; }
+        #slide1-frame { height: 720px; }
+        #slide2-frame { height: 720px; }
+        #slide3-frame { height: 720px; }
+        #slide4-frame { height: 780px; }
+        #slide5-frame { height: 720px; }
+        #slide6-frame { height: 720px; }
+        #slide7-frame { height: 720px; }
+        #slide8-frame { height: 720px; }
+        #slide9-frame { height: 720px; }
         
         /* 구분선 스타일 변경 - 새 디자인에 맞게 */
         .slide-divider {
@@ -150,49 +149,6 @@
             background-color: #4ECDC4;
             color: #0f2027;
         }
-        
-        /* 메뉴 토글 버튼 (작은 화면용) */
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
-        }
-        
-        /* 미디어 쿼리 - 작은 화면에서만 메뉴 버튼 표시 */
-        @media (max-width: 768px) {
-            .navbar {
-                flex-wrap: wrap;
-            }
-            
-            .menu-toggle {
-                display: block;
-            }
-            
-            .navbar-menu {
-                display: none;
-                width: 100%;
-                flex-direction: column;
-                padding: 0;
-                margin-top: 10px;
-            }
-            
-            .navbar-menu.show {
-                display: flex;
-            }
-            
-            .navbar-menu li {
-                margin: 5px 0;
-                width: 100%;
-                text-align: center;
-            }
-            
-            .navbar-menu a {
-                padding: 8px 0;
-            }
-        }
     </style>
 </head>
 <body>
@@ -201,10 +157,7 @@
         <a href="#" class="navbar-brand">
             <i class="fas fa-rocket"></i>HighCrypto
         </a>
-        <button class="menu-toggle" id="menuToggle">
-            <i class="fas fa-bars"></i>
-        </button>
-        <ul class="navbar-menu" id="navMenu">
+        <ul class="navbar-menu">
             <li><a href="#slide1" class="active">Home</a></li>
             <li><a href="#slide3">Overview</a></li>
             <li><a href="#slide4">Korean Market</a></li>
@@ -283,38 +236,48 @@
     <a href="#slide1" class="back-to-top">↑</a>
 
     <script>
-        // 모바일 메뉴 토글 기능
+        // iframe 내용이 로드되면 스크립트 실행을 보장
         document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.getElementById('menuToggle');
-            const navMenu = document.getElementById('navMenu');
+            // 슬라이드 프레임 목록
+            const slideFrames = [
+                { id: 'slide1-frame', defaultHeight: 720 },
+                { id: 'slide2-frame', defaultHeight: 720 },
+                { id: 'slide3-frame', defaultHeight: 720 },
+                { id: 'slide4-frame', defaultHeight: 780 },
+                { id: 'slide5-frame', defaultHeight: 720 },
+                { id: 'slide6-frame', defaultHeight: 720 },
+                { id: 'slide7-frame', defaultHeight: 720 },
+                { id: 'slide8-frame', defaultHeight: 720 },
+                { id: 'slide9-frame', defaultHeight: 720 }
+            ];
             
-            if (menuToggle && navMenu) {
-                menuToggle.addEventListener('click', function() {
-                    navMenu.classList.toggle('show');
-                    // 아이콘 변경 (메뉴 <-> X)
-                    const icon = menuToggle.querySelector('i');
-                    if (icon.classList.contains('fa-bars')) {
-                        icon.classList.remove('fa-bars');
-                        icon.classList.add('fa-times');
-                    } else {
-                        icon.classList.remove('fa-times');
-                        icon.classList.add('fa-bars');
-                    }
-                });
-                
-                // 메뉴 항목 클릭 시 메뉴 닫기
-                const menuItems = navMenu.querySelectorAll('a');
-                menuItems.forEach(function(item) {
-                    item.addEventListener('click', function() {
-                        navMenu.classList.remove('show');
-                        // 아이콘 초기화
-                        const icon = menuToggle.querySelector('i');
-                        icon.classList.remove('fa-times');
-                        icon.classList.add('fa-bars');
-                    });
-                });
-            }
-            
+            // 각 iframe에 대해 로드 이벤트 리스너 등록
+            slideFrames.forEach(function(frame) {
+                const iframe = document.getElementById(frame.id);
+                if (iframe) {
+                    iframe.onload = function() {
+                        try {
+                            // 약간의 추가 높이를 더해 여백 확보
+                            iframe.style.height = (frame.defaultHeight + 20) + 'px';
+                            
+                            // 메인 슬라이드 찾기 시도
+                            const slideElement = iframe.contentWindow.document.querySelector('.slide, .slide-container');
+                            if (slideElement) {
+                                const slideHeight = slideElement.offsetHeight;
+                                // 슬라이드 실제 높이가 기본값보다 크면 조정
+                                if (slideHeight > frame.defaultHeight) {
+                                    iframe.style.height = (slideHeight + 20) + 'px';
+                                }
+                            }
+                        } catch (e) {
+                            console.log('iframe 높이 조정 실패: ', e);
+                            // 오류 시 기본 높이 사용
+                            iframe.style.height = frame.defaultHeight + 'px';
+                        }
+                    };
+                }
+            });
+
             // 네비게이션 바 메뉴 활성화 설정
             const navLinks = document.querySelectorAll('.navbar-menu a');
             const sections = document.querySelectorAll('.slide-container');
