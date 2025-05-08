@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Korean Cryptocurrency Marketing Proposal - HighCrypto</title>
     <meta name="description" content="Marketing proposal for global cryptocurrency projects entering the Korean market. Comprehensive marketing services and strategies for cryptocurrency projects in Korea.">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
@@ -12,6 +12,7 @@
             padding: 0;
             background: #0f2027;
             font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden; /* 가로 스크롤 방지 */
         }
         /* 네비게이션 바 스타일 */
         .navbar {
@@ -95,11 +96,17 @@
             font-size: 24px;
             color: white;
             cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
         }
 
         /* 컨텐츠 영역 - 네비바 공간 확보 */
         .content {
             padding-top: 80px;
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
         }
 
         .slide-container {
@@ -107,14 +114,23 @@
             max-width: 1280px;
             margin: 0 auto 30px auto;
             overflow: hidden;
+            position: relative;
         }
-        iframe {
+        
+        .responsive-iframe-container {
+            position: relative;
             width: 100%;
-            height: 720px;
-            border: none;
-            display: block;
+            padding-bottom: 56.25%; /* 16:9 비율 (9/16 * 100 = 56.25%) */
             overflow: hidden;
-            transform-origin: top left;
+        }
+        
+        .responsive-iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
         }
         
         /* 구분선 스타일 변경 - 새 디자인에 맞게 */
@@ -162,6 +178,7 @@
                 transform: translateY(-150%);
                 transition: transform 0.3s ease;
                 box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+                z-index: 999;
             }
             .navbar-menu.active {
                 transform: translateY(0);
@@ -175,9 +192,30 @@
                 padding: 10px;
                 display: block;
                 width: 100%;
+                box-sizing: border-box;
             }
             .menu-toggle {
                 display: block;
+            }
+            
+            /* 모바일에서는 패딩을 조정하여 더 많은 공간 확보 */
+            .slide-container {
+                margin-bottom: 15px;
+            }
+            .slide-divider {
+                margin-bottom: 15px;
+            }
+            
+            /* 모바일에서는 더 높은 비율 (3:4 또는 4:5) */
+            .responsive-iframe-container {
+                padding-bottom: 75%; /* 4:3 비율 (3/4 * 100 = 75%) */
+            }
+        }
+        
+        /* 아이패드 및 태블릿 크기 */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .responsive-iframe-container {
+                padding-bottom: 62.5%; /* 8:5 비율 (5/8 * 100 = 62.5%) */
             }
         }
     </style>
@@ -188,9 +226,9 @@
         <a href="#" class="navbar-brand">
             <i class="fas fa-rocket"></i>HighCrypto
         </a>
-        <div class="menu-toggle">
+        <button class="menu-toggle" aria-label="Toggle navigation menu">
             <i class="fas fa-bars"></i>
-        </div>
+        </button>
         <ul class="navbar-menu">
             <li><a href="#slide1" class="active">Home</a></li>
             <li><a href="#slide3">Overview</a></li>
@@ -206,63 +244,81 @@
     <div class="content">
         <!-- 슬라이드 1 -->
         <div id="slide1" class="slide-container">
-            <iframe id="slide1-frame" src="slide 1.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            <div class="responsive-iframe-container">
+                <iframe src="slide 1.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            </div>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 2 -->
         <div id="slide2" class="slide-container">
-            <iframe id="slide2-frame" src="slide 2.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            <div class="responsive-iframe-container">
+                <iframe src="slide 2.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            </div>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 3 -->
         <div id="slide3" class="slide-container">
-            <iframe id="slide3-frame" src="slide 3.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            <div class="responsive-iframe-container">
+                <iframe src="slide 3.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            </div>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 4 -->
         <div id="slide4" class="slide-container">
-            <iframe id="slide4-frame" src="slide 4-17.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            <div class="responsive-iframe-container">
+                <iframe src="slide 4-17.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            </div>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 5 -->
         <div id="slide5" class="slide-container">
-            <iframe id="slide5-frame" src="slide 5-5.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            <div class="responsive-iframe-container">
+                <iframe src="slide 5-5.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            </div>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 6 -->
         <div id="slide6" class="slide-container">
-            <iframe id="slide6-frame" src="slide 6-3.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            <div class="responsive-iframe-container">
+                <iframe src="slide 6-3.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            </div>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 7 -->
         <div id="slide7" class="slide-container">
-            <iframe id="slide7-frame" src="slide 7-4.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            <div class="responsive-iframe-container">
+                <iframe src="slide 7-4.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            </div>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 8 -->
         <div id="slide8" class="slide-container">
-            <iframe id="slide8-frame" src="slide 8-1.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            <div class="responsive-iframe-container">
+                <iframe src="slide 8-1.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            </div>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 9 -->
         <div id="slide9" class="slide-container">
-            <iframe id="slide9-frame" src="slide 9.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            <div class="responsive-iframe-container">
+                <iframe src="slide 9.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            </div>
         </div>
     </div>
 
@@ -270,7 +326,6 @@
     <a href="#slide1" class="back-to-top">↑</a>
 
     <script>
-        // iframe 내용이 로드되면 스크립트 실행을 보장
         document.addEventListener('DOMContentLoaded', function() {
             // 햄버거 메뉴 토글
             const menuToggle = document.querySelector('.menu-toggle');
@@ -291,27 +346,8 @@
                     }
                 });
             });
-
-            // 슬라이드 프레임 반응형 조정
-            function adjustIframeScale() {
-                const iframes = document.querySelectorAll('iframe');
-                const containerWidth = document.querySelector('.slide-container').offsetWidth;
-                
-                iframes.forEach(iframe => {
-                    // 기본 슬라이드 너비 1280px
-                    const scale = containerWidth / 1280;
-                    iframe.style.transform = `scale(${scale})`;
-                    iframe.style.width = `${(1 / scale) * 100}%`;
-                    iframe.style.height = `${720 * scale}px`;
-                });
-            }
-            
-            // 초기 실행 및 리사이즈 이벤트에 연결
-            adjustIframeScale();
-            window.addEventListener('resize', adjustIframeScale);
             
             // 네비게이션 바 메뉴 활성화 설정
-            const navLinks = document.querySelectorAll('.navbar-menu a');
             const sections = document.querySelectorAll('.slide-container');
             
             // 스크롤 이벤트로 현재 보이는 섹션에 따라 메뉴 활성화
@@ -326,7 +362,7 @@
                     }
                 });
                 
-                navLinks.forEach(function(link) {
+                menuLinks.forEach(function(link) {
                     link.classList.remove('active');
                     if(link.getAttribute('href') === '#' + current) {
                         link.classList.add('active');
