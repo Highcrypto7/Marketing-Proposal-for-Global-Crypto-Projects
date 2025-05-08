@@ -127,8 +127,34 @@
             margin: 0 auto 30px;
             overflow: hidden;
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 비율 (반응형) */
-            height: 0;
+        }
+        
+        /* 슬라이드 스크롤 포장 영역 */
+        .slide-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch; /* iOS에서 부드러운 스크롤 */
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE and Edge */
+        }
+        
+        .slide-wrapper::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+        
+        /* 고정 비율 컨테이너 */
+        .slide-scaler {
+            position: relative;
+            width: 1280px; /* 원본 슬라이드 너비 */
+            height: 720px; /* 원본 슬라이드 높이 */
+            transform-origin: top left;
+            margin: 0 auto;
+        }
+        
+        /* 특별 높이가 필요한 슬라이드들 */
+        #slide4 .slide-scaler {
+            height: 780px;
         }
         
         iframe {
@@ -182,6 +208,7 @@
             color: white;
             font-size: 18px;
             text-align: center;
+            z-index: 5;
         }
         
         .loading i {
@@ -196,10 +223,72 @@
             100% { transform: rotate(360deg); }
         }
         
+        /* 슬라이드 컨트롤 */
+        .slide-controls {
+            display: none; /* 기본적으로 숨김 */
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            width: 100%;
+            justify-content: center;
+            gap: 10px;
+            z-index: 10;
+        }
+        
+        .zoom-controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 5px 10px;
+            border-radius: 20px;
+        }
+        
+        .zoom-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+        }
+        
+        .zoom-btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* 섹션 제목 */
+        .section-title {
+            background-color: rgba(15, 32, 39, 0.8);
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 8px;
+            display: inline-block;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .section-title span {
+            color: #4ECDC4;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
         /* 반응형 스타일 */
         @media (max-width: 1300px) {
             .slide-container {
                 max-width: 95%;
+            }
+            
+            .slide-controls {
+                display: flex; /* 작은 화면에서는 표시 */
             }
         }
         
@@ -242,12 +331,13 @@
                 border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             }
             
-            .slide-container {
-                padding-bottom: 75%; /* 더 큰 비율로 조정 (모바일에서는 더 높게) */
-            }
-            
             .slide-divider {
                 width: 90%;
+            }
+            
+            .section-title {
+                font-size: 16px;
+                padding: 8px 15px;
             }
         }
         
@@ -256,11 +346,6 @@
             .navbar-brand {
                 font-size: 18px;
                 min-width: auto;
-            }
-            
-            .slide-container {
-                padding-bottom: 140%; /* 모바일에서는 더 높은 비율 필요 */
-                margin-bottom: 20px;
             }
             
             .slide-divider {
@@ -275,6 +360,15 @@
             
             .content {
                 padding-top: 60px;
+            }
+            
+            .section-title {
+                font-size: 14px;
+                padding: 5px 10px;
+                width: 90%;
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
             }
         }
     </style>
@@ -303,72 +397,180 @@
     <div class="content">
         <!-- 슬라이드 1 -->
         <div id="slide1" class="slide-container">
-            <div class="loading"><i class="fas fa-spinner"></i>Loading...</div>
-            <iframe id="slide1-frame" src="slide 1.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            <div class="section-title"><span>01</span>Home</div>
+            <div class="slide-wrapper">
+                <div class="slide-scaler">
+                    <div class="loading"><i class="fas fa-spinner"></i>Loading...</div>
+                    <iframe id="slide1-frame" src="slide 1.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+                </div>
+            </div>
+            <div class="slide-controls">
+                <div class="zoom-controls">
+                    <button class="zoom-btn zoom-out" aria-label="Zoom out"><i class="fas fa-search-minus"></i></button>
+                    <button class="zoom-btn zoom-reset" aria-label="Reset zoom"><i class="fas fa-redo"></i></button>
+                    <button class="zoom-btn zoom-in" aria-label="Zoom in"><i class="fas fa-search-plus"></i></button>
+                </div>
+            </div>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 2 -->
         <div id="slide2" class="slide-container">
-            <div class="loading"><i class="fas fa-spinner"></i>Loading...</div>
-            <iframe id="slide2-frame" src="slide 2.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            <div class="section-title"><span>02</span>Table of Contents</div>
+            <div class="slide-wrapper">
+                <div class="slide-scaler">
+                    <div class="loading"><i class="fas fa-spinner"></i>Loading...</div>
+                    <iframe id="slide2-frame" src="slide 2.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+                </div>
+            </div>
+            <div class="slide-controls">
+                <div class="zoom-controls">
+                    <button class="zoom-btn zoom-out" aria-label="Zoom out"><i class="fas fa-search-minus"></i></button>
+                    <button class="zoom-btn zoom-reset" aria-label="Reset zoom"><i class="fas fa-redo"></i></button>
+                    <button class="zoom-btn zoom-in" aria-label="Zoom in"><i class="fas fa-search-plus"></i></button>
+                </div>
+            </div>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 3 -->
         <div id="slide3" class="slide-container">
-            <div class="loading"><i class="fas fa-spinner"></i>Loading...</div>
-            <iframe id="slide3-frame" src="slide 3.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            <div class="section-title"><span>03</span>Proposal Overview</div>
+            <div class="slide-wrapper">
+                <div class="slide-scaler">
+                    <div class="loading"><i class="fas fa-spinner"></i>Loading...</div>
+                    <iframe id="slide3-frame" src="slide 3.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+                </div>
+            </div>
+            <div class="slide-controls">
+                <div class="zoom-controls">
+                    <button class="zoom-btn zoom-out" aria-label="Zoom out"><i class="fas fa-search-minus"></i></button>
+                    <button class="zoom-btn zoom-reset" aria-label="Reset zoom"><i class="fas fa-redo"></i></button>
+                    <button class="zoom-btn zoom-in" aria-label="Zoom in"><i class="fas fa-search-plus"></i></button>
+                </div>
+            </div>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 4 -->
         <div id="slide4" class="slide-container">
-            <div class="loading"><i class="fas fa-spinner"></i>Loading...</div>
-            <iframe id="slide4-frame" src="slide 4-17.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            <div class="section-title"><span>04</span>Korean Market</div>
+            <div class="slide-wrapper">
+                <div class="slide-scaler">
+                    <div class="loading"><i class="fas fa-spinner"></i>Loading...</div>
+                    <iframe id="slide4-frame" src="slide 4-17.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+                </div>
+            </div>
+            <div class="slide-controls">
+                <div class="zoom-controls">
+                    <button class="zoom-btn zoom-out" aria-label="Zoom out"><i class="fas fa-search-minus"></i></button>
+                    <button class="zoom-btn zoom-reset" aria-label="Reset zoom"><i class="fas fa-redo"></i></button>
+                    <button class="zoom-btn zoom-in" aria-label="Zoom in"><i class="fas fa-search-plus"></i></button>
+                </div>
+            </div>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 5 -->
         <div id="slide5" class="slide-container">
-            <div class="loading"><i class="fas fa-spinner"></i>Loading...</div>
-            <iframe id="slide5-frame" src="slide 5-5.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            <div class="section-title"><span>05</span>Listing Requirements</div>
+            <div class="slide-wrapper">
+                <div class="slide-scaler">
+                    <div class="loading"><i class="fas fa-spinner"></i>Loading...</div>
+                    <iframe id="slide5-frame" src="slide 5-5.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+                </div>
+            </div>
+            <div class="slide-controls">
+                <div class="zoom-controls">
+                    <button class="zoom-btn zoom-out" aria-label="Zoom out"><i class="fas fa-search-minus"></i></button>
+                    <button class="zoom-btn zoom-reset" aria-label="Reset zoom"><i class="fas fa-redo"></i></button>
+                    <button class="zoom-btn zoom-in" aria-label="Zoom in"><i class="fas fa-search-plus"></i></button>
+                </div>
+            </div>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 6 -->
         <div id="slide6" class="slide-container">
-            <div class="loading"><i class="fas fa-spinner"></i>Loading...</div>
-            <iframe id="slide6-frame" src="slide 6-3.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            <div class="section-title"><span>06</span>Marketing Services</div>
+            <div class="slide-wrapper">
+                <div class="slide-scaler">
+                    <div class="loading"><i class="fas fa-spinner"></i>Loading...</div>
+                    <iframe id="slide6-frame" src="slide 6-3.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+                </div>
+            </div>
+            <div class="slide-controls">
+                <div class="zoom-controls">
+                    <button class="zoom-btn zoom-out" aria-label="Zoom out"><i class="fas fa-search-minus"></i></button>
+                    <button class="zoom-btn zoom-reset" aria-label="Reset zoom"><i class="fas fa-redo"></i></button>
+                    <button class="zoom-btn zoom-in" aria-label="Zoom in"><i class="fas fa-search-plus"></i></button>
+                </div>
+            </div>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 7 -->
         <div id="slide7" class="slide-container">
-            <div class="loading"><i class="fas fa-spinner"></i>Loading...</div>
-            <iframe id="slide7-frame" src="slide 7-4.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            <div class="section-title"><span>07</span>Service Packages</div>
+            <div class="slide-wrapper">
+                <div class="slide-scaler">
+                    <div class="loading"><i class="fas fa-spinner"></i>Loading...</div>
+                    <iframe id="slide7-frame" src="slide 7-4.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+                </div>
+            </div>
+            <div class="slide-controls">
+                <div class="zoom-controls">
+                    <button class="zoom-btn zoom-out" aria-label="Zoom out"><i class="fas fa-search-minus"></i></button>
+                    <button class="zoom-btn zoom-reset" aria-label="Reset zoom"><i class="fas fa-redo"></i></button>
+                    <button class="zoom-btn zoom-in" aria-label="Zoom in"><i class="fas fa-search-plus"></i></button>
+                </div>
+            </div>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 8 -->
         <div id="slide8" class="slide-container">
-            <div class="loading"><i class="fas fa-spinner"></i>Loading...</div>
-            <iframe id="slide8-frame" src="slide 8-1.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            <div class="section-title"><span>08</span>Benefits & Conclusion</div>
+            <div class="slide-wrapper">
+                <div class="slide-scaler">
+                    <div class="loading"><i class="fas fa-spinner"></i>Loading...</div>
+                    <iframe id="slide8-frame" src="slide 8-1.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+                </div>
+            </div>
+            <div class="slide-controls">
+                <div class="zoom-controls">
+                    <button class="zoom-btn zoom-out" aria-label="Zoom out"><i class="fas fa-search-minus"></i></button>
+                    <button class="zoom-btn zoom-reset" aria-label="Reset zoom"><i class="fas fa-redo"></i></button>
+                    <button class="zoom-btn zoom-in" aria-label="Zoom in"><i class="fas fa-search-plus"></i></button>
+                </div>
+            </div>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 9 -->
         <div id="slide9" class="slide-container">
-            <div class="loading"><i class="fas fa-spinner"></i>Loading...</div>
-            <iframe id="slide9-frame" src="slide 9.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            <div class="section-title"><span>09</span>Contact Information</div>
+            <div class="slide-wrapper">
+                <div class="slide-scaler">
+                    <div class="loading"><i class="fas fa-spinner"></i>Loading...</div>
+                    <iframe id="slide9-frame" src="slide 9.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+                </div>
+            </div>
+            <div class="slide-controls">
+                <div class="zoom-controls">
+                    <button class="zoom-btn zoom-out" aria-label="Zoom out"><i class="fas fa-search-minus"></i></button>
+                    <button class="zoom-btn zoom-reset" aria-label="Reset zoom"><i class="fas fa-redo"></i></button>
+                    <button class="zoom-btn zoom-in" aria-label="Zoom in"><i class="fas fa-search-plus"></i></button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -437,7 +639,7 @@
             const iframes = document.querySelectorAll('iframe');
             
             iframes.forEach(iframe => {
-                const container = iframe.parentElement;
+                const container = iframe.closest('.slide-container');
                 const loading = container.querySelector('.loading');
                 
                 iframe.addEventListener('load', function() {
@@ -455,16 +657,63 @@
                 iframe.style.opacity = '0';
             });
             
-            // 창 크기 변경 시 대응
-            let resizeTimer;
-            window.addEventListener('resize', function() {
-                clearTimeout(resizeTimer);
-                resizeTimer = setTimeout(function() {
-                    // 리사이즈 완료 후 실행될 코드
-                    // (필요한 경우)
-                }, 250);
+            // 슬라이드 스케일링 처리
+            function updateSlideScalers() {
+                const slideWrappers = document.querySelectorAll('.slide-wrapper');
+                
+                slideWrappers.forEach(wrapper => {
+                    const scaler = wrapper.querySelector('.slide-scaler');
+                    const wrapperWidth = wrapper.offsetWidth;
+                    
+                    // 원본 크기보다 작은 경우에만 스케일 적용
+                    if (wrapperWidth < 1280) {
+                        const scale = wrapperWidth / 1280;
+                        scaler.style.transform = `scale(${scale})`;
+                        scaler.style.transformOrigin = 'top left';
+                        wrapper.style.height = `${scaler.offsetHeight * scale}px`;
+                    } else {
+                        scaler.style.transform = 'none';
+                        wrapper.style.height = `${scaler.offsetHeight}px`;
+                    }
+                });
+            }
+            
+            // 줌 컨트롤 관리
+            const slideContainers = document.querySelectorAll('.slide-container');
+            
+            slideContainers.forEach(container => {
+                const scaler = container.querySelector('.slide-scaler');
+                const zoomIn = container.querySelector('.zoom-in');
+                const zoomOut = container.querySelector('.zoom-out');
+                const zoomReset = container.querySelector('.zoom-reset');
+                
+                // 현재 스케일 값 저장
+                let currentScale = 1;
+                
+                if (zoomIn && zoomOut && zoomReset) {
+                    // 확대
+                    zoomIn.addEventListener('click', function() {
+                        currentScale += 0.1;
+                        if (currentScale > 2) currentScale = 2; // 최대 2배까지만
+                        scaler.style.transform = `scale(${currentScale})`;
+                        updateWrapperHeight(container, scaler, currentScale);
+                    });
+                    
+                    // 축소
+                    zoomOut.addEventListener('click', function() {
+                        currentScale -= 0.1;
+                        if (currentScale < 0.3) currentScale = 0.3; // 최소 30%까지만
+                        scaler.style.transform = `scale(${currentScale})`;
+                        updateWrapperHeight(container, scaler, currentScale);
+                    });
+                    
+                    // 리셋
+                    zoomReset.addEventListener('click', function() {
+                        currentScale = 1;
+                        scaler.style.transform = 'none';
+                        updateSlideScalers(); // 전체 업데이트
+                    });
+                }
             });
-        });
-    </script>
-</body>
-</html>
+            
+            // 높이 업데이트
