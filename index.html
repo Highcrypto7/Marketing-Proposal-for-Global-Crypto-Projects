@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +29,6 @@
             padding: 15px 20px; /* 좌우 패딩 줄임 */
             z-index: 1000;
             box-sizing: border-box;
-            flex-wrap: wrap; /* 모바일에서 줄바꿈 허용 */
         }
         .navbar-brand {
             background: linear-gradient(90deg, #4a9bff, #a368ff, #ff61ab);
@@ -54,13 +54,13 @@
             list-style: none;
             margin: 0;
             padding: 0;
-            flex-wrap: wrap; /* 모바일에서 줄바꿈 허용 */
+            flex-wrap: nowrap; /* 줄바꿈 방지 */
             width: auto;
             margin-left: auto; /* 오른쪽으로 밀기 */
             padding-right: 10px; /* 오른쪽 패딩 추가 */
         }
         .navbar-menu li {
-            margin: 5px 6px; /* 상하 여백 추가 및 좌우 여백 조정 */
+            margin-left: 12px; /* 간격 더 줄임 */
         }
         .navbar-menu a {
             color: white;
@@ -89,23 +89,10 @@
             background: linear-gradient(90deg, #4a9bff, #a368ff, #ff61ab);
             border-radius: 2px;
         }
-        
-        /* 모바일 메뉴 토글 버튼 */
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
-            padding: 5px;
-        }
 
         /* 컨텐츠 영역 - 네비바 공간 확보 */
         .content {
             padding-top: 80px;
-            width: 100%;
-            box-sizing: border-box;
         }
 
         .slide-container {
@@ -113,8 +100,6 @@
             max-width: 1280px;
             margin: 0 auto 30px auto; /* 슬라이드 간 간격 및 중앙 정렬 */
             overflow: hidden;
-            padding: 0 15px; /* 모바일에서 좌우 여백 추가 */
-            box-sizing: border-box;
         }
         iframe {
             width: 100%;
@@ -122,14 +107,16 @@
             display: block;
             overflow: hidden;
         }
-        
-        /* 반응형 높이 조정 */
-        .responsive-iframe {
-            width: 100%;
-            height: 100vh; /* 초기값으로 화면 높이의 100%로 설정 */
-            min-height: 500px; /* 최소 높이 설정 */
-            transition: height 0.3s ease; /* 높이 변경 애니메이션 */
-        }
+        /* 각 슬라이드별 최적 높이 설정 */
+        #slide1-frame { height: 720px; }
+        #slide2-frame { height: 720px; }
+        #slide3-frame { height: 720px; }
+        #slide4-frame { height: 780px; }
+        #slide5-frame { height: 720px; }
+        #slide6-frame { height: 720px; }
+        #slide7-frame { height: 720px; }
+        #slide8-frame { height: 720px; }
+        #slide9-frame { height: 720px; }
         
         /* 구분선 스타일 변경 - 새 디자인에 맞게 */
         .slide-divider {
@@ -162,65 +149,6 @@
             background-color: #4ECDC4;
             color: #0f2027;
         }
-        
-        /* 미디어 쿼리 추가 - 반응형 스타일 */
-        @media (max-width: 768px) {
-            .navbar {
-                padding: 10px 15px;
-                justify-content: space-between;
-            }
-            
-            .menu-toggle {
-                display: block;
-            }
-            
-            .navbar-menu {
-                display: none; /* 기본적으로 메뉴 숨김 */
-                width: 100%;
-                flex-direction: column;
-                margin-top: 10px;
-                padding: 0;
-            }
-            
-            .navbar-menu.show {
-                display: flex; /* 토글 버튼 클릭 시 메뉴 표시 */
-            }
-            
-            .navbar-menu li {
-                margin: 5px 0;
-                width: 100%;
-                text-align: center;
-            }
-            
-            .navbar-menu a {
-                padding: 8px 0;
-                width: 100%;
-            }
-            
-            .content {
-                padding-top: 60px; /* 모바일에서 상단 여백 줄임 */
-            }
-            
-            .slide-divider {
-                width: 90%; /* 모바일에서 구분선 폭 늘림 */
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .navbar-brand {
-                font-size: 18px;
-                min-width: 110px;
-            }
-            
-            .content {
-                padding-top: 50px;
-            }
-            
-            .slide-divider {
-                width: 95%;
-                margin: 0 auto 20px auto;
-            }
-        }
     </style>
 </head>
 <body>
@@ -229,10 +157,7 @@
         <a href="#" class="navbar-brand">
             <i class="fas fa-rocket"></i>HighCrypto
         </a>
-        <button class="menu-toggle" id="menuToggle">
-            <i class="fas fa-bars"></i>
-        </button>
-        <ul class="navbar-menu" id="navMenu">
+        <ul class="navbar-menu">
             <li><a href="#slide1" class="active">Home</a></li>
             <li><a href="#slide3">Overview</a></li>
             <li><a href="#slide4">Korean Market</a></li>
@@ -247,63 +172,63 @@
     <div class="content">
         <!-- 슬라이드 1 -->
         <div id="slide1" class="slide-container">
-            <iframe id="slide1-frame" class="responsive-iframe" src="slide 1.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            <iframe id="slide1-frame" src="slide 1.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 2 -->
         <div id="slide2" class="slide-container">
-            <iframe id="slide2-frame" class="responsive-iframe" src="slide 2.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            <iframe id="slide2-frame" src="slide 2.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 3 -->
         <div id="slide3" class="slide-container">
-            <iframe id="slide3-frame" class="responsive-iframe" src="slide 3.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            <iframe id="slide3-frame" src="slide 3.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 4 -->
         <div id="slide4" class="slide-container">
-            <iframe id="slide4-frame" class="responsive-iframe" src="slide 4-17.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            <iframe id="slide4-frame" src="slide 4-17.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 5 -->
         <div id="slide5" class="slide-container">
-            <iframe id="slide5-frame" class="responsive-iframe" src="slide 5-5.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            <iframe id="slide5-frame" src="slide 5-5.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 6 -->
         <div id="slide6" class="slide-container">
-            <iframe id="slide6-frame" class="responsive-iframe" src="slide 6-3.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            <iframe id="slide6-frame" src="slide 6-3.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 7 -->
         <div id="slide7" class="slide-container">
-            <iframe id="slide7-frame" class="responsive-iframe" src="slide 7-4.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            <iframe id="slide7-frame" src="slide 7-4.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 8 -->
         <div id="slide8" class="slide-container">
-            <iframe id="slide8-frame" class="responsive-iframe" src="slide 8-1.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            <iframe id="slide8-frame" src="slide 8-1.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 9 -->
         <div id="slide9" class="slide-container">
-            <iframe id="slide9-frame" class="responsive-iframe" src="slide 9.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            <iframe id="slide9-frame" src="slide 9.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
         </div>
     </div>
 
@@ -311,78 +236,48 @@
     <a href="#slide1" class="back-to-top">↑</a>
 
     <script>
-        // 모바일 메뉴 토글 기능
+        // iframe 내용이 로드되면 스크립트 실행을 보장
         document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.getElementById('menuToggle');
-            const navMenu = document.getElementById('navMenu');
+            // 슬라이드 프레임 목록
+            const slideFrames = [
+                { id: 'slide1-frame', defaultHeight: 720 },
+                { id: 'slide2-frame', defaultHeight: 720 },
+                { id: 'slide3-frame', defaultHeight: 720 },
+                { id: 'slide4-frame', defaultHeight: 780 },
+                { id: 'slide5-frame', defaultHeight: 720 },
+                { id: 'slide6-frame', defaultHeight: 720 },
+                { id: 'slide7-frame', defaultHeight: 720 },
+                { id: 'slide8-frame', defaultHeight: 720 },
+                { id: 'slide9-frame', defaultHeight: 720 }
+            ];
             
-            if (menuToggle && navMenu) {
-                menuToggle.addEventListener('click', function() {
-                    navMenu.classList.toggle('show');
-                    // 아이콘 변경 (메뉴 <-> X)
-                    const icon = menuToggle.querySelector('i');
-                    if (icon.classList.contains('fa-bars')) {
-                        icon.classList.remove('fa-bars');
-                        icon.classList.add('fa-times');
-                    } else {
-                        icon.classList.remove('fa-times');
-                        icon.classList.add('fa-bars');
-                    }
-                });
-                
-                // 메뉴 항목 클릭 시 메뉴 닫기
-                const menuItems = navMenu.querySelectorAll('a');
-                menuItems.forEach(function(item) {
-                    item.addEventListener('click', function() {
-                        navMenu.classList.remove('show');
-                        // 아이콘 초기화
-                        const icon = menuToggle.querySelector('i');
-                        icon.classList.remove('fa-times');
-                        icon.classList.add('fa-bars');
-                    });
-                });
-            }
-            
-            // iframe 리사이징 기능
-            function setupIframeResizing() {
-                // 모든 iframe에 메시지 이벤트 리스너 등록
-                window.addEventListener('message', function(event) {
-                    // 메시지에서 높이 정보 가져오기
-                    if (event.data && typeof event.data === 'object' && event.data.type === 'resize' && event.data.height) {
-                        // 해당 iframe 찾기
-                        const iframes = document.querySelectorAll('iframe.responsive-iframe');
-                        for (let iframe of iframes) {
-                            if (iframe.contentWindow === event.source) {
-                                // iframe 높이 설정
-                                iframe.style.height = event.data.height + 'px';
-                                break;
-                            }
-                        }
-                    }
-                });
-                
-                // 각 iframe 로드 완료 시 처리
-                const iframes = document.querySelectorAll('iframe.responsive-iframe');
-                iframes.forEach(function(iframe) {
+            // 각 iframe에 대해 로드 이벤트 리스너 등록
+            slideFrames.forEach(function(frame) {
+                const iframe = document.getElementById(frame.id);
+                if (iframe) {
                     iframe.onload = function() {
                         try {
-                            // iframe에 리사이징 스크립트 삽입 요청
-                            iframe.contentWindow.postMessage({ type: 'requestResize' }, '*');
+                            // 약간의 추가 높이를 더해 여백 확보
+                            iframe.style.height = (frame.defaultHeight + 20) + 'px';
                             
-                            // 윈도우 리사이즈 이벤트에서도 높이 재계산 요청
-                            window.addEventListener('resize', function() {
-                                iframe.contentWindow.postMessage({ type: 'requestResize' }, '*');
-                            });
-                        } catch(e) {
-                            console.error('iframe 리사이징 설정 실패:', e);
+                            // 메인 슬라이드 찾기 시도
+                            const slideElement = iframe.contentWindow.document.querySelector('.slide, .slide-container');
+                            if (slideElement) {
+                                const slideHeight = slideElement.offsetHeight;
+                                // 슬라이드 실제 높이가 기본값보다 크면 조정
+                                if (slideHeight > frame.defaultHeight) {
+                                    iframe.style.height = (slideHeight + 20) + 'px';
+                                }
+                            }
+                        } catch (e) {
+                            console.log('iframe 높이 조정 실패: ', e);
+                            // 오류 시 기본 높이 사용
+                            iframe.style.height = frame.defaultHeight + 'px';
                         }
                     };
-                });
-            }
-            
-            // iframe 리사이징 기능 초기화
-            setupIframeResizing();
-            
+                }
+            });
+
             // 네비게이션 바 메뉴 활성화 설정
             const navLinks = document.querySelectorAll('.navbar-menu a');
             const sections = document.querySelectorAll('.slide-container');
