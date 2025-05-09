@@ -139,6 +139,12 @@
             margin: 30px auto; /* 여백 수정 - 상하 간격 동일하게 */
         }
         
+        /* 특정 구분선 스타일 - 여백 제거용 */
+        .slide-divider.no-margin {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        
         /* 맨 위로 가기 버튼 */
         .back-to-top {
             position: fixed;
@@ -236,7 +242,7 @@
 
         /* 페이지 끝 여백 */
         .bottom-spacer {
-            height: 30px; /* 맨 아래 여백 조정 */
+            height: 0; /* 맨 아래 여백 제거 */
         }
 
         /* 인쇄용 스타일 */
@@ -357,7 +363,8 @@
             </div>
         </div>
         
-        <div class="slide-divider"></div>
+        <!-- 여백 제거된 구분선 - 5번과 6번 사이 -->
+        <div class="slide-divider no-margin"></div>
         
         <!-- 슬라이드 6 -->
         <div id="slide6" class="slide-container">
@@ -375,7 +382,8 @@
             </div>
         </div>
         
-        <div class="slide-divider"></div>
+        <!-- 여백 제거된 구분선 - 7번과 8번 사이 -->
+        <div class="slide-divider no-margin"></div>
         
         <!-- 슬라이드 8 -->
         <div id="slide8" class="slide-container">
@@ -393,7 +401,7 @@
             </div>
         </div>
         
-        <!-- 맨 아래 여백 -->
+        <!-- 맨 아래 여백 제거 -->
         <div class="bottom-spacer"></div>
     </div>
 
