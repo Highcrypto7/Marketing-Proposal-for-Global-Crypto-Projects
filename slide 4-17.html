@@ -125,7 +125,7 @@
             animation: float 3s ease-in-out infinite;
         }
         .upbit-label {
-            color: #FF6384;
+            color: #3B82F6;
             font-weight: 800;
         }
     </style>
@@ -278,7 +278,7 @@
     </div>
     
     <script>
-        // Investment Rate Chart - 원래 색상
+        // Investment Rate Chart - 색상 변경
         const investmentCtx = document.getElementById('investmentChart').getContext('2d');
         new Chart(investmentCtx, {
             type: 'doughnut',
@@ -287,8 +287,8 @@
                 datasets: [{
                     data: [33, 67],
                     backgroundColor: [
-                        '#FF6384', // 원본 색상
-                        '#36A2EB'  // 원본 색상
+                        '#FF6384', // 핑크색 유지 (첫 번째 박스 아이콘과 일치)
+                        'rgba(255, 255, 255, 0.2)'  // 차분한 투명 회색으로 변경
                     ],
                     borderWidth: 0
                 }]
@@ -317,7 +317,7 @@
             }
         });
         
-        // Exchange Ranking Chart - 원본 슬라이드와 동일한 방식으로 구현
+        // Exchange Ranking Chart - 색상 변경
         const exchangeCtx = document.getElementById('exchangeChart').getContext('2d');
         
         // Rankings data
@@ -340,7 +340,7 @@
                     label: 'Global Exchange Ranking',
                     data: rankings.map(item => item.value),
                     backgroundColor: rankings.map(item => 
-                        item.exchange === 'Upbit' ? '#FF6384' : '#36A2EB' // 원본 색상
+                        item.exchange === 'Upbit' ? '#3B82F6' : 'rgba(255, 255, 255, 0.2)' // Upbit는 블루 색상으로 변경, 나머지는 차분한 투명 회색
                     ),
                     borderWidth: 0,
                     borderRadius: 4
@@ -379,7 +379,7 @@
                         ticks: {
                             color: function(context) {
                                 if (context.tick && context.tick.label === 'Upbit') {
-                                    return '#FF6384';
+                                    return '#3B82F6'; // Upbit 텍스트 색상도 블루로 변경
                                 }
                                 return '#a0aec0';
                             },
