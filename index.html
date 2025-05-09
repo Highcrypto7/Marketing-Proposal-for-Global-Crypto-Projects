@@ -108,7 +108,7 @@
         .slide-container {
             width: 100%;
             max-width: 1280px;
-            margin: 0 auto;
+            margin: 0 auto 30px auto;
             overflow: visible; /* 잘림 방지 */
             box-sizing: border-box;
             padding: 0 10px;
@@ -136,12 +136,7 @@
             height: 3px;
             background: linear-gradient(to right, transparent, #4a9bff, #a368ff, #ff61ab, transparent);
             width: 80%;
-            margin: 30px auto; /* 여백 수정 - 상하 간격 동일하게 */
-        }
-        
-        /* 여백 제거 구분선 - 특별히 수정한 부분 */
-        .no-margin-divider {
-            margin: 0 auto;
+            margin: 0 auto 30px auto;
         }
         
         /* 맨 위로 가기 버튼 */
@@ -239,11 +234,6 @@
             to { transform: rotate(360deg); }
         }
 
-        /* 페이지 끝 여백 */
-        .bottom-spacer {
-            height: 0; /* 맨 아래 여백 제거 - 수정한 부분 */
-        }
-
         /* 인쇄용 스타일 */
         @media print {
             /* 기본 페이지 여백 설정 */
@@ -281,7 +271,7 @@
             }
             
             /* 불필요한 요소 숨기기 */
-            .navbar, .back-to-top, .slide-divider, .menu-toggle, .loading-overlay, .bottom-spacer {
+            .navbar, .back-to-top, .slide-divider, .menu-toggle, .loading-overlay {
                 display: none !important;
             }
             
@@ -362,8 +352,7 @@
             </div>
         </div>
         
-        <!-- 여백 제거된 구분선 - 5번과 6번 사이 (수정한 부분) -->
-        <div class="slide-divider no-margin-divider"></div>
+        <div class="slide-divider"></div>
         
         <!-- 슬라이드 6 -->
         <div id="slide6" class="slide-container">
@@ -381,8 +370,7 @@
             </div>
         </div>
         
-        <!-- 여백 제거된 구분선 - 7번과 8번 사이 (수정한 부분) -->
-        <div class="slide-divider no-margin-divider"></div>
+        <div class="slide-divider"></div>
         
         <!-- 슬라이드 8 -->
         <div id="slide8" class="slide-container">
@@ -566,10 +554,10 @@
                 });
             });
             
-            // 10초 후에 자동으로 로딩 인디케이터 숨기기 (안전장치)
+            // 20초 후에 자동으로 로딩 인디케이터 숨기기 (안전장치)
             setTimeout(function() {
                 document.querySelector('.loading-overlay').style.display = 'none';
-            }, 10000);
+            }, 20000);
         });
     </script>
 </body>
