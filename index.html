@@ -108,7 +108,7 @@
         .slide-container {
             width: 100%;
             max-width: 1280px;
-            margin: 0 auto 30px auto;
+            margin: 0 auto;
             overflow: visible; /* 잘림 방지 */
             box-sizing: border-box;
             padding: 0 10px;
@@ -136,7 +136,7 @@
             height: 3px;
             background: linear-gradient(to right, transparent, #4a9bff, #a368ff, #ff61ab, transparent);
             width: 80%;
-            margin: 0 auto 30px auto;
+            margin: 30px auto; /* 여백 수정 - 상하 간격 동일하게 */
         }
         
         /* 맨 위로 가기 버튼 */
@@ -234,6 +234,11 @@
             to { transform: rotate(360deg); }
         }
 
+        /* 페이지 끝 여백 */
+        .bottom-spacer {
+            height: 30px; /* 맨 아래 여백 조정 */
+        }
+
         /* 인쇄용 스타일 */
         @media print {
             /* 기본 페이지 여백 설정 */
@@ -271,7 +276,7 @@
             }
             
             /* 불필요한 요소 숨기기 */
-            .navbar, .back-to-top, .slide-divider, .menu-toggle, .loading-overlay {
+            .navbar, .back-to-top, .slide-divider, .menu-toggle, .loading-overlay, .bottom-spacer {
                 display: none !important;
             }
             
@@ -387,6 +392,9 @@
                 <iframe id="slide9-frame" src="slide 9.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
             </div>
         </div>
+        
+        <!-- 맨 아래 여백 -->
+        <div class="bottom-spacer"></div>
     </div>
 
     <!-- 맨 위로 가기 버튼 -->
@@ -554,10 +562,10 @@
                 });
             });
             
-            // 20초 후에 자동으로 로딩 인디케이터 숨기기 (안전장치)
+            // 10초 후에 자동으로 로딩 인디케이터 숨기기 (안전장치)
             setTimeout(function() {
                 document.querySelector('.loading-overlay').style.display = 'none';
-            }, 20000);
+            }, 10000);
         });
     </script>
 </body>
