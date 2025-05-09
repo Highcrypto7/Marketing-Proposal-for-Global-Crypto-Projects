@@ -89,6 +89,17 @@
             border-radius: 2px;
         }
 
+        /* 햄버거 메뉴 버튼 - 모바일용 */
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+
         /* 컨텐츠 영역 - 네비바 공간 확보 */
         .content {
             padding-top: 80px;
@@ -100,12 +111,21 @@
             margin: 0 auto 30px auto; /* 슬라이드 간 간격 및 중앙 정렬 */
             overflow: hidden;
         }
+        
+        /* 반응형 iframe 컨테이너 */
+        .responsive-iframe-wrapper {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+        
         iframe {
             width: 100%;
             border: none;
             display: block;
-            overflow: hidden;
+            transform-origin: 0 0;
         }
+        
         /* 각 슬라이드별 최적 높이 설정 */
         #slide1-frame { height: 720px; }
         #slide2-frame { height: 720px; }
@@ -149,7 +169,53 @@
             color: #0f2027;
         }
 
-        /* 인쇄 설정 */
+        /* 반응형 스타일 */
+        @media (max-width: 1280px) {
+            .slide-container {
+                max-width: 100%;
+                padding: 0 15px;
+                box-sizing: border-box;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-menu {
+                position: fixed;
+                top: 60px;
+                left: 0;
+                flex-direction: column;
+                width: 100%;
+                background-color: rgba(15, 32, 39, 0.95);
+                padding: 20px 0;
+                transform: translateY(-150%);
+                transition: transform 0.3s ease;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+                z-index: 999;
+            }
+            
+            .navbar-menu.active {
+                transform: translateY(0);
+            }
+            
+            .navbar-menu li {
+                margin: 10px 0;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .navbar-menu a {
+                padding: 10px;
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+        /* 인쇄용 스타일 */
         @media print {
             /* 기본 페이지 여백 설정 */
             @page {
@@ -186,7 +252,7 @@
             }
             
             /* 불필요한 요소 숨기기 */
-            .navbar, .back-to-top, .slide-divider {
+            .navbar, .back-to-top, .slide-divider, .menu-toggle {
                 display: none !important;
             }
             
@@ -211,6 +277,9 @@
         <a href="#" class="navbar-brand">
             <i class="fas fa-rocket"></i>HighCrypto
         </a>
+        <button class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
         <ul class="navbar-menu">
             <li><a href="#slide1" class="active">Home</a></li>
             <li><a href="#slide3">Overview</a></li>
@@ -226,63 +295,81 @@
     <div class="content">
         <!-- 슬라이드 1 -->
         <div id="slide1" class="slide-container">
-            <iframe id="slide1-frame" src="slide 1.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            <div class="responsive-iframe-wrapper">
+                <iframe id="slide1-frame" src="slide 1.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            </div>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 2 -->
         <div id="slide2" class="slide-container">
-            <iframe id="slide2-frame" src="slide 2.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            <div class="responsive-iframe-wrapper">
+                <iframe id="slide2-frame" src="slide 2.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            </div>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 3 -->
         <div id="slide3" class="slide-container">
-            <iframe id="slide3-frame" src="slide 3.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            <div class="responsive-iframe-wrapper">
+                <iframe id="slide3-frame" src="slide 3.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            </div>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 4 -->
         <div id="slide4" class="slide-container">
-            <iframe id="slide4-frame" src="slide 4-17.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            <div class="responsive-iframe-wrapper">
+                <iframe id="slide4-frame" src="slide 4-17.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            </div>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 5 -->
         <div id="slide5" class="slide-container">
-            <iframe id="slide5-frame" src="slide 5-5.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            <div class="responsive-iframe-wrapper">
+                <iframe id="slide5-frame" src="slide 5-5.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            </div>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 6 -->
         <div id="slide6" class="slide-container">
-            <iframe id="slide6-frame" src="slide 6-3.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            <div class="responsive-iframe-wrapper">
+                <iframe id="slide6-frame" src="slide 6-3.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            </div>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 7 -->
         <div id="slide7" class="slide-container">
-            <iframe id="slide7-frame" src="slide 7-4.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            <div class="responsive-iframe-wrapper">
+                <iframe id="slide7-frame" src="slide 7-4.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            </div>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 8 -->
         <div id="slide8" class="slide-container">
-            <iframe id="slide8-frame" src="slide 8-1.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            <div class="responsive-iframe-wrapper">
+                <iframe id="slide8-frame" src="slide 8-1.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            </div>
         </div>
         
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 9 -->
         <div id="slide9" class="slide-container">
-            <iframe id="slide9-frame" src="slide 9.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            <div class="responsive-iframe-wrapper">
+                <iframe id="slide9-frame" src="slide 9.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            </div>
         </div>
     </div>
 
@@ -290,7 +377,6 @@
     <a href="#slide1" class="back-to-top">↑</a>
 
     <script>
-        // iframe 내용이 로드되면 스크립트 실행을 보장
         document.addEventListener('DOMContentLoaded', function() {
             // 슬라이드 프레임 목록
             const slideFrames = [
@@ -305,33 +391,35 @@
                 { id: 'slide9-frame', defaultHeight: 720 }
             ];
             
-            // 각 iframe에 대해 로드 이벤트 리스너 등록
-            slideFrames.forEach(function(frame) {
-                const iframe = document.getElementById(frame.id);
-                if (iframe) {
-                    iframe.onload = function() {
-                        try {
-                            // 약간의 추가 높이를 더해 여백 확보
-                            iframe.style.height = (frame.defaultHeight + 20) + 'px';
-                            
-                            // 메인 슬라이드 찾기 시도
-                            const slideElement = iframe.contentWindow.document.querySelector('.slide, .slide-container');
-                            if (slideElement) {
-                                const slideHeight = slideElement.offsetHeight;
-                                // 슬라이드 실제 높이가 기본값보다 크면 조정
-                                if (slideHeight > frame.defaultHeight) {
-                                    iframe.style.height = (slideHeight + 20) + 'px';
-                                }
-                            }
-                        } catch (e) {
-                            console.log('iframe 높이 조정 실패: ', e);
-                            // 오류 시 기본 높이 사용
-                            iframe.style.height = frame.defaultHeight + 'px';
+            // 반응형 처리 함수
+            function adjustIframes() {
+                const containerWidth = document.querySelector('.slide-container').offsetWidth;
+                const scale = containerWidth / 1280; // 원본 슬라이드 너비는 1280px
+                
+                slideFrames.forEach(function(frame) {
+                    const iframe = document.getElementById(frame.id);
+                    const wrapper = iframe.parentElement;
+                    
+                    if (iframe) {
+                        if (containerWidth < 1280) {
+                            // 축소가 필요한 경우
+                            iframe.style.transform = `scale(${scale})`;
+                            iframe.style.width = `${(1 / scale) * 100}%`;
+                            wrapper.style.height = `${frame.defaultHeight * scale}px`;
+                        } else {
+                            // 원본 크기 표시
+                            iframe.style.transform = 'scale(1)';
+                            iframe.style.width = '100%';
+                            wrapper.style.height = `${frame.defaultHeight}px`;
                         }
-                    };
-                }
-            });
-
+                    }
+                });
+            }
+            
+            // 초기 실행 및 리사이즈 이벤트에 연결
+            adjustIframes();
+            window.addEventListener('resize', adjustIframes);
+            
             // 네비게이션 바 메뉴 활성화 설정
             const navLinks = document.querySelectorAll('.navbar-menu a');
             const sections = document.querySelectorAll('.slide-container');
@@ -352,6 +440,25 @@
                     link.classList.remove('active');
                     if(link.getAttribute('href') === '#' + current) {
                         link.classList.add('active');
+                    }
+                });
+            });
+            
+            // 모바일 메뉴 토글
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navbarMenu = document.querySelector('.navbar-menu');
+            
+            if (menuToggle) {
+                menuToggle.addEventListener('click', function() {
+                    navbarMenu.classList.toggle('active');
+                });
+            }
+            
+            // 메뉴 링크 클릭시 모바일 메뉴 닫기
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        navbarMenu.classList.remove('active');
                     }
                 });
             });
