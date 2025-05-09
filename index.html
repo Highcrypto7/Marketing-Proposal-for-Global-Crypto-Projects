@@ -109,37 +109,27 @@
             width: 100%;
             max-width: 1280px;
             margin: 0 auto 30px auto;
-            overflow: visible; /* 변경: hidden에서 visible로 변경하여 잘림 방지 */
+            overflow: visible; /* 잘림 방지 */
             box-sizing: border-box;
-            padding: 0 10px; /* 좌우 여백 추가 */
+            padding: 0 10px;
         }
         
         /* 반응형 iframe 컨테이너 */
         .responsive-iframe-wrapper {
             position: relative;
             width: 100%;
-            overflow: visible; /* 변경: hidden에서 visible로 변경하여 잘림 방지 */
+            overflow: visible; /* 잘림 방지 */
             margin: 0 auto;
         }
         
         iframe {
-            width: 1280px; /* 변경: 고정 너비 설정 */
+            width: 1280px; /* 고정 너비 설정 */
             border: none;
             display: block;
             transform-origin: 0 0;
-            max-width: none; /* 추가: max-width 제한 해제 */
+            max-width: none; /* max-width 제한 해제 */
+            min-height: 720px; /* 최소 높이 설정 */
         }
-        
-        /* 각 슬라이드별 최적 높이 설정 */
-        #slide1-frame { height: 720px; }
-        #slide2-frame { height: 720px; }
-        #slide3-frame { height: 720px; }
-        #slide4-frame { height: 780px; }
-        #slide5-frame { height: 720px; }
-        #slide6-frame { height: 720px; }
-        #slide7-frame { height: 720px; }
-        #slide8-frame { height: 720px; }
-        #slide9-frame { height: 720px; }
         
         /* 구분선 스타일 변경 - 새 디자인에 맞게 */
         .slide-divider {
@@ -174,7 +164,7 @@
         }
 
         /* 반응형 스타일 */
-        @media (max-width: 1300px) { /* 조금 더 큰 너비에서 시작 */
+        @media (max-width: 1300px) {
             .slide-container {
                 padding: 0;
             }
@@ -217,6 +207,33 @@
             }
         }
 
+        /* 로딩 인디케이터 */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 32, 39, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #4a9bff;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
         /* 인쇄용 스타일 */
         @media print {
             /* 기본 페이지 여백 설정 */
@@ -237,10 +254,10 @@
             
             /* iframe 인쇄 설정 */
             iframe {
-                width: 100%;
-                height: 100vh !important;
+                width: 100% !important;
+                height: auto !important;
                 transform-origin: top left;
-                transform: scale(1);
+                transform: scale(1) !important;
                 overflow: visible;
                 page-break-inside: avoid;
             }
@@ -254,7 +271,7 @@
             }
             
             /* 불필요한 요소 숨기기 */
-            .navbar, .back-to-top, .slide-divider, .menu-toggle {
+            .navbar, .back-to-top, .slide-divider, .menu-toggle, .loading-overlay {
                 display: none !important;
             }
             
@@ -262,18 +279,15 @@
             .content {
                 padding-top: 0;
             }
-            
-            /* 각 슬라이드 프레임 설정 */
-            #slide1-frame, #slide2-frame, #slide3-frame, 
-            #slide4-frame, #slide5-frame, #slide6-frame, 
-            #slide7-frame, #slide8-frame, #slide9-frame {
-                height: 100vh !important;
-                margin-bottom: 0;
-            }
         }
     </style>
 </head>
 <body>
+    <!-- 로딩 인디케이터 -->
+    <div class="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+
     <!-- 네비게이션 바 -->
     <nav class="navbar">
         <a href="#" class="navbar-brand">
@@ -380,18 +394,61 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // 슬라이드 프레임 목록
+            // 슬라이드 프레임 목록 - 기본 높이 제거하고 실제 높이 감지
             const slideFrames = [
-                { id: 'slide1-frame', defaultHeight: 720 },
-                { id: 'slide2-frame', defaultHeight: 720 },
-                { id: 'slide3-frame', defaultHeight: 720 },
-                { id: 'slide4-frame', defaultHeight: 780 },
-                { id: 'slide5-frame', defaultHeight: 720 },
-                { id: 'slide6-frame', defaultHeight: 720 },
-                { id: 'slide7-frame', defaultHeight: 720 },
-                { id: 'slide8-frame', defaultHeight: 720 },
-                { id: 'slide9-frame', defaultHeight: 720 }
+                { id: 'slide1-frame' },
+                { id: 'slide2-frame' },
+                { id: 'slide3-frame' },
+                { id: 'slide4-frame' },
+                { id: 'slide5-frame' },
+                { id: 'slide6-frame' },
+                { id: 'slide7-frame' },
+                { id: 'slide8-frame' },
+                { id: 'slide9-frame' }
             ];
+            
+            // 로딩된 iframe 개수 추적
+            let loadedIframes = 0;
+            const totalIframes = slideFrames.length;
+            
+            // 로딩 상태 확인 함수
+            function checkAllLoaded() {
+                loadedIframes++;
+                if (loadedIframes >= totalIframes) {
+                    // 모든 iframe이 로드되면 로딩 오버레이 숨기기
+                    document.querySelector('.loading-overlay').style.display = 'none';
+                }
+            }
+            
+            // 실제 iframe 내용 높이를 감지하는 함수
+            function detectIframeHeight(iframe) {
+                try {
+                    // iframe 내부 document에 접근
+                    const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+                    
+                    // 슬라이드 컨테이너 또는 body의 스크롤 높이 찾기
+                    const slideElement = iframeDocument.querySelector('.slide-container') || 
+                                         iframeDocument.querySelector('.slide') || 
+                                         iframeDocument.body;
+                    
+                    // 실제 콘텐츠 높이 측정 (복수의 방법 시도)
+                    const contentHeight = Math.max(
+                        slideElement.scrollHeight,
+                        slideElement.offsetHeight,
+                        slideElement.clientHeight,
+                        iframeDocument.documentElement.scrollHeight,
+                        iframeDocument.documentElement.offsetHeight,
+                        iframeDocument.documentElement.clientHeight
+                    );
+                    
+                    // 최소 높이 보장 (720px 미만이면 720px로 설정)
+                    return Math.max(contentHeight, 720);
+                    
+                } catch (e) {
+                    console.error('iframe 높이 감지 오류:', e);
+                    return 720; // 오류 시 기본값 반환
+                }
+            }
             
             // 반응형 처리 함수
             function adjustIframes() {
@@ -414,27 +471,44 @@
                         // 항상 1280px 기준으로 비율 계산 (원본 슬라이드 너비)
                         const scale = containerWidth / 1280;
                         
-                        // margin 값 계산 (중앙 정렬을 위해)
-                        const horizontalMargin = '0'; // 중앙 정렬을 위해 auto 사용하지 않고 transform으로 처리
-                        
-                        // iframe 스타일 설정
+                        // iframe 스타일 설정 - 중앙 정렬
                         iframe.style.transform = `scale(${scale})`;
-                        iframe.style.transformOrigin = 'top center'; // 변경: 중앙 상단 기준으로 스케일
-                        iframe.style.marginLeft = horizontalMargin;
-                        
-                        // wrapper 높이 설정 (iframe 높이에 scale 적용)
-                        wrapper.style.height = `${frame.defaultHeight * scale}px`;
-                        
-                        // iframe 가로 중앙 정렬을 위한 추가 코드
+                        iframe.style.transformOrigin = 'top center';
                         iframe.style.position = 'relative';
                         iframe.style.left = '50%';
-                        iframe.style.marginLeft = '-640px'; // 1280px 너비의 절반을 왼쪽 마진으로 설정
+                        iframe.style.marginLeft = '-640px'; // 1280px 너비의 절반
+                        
+                        // iframe이 이미 로드된 경우
+                        if (iframe.complete || iframe.contentWindow) {
+                            const realHeight = detectIframeHeight(iframe);
+                            iframe.style.height = `${realHeight}px`;
+                            wrapper.style.height = `${realHeight * scale}px`;
+                        }
                     }
                 });
             }
             
+            // 각 iframe의 로드 이벤트 처리
+            slideFrames.forEach(function(frame) {
+                const iframe = document.getElementById(frame.id);
+                
+                if (iframe) {
+                    iframe.onload = function() {
+                        // iframe 높이 감지 및 설정
+                        const realHeight = detectIframeHeight(iframe);
+                        iframe.style.height = `${realHeight}px`;
+                        
+                        // 반응형 조정 적용
+                        adjustIframes();
+                        
+                        // 로딩 상태 확인
+                        checkAllLoaded();
+                    };
+                }
+            });
+            
             // 초기 실행 및 리사이즈 이벤트에 연결
-            adjustIframes();
+            window.addEventListener('load', adjustIframes);
             window.addEventListener('resize', adjustIframes);
             
             // 네비게이션 바 메뉴 활성화 설정
@@ -479,6 +553,11 @@
                     }
                 });
             });
+            
+            // 20초 후에 자동으로 로딩 인디케이터 숨기기 (안전장치)
+            setTimeout(function() {
+                document.querySelector('.loading-overlay').style.display = 'none';
+            }, 20000);
         });
     </script>
 </body>
