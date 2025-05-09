@@ -114,6 +114,14 @@
             padding: 0 10px;
         }
         
+        /* 여백 제거가 필요한 슬라이드 컨테이너 */
+        #slide5, #slide6, #slide7, #slide8 {
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+        }
+        
         /* 반응형 iframe 컨테이너 */
         .responsive-iframe-wrapper {
             position: relative;
@@ -139,10 +147,10 @@
             margin: 30px auto; /* 여백 수정 - 상하 간격 동일하게 */
         }
         
-        /* 여백 제거 구분선 - 5-6, 7-8 슬라이드 사이 */
+        /* 여백 제거가 필요한 구분선 */
         #divider5-6, #divider7-8 {
-            margin: 0 auto;
-            height: 3px;
+            margin: 0 auto !important;
+            padding: 0 !important;
         }
         
         /* 맨 위로 가기 버튼 */
@@ -351,8 +359,9 @@
         
         <div class="slide-divider"></div>
         
+        <!-- 여백 제거 구간 시작: 5-6 슬라이드 -->
         <!-- 슬라이드 5 -->
-        <div id="slide5" class="slide-container" style="margin-bottom:0; padding-bottom:0;">
+        <div id="slide5" class="slide-container">
             <div class="responsive-iframe-wrapper">
                 <iframe id="slide5-frame" src="slide 5-5.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
             </div>
@@ -362,16 +371,18 @@
         <div id="divider5-6" class="slide-divider"></div>
         
         <!-- 슬라이드 6 -->
-        <div id="slide6" class="slide-container" style="margin-top:0; padding-top:0;">
+        <div id="slide6" class="slide-container">
             <div class="responsive-iframe-wrapper">
                 <iframe id="slide6-frame" src="slide 6-3.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
             </div>
         </div>
+        <!-- 여백 제거 구간 끝 -->
         
         <div class="slide-divider"></div>
         
+        <!-- 여백 제거 구간 시작: 7-8 슬라이드 -->
         <!-- 슬라이드 7 -->
-        <div id="slide7" class="slide-container" style="margin-bottom:0; padding-bottom:0;">
+        <div id="slide7" class="slide-container">
             <div class="responsive-iframe-wrapper">
                 <iframe id="slide7-frame" src="slide 7-4.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
             </div>
@@ -381,11 +392,12 @@
         <div id="divider7-8" class="slide-divider"></div>
         
         <!-- 슬라이드 8 -->
-        <div id="slide8" class="slide-container" style="margin-top:0; padding-top:0;">
+        <div id="slide8" class="slide-container">
             <div class="responsive-iframe-wrapper">
                 <iframe id="slide8-frame" src="slide 8-1.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
             </div>
         </div>
+        <!-- 여백 제거 구간 끝 -->
         
         <div class="slide-divider"></div>
         
@@ -515,24 +527,63 @@
                 }
             });
             
+            // 여백 완전 제거 함수
+            function removeAllSpacing() {
+                // 여백 제거가 필요한 슬라이드와 구분선
+                document.getElementById('slide5').style.marginBottom = "0";
+                document.getElementById('slide5').style.paddingBottom = "0";
+                document.getElementById('divider5-6').style.margin = "0 auto";
+                document.getElementById('divider5-6').style.padding = "0";
+                document.getElementById('slide6').style.marginTop = "0";
+                document.getElementById('slide6').style.paddingTop = "0";
+                
+                document.getElementById('slide7').style.marginBottom = "0";
+                document.getElementById('slide7').style.paddingBottom = "0";
+                document.getElementById('divider7-8').style.margin = "0 auto";
+                document.getElementById('divider7-8').style.padding = "0";
+                document.getElementById('slide8').style.marginTop = "0";
+                document.getElementById('slide8').style.paddingTop = "0";
+                
+                // 모든 슬라이드 컨테이너와 구분선 사이 여백을 강제 제거
+                const slideContainers = [
+                    document.getElementById('slide5'),
+                    document.getElementById('slide6'),
+                    document.getElementById('slide7'),
+                    document.getElementById('slide8')
+                ];
+                
+                const specialDividers = [
+                    document.getElementById('divider5-6'),
+                    document.getElementById('divider7-8')
+                ];
+                
+                slideContainers.forEach(container => {
+                    if (container) {
+                        container.style.marginTop = "0";
+                        container.style.marginBottom = "0";
+                        container.style.paddingTop = "0";
+                        container.style.paddingBottom = "0";
+                    }
+                });
+                
+                specialDividers.forEach(divider => {
+                    if (divider) {
+                        divider.style.margin = "0 auto";
+                        divider.style.padding = "0";
+                    }
+                });
+            }
+            
             // 초기 실행 및 리사이즈 이벤트에 연결
             window.addEventListener('load', function() {
                 adjustIframes();
-                
-                // 여백 제거 구분선 설정
-                const divider56 = document.getElementById('divider5-6');
-                const divider78 = document.getElementById('divider7-8');
-                
-                if (divider56) {
-                    divider56.style.margin = '0 auto';
-                }
-                
-                if (divider78) {
-                    divider78.style.margin = '0 auto';
-                }
+                removeAllSpacing(); // 여백 완전 제거
             });
             
-            window.addEventListener('resize', adjustIframes);
+            window.addEventListener('resize', function() {
+                adjustIframes();
+                removeAllSpacing(); // 리사이즈 시에도 여백 제거 유지
+            });
             
             // 네비게이션 바 메뉴 활성화 설정
             const navLinks = document.querySelectorAll('.navbar-menu a');
@@ -581,6 +632,13 @@
             setTimeout(function() {
                 document.querySelector('.loading-overlay').style.display = 'none';
             }, 10000);
+            
+            // 페이지 로드 시 즉시 여백 제거 실행
+            removeAllSpacing();
+            
+            // DOM이 변경될 수 있으므로 확실하게 하기 위해 약간의 지연 후 다시 실행
+            setTimeout(removeAllSpacing, 500);
+            setTimeout(removeAllSpacing, 1000);
         });
     </script>
 </body>
