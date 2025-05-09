@@ -139,23 +139,10 @@
             margin: 30px auto; /* 여백 수정 - 상하 간격 동일하게 */
         }
         
-        /* 특정 구분선 스타일 - 여백 완전 제거용 */
-        .slide-divider.no-margin {
+        /* 여백 제거 구분선 - 5-6, 7-8 슬라이드 사이 */
+        #divider5-6, #divider7-8 {
             margin: 0 auto;
-            padding: 0;
-            height: 1px; /* 높이 축소 */
-        }
-        
-        /* 여백 제거가 필요한 슬라이드 컨테이너 */
-        .slide-container.no-margin {
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-        
-        /* 여백 제거가 필요한 슬라이드 다음 컨테이너 */
-        .slide-container.no-margin-top {
-            margin-top: 0;
-            padding-top: 0;
+            height: 3px;
         }
         
         /* 맨 위로 가기 버튼 */
@@ -252,8 +239,6 @@
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
-
-        /* 페이지 끝 여백 제거 */
 
         /* 인쇄용 스타일 */
         @media print {
@@ -367,17 +352,17 @@
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 5 -->
-        <div id="slide5" class="slide-container no-margin">
+        <div id="slide5" class="slide-container" style="margin-bottom:0; padding-bottom:0;">
             <div class="responsive-iframe-wrapper">
                 <iframe id="slide5-frame" src="slide 5-5.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
             </div>
         </div>
         
         <!-- 여백 제거된 구분선 - 5번과 6번 사이 -->
-        <div class="slide-divider no-margin"></div>
+        <div id="divider5-6" class="slide-divider"></div>
         
         <!-- 슬라이드 6 -->
-        <div id="slide6" class="slide-container no-margin-top">
+        <div id="slide6" class="slide-container" style="margin-top:0; padding-top:0;">
             <div class="responsive-iframe-wrapper">
                 <iframe id="slide6-frame" src="slide 6-3.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
             </div>
@@ -386,17 +371,17 @@
         <div class="slide-divider"></div>
         
         <!-- 슬라이드 7 -->
-        <div id="slide7" class="slide-container no-margin">
+        <div id="slide7" class="slide-container" style="margin-bottom:0; padding-bottom:0;">
             <div class="responsive-iframe-wrapper">
                 <iframe id="slide7-frame" src="slide 7-4.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
             </div>
         </div>
         
         <!-- 여백 제거된 구분선 - 7번과 8번 사이 -->
-        <div class="slide-divider no-margin"></div>
+        <div id="divider7-8" class="slide-divider"></div>
         
         <!-- 슬라이드 8 -->
-        <div id="slide8" class="slide-container no-margin-top">
+        <div id="slide8" class="slide-container" style="margin-top:0; padding-top:0;">
             <div class="responsive-iframe-wrapper">
                 <iframe id="slide8-frame" src="slide 8-1.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
             </div>
@@ -410,8 +395,6 @@
                 <iframe id="slide9-frame" src="slide 9.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
             </div>
         </div>
-        
-        <!-- 맨 아래 여백 완전 제거 - 필요 없으면 아예 이 요소 제거해도 됨 -->
     </div>
 
     <!-- 맨 위로 가기 버튼 -->
@@ -475,53 +458,6 @@
                 }
             }
             
-            // 여백 제거 - 슬라이드 사이 공간을 최소화하기 위한 추가 함수
-            function minimizeSpacing() {
-                // 5번-6번, 7번-8번 슬라이드 사이 여백 최소화
-                const slidePairs = [
-                    { top: document.getElementById('slide5'), bottom: document.getElementById('slide6') },
-                    { top: document.getElementById('slide7'), bottom: document.getElementById('slide8') }
-                ];
-                
-                slidePairs.forEach(pair => {
-                    if (pair.top && pair.bottom) {
-                        // 상단 컨테이너 여백 제거
-                        pair.top.style.marginBottom = '0';
-                        pair.top.style.paddingBottom = '0';
-                        
-                        // 하단 컨테이너 여백 제거
-                        pair.bottom.style.marginTop = '0';
-                        pair.bottom.style.paddingTop = '0';
-                        
-                        // 사이에 있는 구분선 찾기
-                        const divider = pair.top.nextElementSibling;
-                        if (divider && divider.classList.contains('slide-divider')) {
-                            divider.style.margin = '0 auto';
-                            divider.style.padding = '0';
-                            divider.style.height = '1px';
-                            divider.style.opacity = '0.5';
-                        }
-                    }
-                });
-                
-                // 맨 아래 여백 제거
-                const lastSlide = document.getElementById('slide9');
-                if (lastSlide) {
-                    const nextElements = [];
-                    let next = lastSlide.nextElementSibling;
-                    while (next) {
-                        nextElements.push(next);
-                        next = next.nextElementSibling;
-                    }
-                    
-                    nextElements.forEach(element => {
-                        if (element && element !== document.querySelector('.back-to-top')) {
-                            element.style.display = 'none';
-                        }
-                    });
-                }
-            }
-            
             // 반응형 처리 함수
             function adjustIframes() {
                 const containerWidths = {};
@@ -582,12 +518,21 @@
             // 초기 실행 및 리사이즈 이벤트에 연결
             window.addEventListener('load', function() {
                 adjustIframes();
-                minimizeSpacing(); // 여백 제거 함수 실행
+                
+                // 여백 제거 구분선 설정
+                const divider56 = document.getElementById('divider5-6');
+                const divider78 = document.getElementById('divider7-8');
+                
+                if (divider56) {
+                    divider56.style.margin = '0 auto';
+                }
+                
+                if (divider78) {
+                    divider78.style.margin = '0 auto';
+                }
             });
-            window.addEventListener('resize', function() {
-                adjustIframes();
-                minimizeSpacing(); // 리사이즈 시에도 여백 제거
-            });
+            
+            window.addEventListener('resize', adjustIframes);
             
             // 네비게이션 바 메뉴 활성화 설정
             const navLinks = document.querySelectorAll('.navbar-menu a');
