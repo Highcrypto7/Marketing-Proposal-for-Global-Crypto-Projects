@@ -400,11 +400,11 @@
                 { id: 'slide2-frame' },
                 { id: 'slide3-frame' },
                 { id: 'slide4-frame' },
-                { id: 'slide5-frame', fixedHeight: 700 }, // 5번 슬라이드에 고정 높이 적용
+                { id: 'slide5-frame' },
                 { id: 'slide6-frame' },
-                { id: 'slide7-frame', fixedHeight: 720 }, // 7번 슬라이드에 고정 높이 적용
+                { id: 'slide7-frame' },
                 { id: 'slide8-frame' },
-                { id: 'slide9-frame', fixedHeight: 700 } // 9번 슬라이드에 고정 높이 적용
+                { id: 'slide9-frame' }
             ];
             
             // 로딩된 iframe 개수 추적
@@ -420,11 +420,18 @@
                 }
             }
             
-            // 실제 iframe 내용 높이를 감지하는 함수 - 개선된 버전
-            function detectIframeHeight(iframe, frameConfig) {
-                // 고정 높이가 지정된 경우 해당 값 사용
-                if (frameConfig && frameConfig.fixedHeight) {
-                    return frameConfig.fixedHeight;
+            // 슬라이드별 수동 높이 조정 값
+            const manualHeights = {
+                'slide5-frame': 600,
+                'slide7-frame': 600,
+                'slide9-frame': 680
+            };
+            
+            // 실제 iframe 내용 높이를 감지하는 함수 - 기존 함수에 강제 높이 설정만 추가
+            function detectIframeHeight(iframe) {
+                // 수동 높이 조정이 있는 경우 해당 값 사용
+                if (manualHeights[iframe.id]) {
+                    return manualHeights[iframe.id];
                 }
                 
                 try {
@@ -455,7 +462,7 @@
                 }
             }
             
-            // 반응형 처리 함수 - 개선된 버전
+            // 반응형 처리 함수 - 기존 함수 유지
             function adjustIframes() {
                 const containerWidths = {};
                 const containers = document.querySelectorAll('.slide-container');
@@ -485,43 +492,35 @@
                         
                         // iframe이 이미 로드된 경우
                         if (iframe.complete || iframe.contentWindow) {
-                            const realHeight = detectIframeHeight(iframe, frame);
+                            const realHeight = detectIframeHeight(iframe);
                             iframe.style.height = `${realHeight}px`;
                             wrapper.style.height = `${realHeight * scale}px`;
-                            
-                            // 디버깅 정보 추가
-                            console.log(`${frame.id} 높이: ${realHeight}px, 적용 높이: ${realHeight * scale}px`);
                         }
                     }
                 });
             }
             
-            // 각 iframe의 로드 이벤트 처리 - 개선된 버전
+            // 각 iframe의 로드 이벤트 처리 - 기존 로직 유지
             slideFrames.forEach(function(frame) {
                 const iframe = document.getElementById(frame.id);
                 
                 if (iframe) {
                     iframe.onload = function() {
-                        // 약간의 지연을 통해 iframe 컨텐츠가 완전히 렌더링되도록 함
-                        setTimeout(function() {
-                            // iframe 높이 감지 및 설정
-                            const realHeight = detectIframeHeight(iframe, frame);
-                            iframe.style.height = `${realHeight}px`;
-                            
-                            // 반응형 조정 적용
-                            adjustIframes();
-                            
-                            // 로딩 상태 확인
-                            checkAllLoaded();
-                        }, 100);
+                        // iframe 높이 감지 및 설정
+                        const realHeight = detectIframeHeight(iframe);
+                        iframe.style.height = `${realHeight}px`;
+                        
+                        // 반응형 조정 적용
+                        adjustIframes();
+                        
+                        // 로딩 상태 확인
+                        checkAllLoaded();
                     };
                 }
             });
             
             // 초기 실행 및 리사이즈 이벤트에 연결
-            window.addEventListener('load', function() {
-                setTimeout(adjustIframes, 300); // 지연된 초기 실행
-            });
+            window.addEventListener('load', adjustIframes);
             window.addEventListener('resize', adjustIframes);
             
             // 네비게이션 바 메뉴 활성화 설정
@@ -567,7 +566,11 @@
                 });
             });
             
-            // 20초 후에 자동으로 로딩 인디케이터 숨기기 (안전장치)
+            // 10초 후에 자동으로 로딩 인디케이터 숨기기 (안전장치)
             setTimeout(function() {
                 document.querySelector('.loading-overlay').style.display = 'none';
-            }, 20000);
+            }, 10000);
+        });
+    </script>
+</body>
+</html>
