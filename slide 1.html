@@ -21,13 +21,25 @@
             font-family: 'Montserrat', sans-serif;
         }
         .bg-gradient {
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            background: linear-gradient(135deg, #1a2c3d, #2a3f55, #3a5278);
+            position: relative;
+        }
+        .bg-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 70%, rgba(99, 179, 237, 0.1), transparent 60%),
+                        radial-gradient(circle at 70% 30%, rgba(183, 148, 244, 0.1), transparent 60%);
+            pointer-events: none;
         }
         .crypto-icon {
             position: absolute;
-            opacity: 0.15;
+            opacity: 0.2;
             transform: rotate(10deg);
-            filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));
+            filter: drop-shadow(0 0 10px rgba(255,255,255,0.3));
             animation: float 6s ease-in-out infinite;
         }
         @keyframes float {
@@ -39,7 +51,7 @@
             text-shadow: 0 0 20px rgba(129, 226, 255, 0.8);
         }
         .title-shadow {
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
         }
         .highlight {
             background: linear-gradient(90deg, #ff6b6b, #ffa36b, #ffd86b, #6bff9e, #6bb5ff, #a56bff);
@@ -47,6 +59,7 @@
             background-clip: text;
             color: transparent;
             font-weight: 800;
+            filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.5));
         }
         .coin-float {
             position: absolute;
@@ -56,6 +69,17 @@
             0% { transform: translateY(0) rotate(0deg); }
             50% { transform: translateY(-30px) rotate(10deg); }
             100% { transform: translateY(0) rotate(0deg); }
+        }
+        .title-container {
+            background: rgba(25, 41, 66, 0.6);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .subtitle-glow {
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
         }
     </style>
 </head>
@@ -83,9 +107,11 @@
                 </span>
             </div>
             
-            <h1 class="text-5xl font-bold mb-6 title-shadow leading-tight">
-                Korean Marketing Proposal for <br><span class="highlight">Global Cryptocurrency Projects</span>
-            </h1>
+            <div class="title-container mb-6">
+                <h1 class="text-5xl font-bold title-shadow leading-tight">
+                    Korean Marketing Proposal for <br><span class="highlight">Global Cryptocurrency Projects</span>
+                </h1>
+            </div>
             
             <div class="h-1 w-40 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 rounded-full mx-auto my-8"></div>
             
@@ -93,7 +119,7 @@
                 Reach Higher with HighCrypto
             </h2>
             
-            <p class="text-xl text-blue-100 mb-16">
+            <p class="text-xl text-blue-100 mb-16 subtitle-glow">
                 Korea's Premier Crypto Marketing Agency
             </p>
             
