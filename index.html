@@ -420,20 +420,8 @@
                 }
             }
             
-            // 슬라이드별 수동 높이 조정 값
-            const manualHeights = {
-                'slide5-frame': 600,
-                'slide7-frame': 600,
-                'slide9-frame': 680
-            };
-            
-            // 실제 iframe 내용 높이를 감지하는 함수 - 기존 함수에 강제 높이 설정만 추가
+            // 실제 iframe 내용 높이를 감지하는 함수 - 원래 함수 유지하고 추가 로직만 포함
             function detectIframeHeight(iframe) {
-                // 수동 높이 조정이 있는 경우 해당 값 사용
-                if (manualHeights[iframe.id]) {
-                    return manualHeights[iframe.id];
-                }
-                
                 try {
                     // iframe 내부 document에 접근
                     const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
@@ -453,8 +441,20 @@
                         iframeDocument.documentElement.clientHeight
                     );
                     
-                    // 최소 높이 보장 (720px 미만이면 720px로 설정)
-                    return Math.max(contentHeight, 720);
+                    // 슬라이드별 높이 조정 - 여백 문제 수정
+                    if (iframe.id === 'slide5-frame') {
+                        // 5번 슬라이드에는 약간 더 추가 여백 제거
+                        return contentHeight - 200;
+                    } else if (iframe.id === 'slide7-frame') {
+                        // 7번 슬라이드에는 약간 더 추가 여백 제거
+                        return contentHeight - 150;
+                    } else if (iframe.id === 'slide9-frame') {
+                        // 9번 슬라이드에는 약간 더 추가 여백 제거
+                        return contentHeight - 100;
+                    }
+                    
+                    // 기본 높이는 그대로 유지
+                    return contentHeight;
                     
                 } catch (e) {
                     console.error('iframe 높이 감지 오류:', e);
