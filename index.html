@@ -443,8 +443,8 @@
                     
                     // 슬라이드별 높이 조정 - 여백 문제 수정
                     if (iframe.id === 'slide5-frame') {
-                        // 5번 슬라이드에는 약간 더 추가 여백 제거
-                        return contentHeight - 200;
+                        // 5번 슬라이드 여백 조정 (값 변경)
+                        return contentHeight - 100; // 100px 정도만 제거
                     } else if (iframe.id === 'slide7-frame') {
                         // 7번 슬라이드에는 약간 더 추가 여백 제거
                         return contentHeight - 150;
