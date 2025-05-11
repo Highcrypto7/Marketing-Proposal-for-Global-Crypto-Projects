@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Korean Memecoin Marketing Proposal - HighCrypto</title>
-    <meta name="description" content="Marketing proposal for global memecoin projects entering the Korean market. Comprehensive marketing services and strategies for cryptocurrency projects in Korea.">
+    <title>Korean Cryptocurrency Marketing Proposal - HighCrypto</title>
+    <meta name="description" content="Marketing proposal for global cryptocurrency projects entering the Korean market. Comprehensive marketing services and strategies for cryptocurrency projects in Korea.">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
     <style>
         body {
             margin: 0;
             padding: 0;
             background: #1a1c3b;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Montserrat', sans-serif;
         }
         /* 네비게이션 바 스타일 */
         .navbar {
@@ -30,16 +30,16 @@
             box-sizing: border-box;
         }
         .navbar-brand {
+            background: linear-gradient(90deg, #ff6b6b, #ffa36b, #ffd86b, #6bff9e, #6bb5ff, #a56bff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
             font-size: 22px;
             font-weight: bold;
             text-decoration: none;
             display: flex;
             align-items: center;
             min-width: 130px;
-            background: linear-gradient(90deg, #ff6b6b, #ffa36b, #ffd86b, #6bff9e, #6bb5ff, #a56bff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
         }
         .navbar-brand i {
             margin-right: 8px;
@@ -108,34 +108,35 @@
         .slide-container {
             width: 100%;
             max-width: 1280px;
-            margin: 0 auto;
-            margin-bottom: 20px;
+            margin: 0 auto 30px auto;
+            overflow: visible; /* 잘림 방지 */
             box-sizing: border-box;
+            padding: 0 10px;
         }
         
         /* 반응형 iframe 컨테이너 */
         .responsive-iframe-wrapper {
             position: relative;
             width: 100%;
-            margin: 0 auto;
             overflow: visible; /* 잘림 방지 */
+            margin: 0 auto;
         }
         
         iframe {
-            width: 1280px;
+            width: 1280px; /* 고정 너비 설정 */
             border: none;
             display: block;
             transform-origin: 0 0;
-            max-width: none;
-            height: 720px; /* 기본 높이 설정 */
+            max-width: none; /* max-width 제한 해제 */
+            min-height: 720px; /* 최소 높이 설정 */
         }
         
-        /* 구분선 - 무지개 그라데이션으로 변경 */
+        /* 구분선 스타일 변경 - 무지개 그라데이션 */
         .slide-divider {
             height: 3px;
             background: linear-gradient(90deg, #ff6b6b, #ffa36b, #ffd86b, #6bff9e, #6bb5ff, #a56bff);
             width: 80%;
-            margin: 0 auto 20px auto;
+            margin: 0 auto 30px auto;
         }
         
         /* 맨 위로 가기 버튼 */
@@ -208,11 +209,13 @@
 
         /* 인쇄용 스타일 */
         @media print {
+            /* 기본 페이지 여백 설정 */
             @page {
                 margin: 0.5cm;
                 size: A4 portrait;
             }
             
+            /* 페이지 나누기 방지 */
             .slide-container {
                 page-break-after: always;
                 margin: 0;
@@ -222,6 +225,7 @@
                 overflow: visible;
             }
             
+            /* iframe 인쇄 설정 */
             iframe {
                 width: 100% !important;
                 height: auto !important;
@@ -231,6 +235,7 @@
                 page-break-inside: avoid;
             }
             
+            /* 배경색 및 그라데이션 인쇄 */
             body {
                 -webkit-print-color-adjust: exact !important;
                 print-color-adjust: exact !important;
@@ -238,10 +243,12 @@
                 background: #1a1c3b !important;
             }
             
+            /* 불필요한 요소 숨기기 */
             .navbar, .back-to-top, .slide-divider, .menu-toggle {
                 display: none !important;
             }
             
+            /* 컨텐츠 영역 패딩 제거 */
             .content {
                 padding-top: 0;
             }
@@ -273,7 +280,7 @@
         <!-- 슬라이드 1 -->
         <div id="slide1" class="slide-container">
             <div class="responsive-iframe-wrapper">
-                <iframe id="slide1-frame" src="slide1.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+                <iframe id="slide1-frame" src="slide 1.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
             </div>
         </div>
         
@@ -282,7 +289,7 @@
         <!-- 슬라이드 2 -->
         <div id="slide2" class="slide-container">
             <div class="responsive-iframe-wrapper">
-                <iframe id="slide2-frame" src="slide2.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+                <iframe id="slide2-frame" src="slide 2.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
             </div>
         </div>
         
@@ -291,7 +298,7 @@
         <!-- 슬라이드 3 -->
         <div id="slide3" class="slide-container">
             <div class="responsive-iframe-wrapper">
-                <iframe id="slide3-frame" src="slide3.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+                <iframe id="slide3-frame" src="slide 3.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
             </div>
         </div>
         
@@ -300,7 +307,7 @@
         <!-- 슬라이드 4 -->
         <div id="slide4" class="slide-container">
             <div class="responsive-iframe-wrapper">
-                <iframe id="slide4-frame" src="slide4.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+                <iframe id="slide4-frame" src="slide 4-17.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
             </div>
         </div>
         
@@ -309,7 +316,7 @@
         <!-- 슬라이드 5 -->
         <div id="slide5" class="slide-container">
             <div class="responsive-iframe-wrapper">
-                <iframe id="slide5-frame" src="slide5.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+                <iframe id="slide5-frame" src="slide 5-5.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
             </div>
         </div>
         
@@ -318,7 +325,7 @@
         <!-- 슬라이드 6 -->
         <div id="slide6" class="slide-container">
             <div class="responsive-iframe-wrapper">
-                <iframe id="slide6-frame" src="slide6.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+                <iframe id="slide6-frame" src="slide 6-3.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
             </div>
         </div>
         
@@ -327,7 +334,7 @@
         <!-- 슬라이드 7 -->
         <div id="slide7" class="slide-container">
             <div class="responsive-iframe-wrapper">
-                <iframe id="slide7-frame" src="slide7.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+                <iframe id="slide7-frame" src="slide 7-4.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
             </div>
         </div>
         
@@ -336,7 +343,7 @@
         <!-- 슬라이드 8 -->
         <div id="slide8" class="slide-container">
             <div class="responsive-iframe-wrapper">
-                <iframe id="slide8-frame" src="slide8.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+                <iframe id="slide8-frame" src="slide 8-1.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
             </div>
         </div>
         
@@ -345,7 +352,7 @@
         <!-- 슬라이드 9 -->
         <div id="slide9" class="slide-container">
             <div class="responsive-iframe-wrapper">
-                <iframe id="slide9-frame" src="slide9.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+                <iframe id="slide9-frame" src="slide 9.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
             </div>
         </div>
     </div>
@@ -354,7 +361,7 @@
     <a href="#slide1" class="back-to-top">↑</a>
 
     <script>
-        // 슬라이드별 높이 정보를 미리 설정 - 7번 슬라이드만 10px 추가 증가
+        // 슬라이드별 높이 정보를 미리 설정
         const slideHeights = {
             'slide1-frame': 720,
             'slide2-frame': 836,
