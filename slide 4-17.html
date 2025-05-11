@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -85,7 +86,7 @@
             transform: translate(-50%, -50%);
             font-size: 3.5rem;
             font-weight: 800;
-            color: #FF6384;
+            color: #FF61AB; /* 아이콘 색상과 일치하도록 변경 */
             text-shadow: 0 0 10px rgba(255, 99, 132, 0.3);
         }
         .chart-area {
@@ -287,8 +288,8 @@
                 datasets: [{
                     data: [33, 67],
                     backgroundColor: [
-                        '#FF6384', // 핑크색 유지 (첫 번째 박스 아이콘과 일치)
-                        'rgba(255, 255, 255, 0.45)'  // 더 밝은 어두운 하얀색 계열로 변경
+                        '#FF61AB', // 핑크색을 아이콘 색상과 동일하게 유지
+                        'rgba(80, 80, 80, 0.6)'  // 회색 부분을 더 어둡게 변경
                     ],
                     borderWidth: 0
                 }]
@@ -340,7 +341,7 @@
                     label: 'Global Exchange Ranking',
                     data: rankings.map(item => item.value),
                     backgroundColor: rankings.map(item => 
-                        item.exchange === 'Upbit' ? '#3B82F6' : 'rgba(255, 255, 255, 0.45)' // Upbit는 블루 색상으로 변경, 나머지는 더 밝은 어두운 하얀색 계열
+                        item.exchange === 'Upbit' ? '#3B82F6' : 'rgba(80, 80, 80, 0.6)' // Upbit는 블루 색상 유지, 회색 부분을 더 어둡게 변경
                     ),
                     borderWidth: 0,
                     borderRadius: 4
@@ -379,7 +380,7 @@
                         ticks: {
                             color: function(context) {
                                 if (context.tick && context.tick.label === 'Upbit') {
-                                    return '#3B82F6'; // Upbit 텍스트 색상도 블루로 변경
+                                    return '#3B82F6'; // Upbit 텍스트 색상 유지
                                 }
                                 return '#a0aec0';
                             },
