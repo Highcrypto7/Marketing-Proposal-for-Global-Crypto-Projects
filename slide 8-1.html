@@ -83,6 +83,13 @@
             opacity: 0.05;
             z-index: 0;
         }
+        .rainbow-gradient {
+            background: linear-gradient(90deg, #ff6b6b, #ffa36b, #ffd86b, #6bff9e, #6bb5ff, #a56bff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 800;
+        }
     </style>
 </head>
 <body>
@@ -101,7 +108,7 @@
         <!-- Main content - moved title below the label with appropriate spacing -->
         <div class="z-10 w-full mt-16">
             <h1 class="text-4xl font-bold mb-2 title-shadow text-center">
-                <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
+                <span class="rainbow-gradient">
                     Expected Benefits and Conclusion
                 </span>
             </h1>
