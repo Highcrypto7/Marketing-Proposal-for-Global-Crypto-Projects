@@ -11,7 +11,7 @@
             margin: 0;
             padding: 0;
             background: #1a1c3b; /* 배경색 변경 */
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Arial', sans-serif; /* 폰트 변경 */
         }
         /* 네비게이션 바 스타일 */
         .navbar {
@@ -30,16 +30,16 @@
             box-sizing: border-box;
         }
         .navbar-brand {
-            background: linear-gradient(90deg, #ff6b6b, #ffa36b, #ffd86b, #6bff9e, #6bb5ff, #a56bff); /* 무지개 그라데이션 변경 */
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
             font-size: 22px;
             font-weight: bold;
             text-decoration: none;
             display: flex;
             align-items: center;
             min-width: 130px;
+            background: linear-gradient(90deg, #ff6b6b, #ffa36b, #ffd86b, #6bff9e, #6bb5ff, #a56bff); /* 무지개 그라데이션 변경 */
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
         .navbar-brand i {
             margin-right: 8px;
@@ -108,8 +108,8 @@
         .slide-container {
             width: 100%;
             max-width: 1280px;
-            margin: 0 auto 30px auto;
-            overflow: visible; /* 잘림 방지 */
+            margin: 0 auto;
+            margin-bottom: 20px; /* 여백 조정 */
             box-sizing: border-box;
             padding: 0 10px;
         }
@@ -136,7 +136,7 @@
             height: 3px;
             background: linear-gradient(90deg, #ff6b6b, #ffa36b, #ffd86b, #6bff9e, #6bb5ff, #a56bff); /* 무지개 그라데이션 변경 */
             width: 80%;
-            margin: 0 auto 30px auto;
+            margin: 0 auto 20px auto; /* 하단 여백 수정 30px → 20px */
         }
         
         /* 맨 위로 가기 버튼 */
