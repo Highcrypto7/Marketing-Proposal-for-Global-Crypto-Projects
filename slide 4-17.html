@@ -288,7 +288,7 @@
                     data: [33, 67],
                     backgroundColor: [
                         '#FF61AB', // 핑크색을 아이콘 색상과 동일하게 유지
-                        'rgba(80, 80, 80, 0.6)'  // 회색 부분을 더 어둡게 변경
+                        'rgba(125, 120, 180, 0.6)'  // 보라-블루 계열로 변경 (덜 칙칙한 색상)
                     ],
                     borderWidth: 0
                 }]
@@ -340,7 +340,7 @@
                     label: 'Global Exchange Ranking',
                     data: rankings.map(item => item.value),
                     backgroundColor: rankings.map(item => 
-                        item.exchange === 'Upbit' ? '#3B82F6' : 'rgba(80, 80, 80, 0.6)' // Upbit는 블루 색상 유지, 회색 부분을 더 어둡게 변경
+                        item.exchange === 'Upbit' ? '#3B82F6' : 'rgba(125, 120, 180, 0.6)' // Upbit는 블루 색상 유지, 나머지는 보라-블루 계열로 변경
                     ),
                     borderWidth: 0,
                     borderRadius: 4
@@ -381,7 +381,7 @@
                                 if (context.tick && context.tick.label === 'Upbit') {
                                     return '#3B82F6'; // Upbit 텍스트 색상 유지
                                 }
-                                return '#a0aec0';
+                                return '#b4b0d0'; // 다른 거래소들의 텍스트 색상도 보라-그레이 계열로 변경
                             },
                             font: function(context) {
                                 if (context.tick && context.tick.label === 'Upbit') {
