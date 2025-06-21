@@ -125,7 +125,7 @@
             padding: 0 10px;
         }
         
-        /* 반응형 iframe 컨테이너 */
+        /* 반응형 iframe 컨테이너 - 핵심 개선 */
         .responsive-iframe-wrapper {
             position: relative;
             width: 100%;
@@ -138,10 +138,12 @@
         }
         
         iframe {
-            width: 100%;
+            width: 1280px; /* 원본 크기 유지 */
+            height: 720px; /* 기본 높이 */
             border: none;
             display: block;
             background: white;
+            transform-origin: top left; /* 좌상단 기준으로 스케일 */
         }
         
         /* 구분선 스타일 */
@@ -179,21 +181,36 @@
             transform: translateY(-3px);
         }
 
-        /* 데스크톱 스타일 */
-        @media (min-width: 1025px) {
+        /* 데스크톱 스타일 (1280px 이상) */
+        @media (min-width: 1280px) {
             iframe {
-                height: 720px;
+                transform: scale(1);
             }
             
-            .slide-container {
-                padding: 0 20px;
+            .responsive-iframe-wrapper {
+                height: 720px;
             }
         }
 
-        /* 태블릿 스타일 */
-        @media (max-width: 1024px) and (min-width: 769px) {
+        /* 중간 데스크톱 (1024px - 1279px) */
+        @media (max-width: 1279px) and (min-width: 1024px) {
             iframe {
-                height: 600px;
+                transform: scale(0.8);
+            }
+            
+            .responsive-iframe-wrapper {
+                height: 576px; /* 720 * 0.8 */
+            }
+        }
+
+        /* 태블릿 스타일 (768px - 1023px) */
+        @media (max-width: 1023px) and (min-width: 768px) {
+            iframe {
+                transform: scale(0.65);
+            }
+            
+            .responsive-iframe-wrapper {
+                height: 468px; /* 720 * 0.65 */
             }
             
             .navbar-brand {
@@ -206,8 +223,8 @@
             }
         }
 
-        /* 모바일 스타일 */
-        @media (max-width: 768px) {
+        /* 모바일 스타일 (481px - 767px) */
+        @media (max-width: 767px) and (min-width: 481px) {
             .navbar {
                 padding: 12px 15px;
             }
@@ -262,8 +279,11 @@
             }
             
             iframe {
-                height: 500px;
-                min-height: 400px;
+                transform: scale(0.5);
+            }
+            
+            .responsive-iframe-wrapper {
+                height: 360px; /* 720 * 0.5 */
             }
             
             .slide-divider {
@@ -280,18 +300,14 @@
             }
         }
 
-        /* 작은 모바일 스타일 */
-        @media (max-width: 480px) {
+        /* 작은 모바일 스타일 (361px - 480px) */
+        @media (max-width: 480px) and (min-width: 361px) {
             .navbar {
                 padding: 10px 12px;
             }
             
             .navbar-brand {
                 font-size: 16px;
-            }
-            
-            .navbar-brand i {
-                margin-right: 5px;
             }
             
             .content {
@@ -303,11 +319,11 @@
             }
             
             iframe {
-                height: 400px;
-                min-height: 350px;
+                transform: scale(0.4);
             }
             
             .responsive-iframe-wrapper {
+                height: 288px; /* 720 * 0.4 */
                 border-radius: 8px;
             }
             
@@ -318,11 +334,14 @@
             }
         }
 
-        /* 매우 작은 화면 */
+        /* 매우 작은 화면 (360px 이하) */
         @media (max-width: 360px) {
             iframe {
-                height: 350px;
-                min-height: 300px;
+                transform: scale(0.35);
+            }
+            
+            .responsive-iframe-wrapper {
+                height: 252px; /* 720 * 0.35 */
             }
             
             .slide-container {
@@ -336,12 +355,13 @@
 
         /* 로딩 스타일 */
         .loading {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 200px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             color: #FFD700;
             font-size: 18px;
+            z-index: 2;
         }
         
         .loading::after {
@@ -410,6 +430,59 @@
             .back-to-top {
                 transition: none;
             }
+        }
+
+        /* 특정 슬라이드별 높이 조정 */
+        #slide2 iframe { height: 777px; }
+        #slide2 .responsive-iframe-wrapper { height: 777px; }
+
+        #slide4 iframe { height: 887px; }
+        #slide4 .responsive-iframe-wrapper { height: 887px; }
+
+        #slide5 iframe { height: 952px; }
+        #slide5 .responsive-iframe-wrapper { height: 952px; }
+
+        #slide6 iframe { height: 756px; }
+        #slide6 .responsive-iframe-wrapper { height: 756px; }
+
+        #slide7 iframe { height: 763px; }
+        #slide7 .responsive-iframe-wrapper { height: 763px; }
+
+        #slide8 iframe { height: 821px; }
+        #slide8 .responsive-iframe-wrapper { height: 821px; }
+
+        #slide9 iframe { height: 933px; }
+        #slide9 .responsive-iframe-wrapper { height: 933px; }
+
+        /* 모바일에서 특정 슬라이드 높이 조정 */
+        @media (max-width: 767px) and (min-width: 481px) {
+            #slide2 .responsive-iframe-wrapper { height: 388px; } /* 777 * 0.5 */
+            #slide4 .responsive-iframe-wrapper { height: 444px; } /* 887 * 0.5 */
+            #slide5 .responsive-iframe-wrapper { height: 476px; } /* 952 * 0.5 */
+            #slide6 .responsive-iframe-wrapper { height: 378px; } /* 756 * 0.5 */
+            #slide7 .responsive-iframe-wrapper { height: 382px; } /* 763 * 0.5 */
+            #slide8 .responsive-iframe-wrapper { height: 411px; } /* 821 * 0.5 */
+            #slide9 .responsive-iframe-wrapper { height: 467px; } /* 933 * 0.5 */
+        }
+
+        @media (max-width: 480px) and (min-width: 361px) {
+            #slide2 .responsive-iframe-wrapper { height: 311px; } /* 777 * 0.4 */
+            #slide4 .responsive-iframe-wrapper { height: 355px; } /* 887 * 0.4 */
+            #slide5 .responsive-iframe-wrapper { height: 381px; } /* 952 * 0.4 */
+            #slide6 .responsive-iframe-wrapper { height: 302px; } /* 756 * 0.4 */
+            #slide7 .responsive-iframe-wrapper { height: 305px; } /* 763 * 0.4 */
+            #slide8 .responsive-iframe-wrapper { height: 328px; } /* 821 * 0.4 */
+            #slide9 .responsive-iframe-wrapper { height: 373px; } /* 933 * 0.4 */
+        }
+
+        @media (max-width: 360px) {
+            #slide2 .responsive-iframe-wrapper { height: 272px; } /* 777 * 0.35 */
+            #slide4 .responsive-iframe-wrapper { height: 310px; } /* 887 * 0.35 */
+            #slide5 .responsive-iframe-wrapper { height: 333px; } /* 952 * 0.35 */
+            #slide6 .responsive-iframe-wrapper { height: 265px; } /* 756 * 0.35 */
+            #slide7 .responsive-iframe-wrapper { height: 267px; } /* 763 * 0.35 */
+            #slide8 .responsive-iframe-wrapper { height: 287px; } /* 821 * 0.35 */
+            #slide9 .responsive-iframe-wrapper { height: 327px; } /* 933 * 0.35 */
         }
     </style>
 </head>
