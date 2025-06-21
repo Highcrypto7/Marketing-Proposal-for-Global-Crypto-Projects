@@ -7,25 +7,19 @@
     <meta name="description" content="Marketing proposal for global cryptocurrency projects entering the Korean market. Comprehensive marketing services and strategies for cryptocurrency projects in Korea.">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
     <style>
-        * {
-            box-sizing: border-box;
-        }
-        
         body {
             margin: 0;
             padding: 0;
-            background: #1a1c3b;
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
+            background: #1a1c3b; /* 배경색 변경 */
+            font-family: 'Arial', sans-serif; /* 폰트 변경 */
         }
-        
         /* 네비게이션 바 스타일 */
         .navbar {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background-color: rgba(26, 28, 59, 0.95);
+            background-color: rgba(26, 28, 59, 0.95); /* 배경색 변경 */
             backdrop-filter: blur(10px);
             box-shadow: 0 2px 10px rgba(0,0,0,0.3);
             display: flex;
@@ -33,8 +27,8 @@
             align-items: center;
             padding: 15px 20px;
             z-index: 1000;
+            box-sizing: border-box;
         }
-        
         .navbar-brand {
             font-size: 22px;
             font-weight: bold;
@@ -42,20 +36,18 @@
             display: flex;
             align-items: center;
             min-width: 130px;
-            background: linear-gradient(90deg, #ff6b6b, #ffa36b, #ffd86b, #6bff9e, #6bb5ff, #a56bff);
+            background: linear-gradient(90deg, #ff6b6b, #ffa36b, #ffd86b, #6bff9e, #6bb5ff, #a56bff); /* 무지개 그라데이션 변경 */
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
-        
         .navbar-brand i {
             margin-right: 8px;
-            background: linear-gradient(90deg, #ff6b6b, #ffa36b, #ffd86b, #6bff9e, #6bb5ff, #a56bff);
+            background: linear-gradient(90deg, #ff6b6b, #ffa36b, #ffd86b, #6bff9e, #6bb5ff, #a56bff); /* 무지개 그라데이션 변경 */
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
-        
         .navbar-menu {
             display: flex;
             list-style: none;
@@ -66,11 +58,9 @@
             margin-left: auto;
             padding-right: 10px;
         }
-        
         .navbar-menu li {
             margin-left: 12px;
         }
-        
         .navbar-menu a {
             color: white;
             text-decoration: none;
@@ -81,16 +71,13 @@
             white-space: nowrap;
             display: block;
         }
-        
         .navbar-menu a:hover {
             background-color: rgba(255, 255, 255, 0.1);
-            color: #FFD700;
+            color: #FFD700; /* 호버 색상 변경 */
         }
-        
         .navbar-menu a.active {
             position: relative;
         }
-        
         .navbar-menu a.active::after {
             content: '';
             position: absolute;
@@ -98,11 +85,11 @@
             left: 0;
             width: 100%;
             height: 2px;
-            background: linear-gradient(90deg, #ff6b6b, #ffa36b, #ffd86b, #6bff9e, #6bb5ff, #a56bff);
+            background: linear-gradient(90deg, #ff6b6b, #ffa36b, #ffd86b, #6bff9e, #6bb5ff, #a56bff); /* 무지개 그라데이션 변경 */
             border-radius: 2px;
         }
 
-        /* 햄버거 메뉴 버튼 */
+        /* 햄버거 메뉴 버튼 - 모바일용 */
         .menu-toggle {
             display: none;
             font-size: 24px;
@@ -113,7 +100,7 @@
             padding: 0;
         }
 
-        /* 컨텐츠 영역 */
+        /* 컨텐츠 영역 - 네비바 공간 확보 */
         .content {
             padding-top: 80px;
         }
@@ -121,38 +108,35 @@
         .slide-container {
             width: 100%;
             max-width: 1280px;
-            margin: 0 auto 20px auto;
+            margin: 0 auto;
+            margin-bottom: 20px; /* 여백 조정 */
+            box-sizing: border-box;
             padding: 0 10px;
         }
         
-        /* 반응형 iframe 컨테이너 - 핵심 개선 */
+        /* 반응형 iframe 컨테이너 */
         .responsive-iframe-wrapper {
             position: relative;
             width: 100%;
-            overflow: hidden;
+            overflow: visible; /* 잘림 방지 */
             margin: 0 auto;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            background: rgba(255,255,255,0.05);
-            backdrop-filter: blur(10px);
         }
         
         iframe {
-            width: 1280px; /* 원본 크기 유지 */
-            height: 720px; /* 기본 높이 */
+            width: 1280px; /* 고정 너비 설정 */
             border: none;
             display: block;
-            background: white;
-            transform-origin: top left; /* 좌상단 기준으로 스케일 */
+            transform-origin: 0 0;
+            max-width: none; /* max-width 제한 해제 */
+            min-height: 720px; /* 최소 높이 설정 */
         }
         
-        /* 구분선 스타일 */
+        /* 구분선 스타일 변경 - 무지개 그라데이션 */
         .slide-divider {
             height: 3px;
-            background: linear-gradient(90deg, #ff6b6b, #ffa36b, #ffd86b, #6bff9e, #6bb5ff, #a56bff);
+            background: linear-gradient(90deg, #ff6b6b, #ffa36b, #ffd86b, #6bff9e, #6bb5ff, #a56bff); /* 무지개 그라데이션 변경 */
             width: 80%;
-            margin: 30px auto;
-            border-radius: 2px;
+            margin: 0 auto 20px auto; /* 하단 여백 수정 30px → 20px */
         }
         
         /* 맨 위로 가기 버튼 */
@@ -160,91 +144,44 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background-color: rgba(26, 28, 59, 0.9);
-            color: #FFD700;
-            width: 50px;
-            height: 50px;
+            background-color: rgba(26, 28, 59, 0.8); /* 배경색 변경 */
+            color: #FFD700; /* 색상 변경 */
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
             text-decoration: none;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
             font-size: 20px;
             z-index: 1000;
             transition: all 0.3s ease;
         }
-        
         .back-to-top:hover {
-            background-color: #FFD700;
-            color: #1a1c3b;
-            transform: translateY(-3px);
+            background-color: #FFD700; /* 호버 배경색 변경 */
+            color: #1a1c3b; /* 호버 색상 변경 */
         }
 
-        /* 데스크톱 스타일 (1280px 이상) */
-        @media (min-width: 1280px) {
-            iframe {
-                transform: scale(1);
-            }
-            
-            .responsive-iframe-wrapper {
-                height: 720px;
+        /* 반응형 스타일 */
+        @media (max-width: 1300px) {
+            .slide-container {
+                padding: 0;
             }
         }
 
-        /* 중간 데스크톱 (1024px - 1279px) */
-        @media (max-width: 1279px) and (min-width: 1024px) {
-            iframe {
-                transform: scale(0.8);
-            }
-            
-            .responsive-iframe-wrapper {
-                height: 576px; /* 720 * 0.8 */
-            }
-        }
-
-        /* 태블릿 스타일 (768px - 1023px) */
-        @media (max-width: 1023px) and (min-width: 768px) {
-            iframe {
-                transform: scale(0.65);
-            }
-            
-            .responsive-iframe-wrapper {
-                height: 468px; /* 720 * 0.65 */
-            }
-            
-            .navbar-brand {
-                font-size: 20px;
-            }
-            
-            .navbar-menu a {
-                font-size: 13px;
-                padding: 4px 5px;
-            }
-        }
-
-        /* 모바일 스타일 (481px - 767px) */
-        @media (max-width: 767px) and (min-width: 481px) {
-            .navbar {
-                padding: 12px 15px;
-            }
-            
-            .navbar-brand {
-                font-size: 18px;
-                min-width: 100px;
-            }
-            
+        @media (max-width: 768px) {
             .navbar-menu {
                 position: fixed;
                 top: 60px;
                 left: 0;
                 flex-direction: column;
                 width: 100%;
-                background-color: rgba(26, 28, 59, 0.98);
+                background-color: rgba(26, 28, 59, 0.95); /* 배경색 변경 */
                 padding: 20px 0;
                 transform: translateY(-150%);
                 transition: transform 0.3s ease;
-                box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+                box-shadow: 0 4px 10px rgba(0,0,0,0.3);
                 z-index: 999;
             }
             
@@ -253,250 +190,82 @@
             }
             
             .navbar-menu li {
-                margin: 8px 0;
+                margin: 10px 0;
                 width: 100%;
                 text-align: center;
             }
             
             .navbar-menu a {
-                padding: 12px;
+                padding: 10px;
                 display: block;
                 width: 100%;
-                font-size: 16px;
+                box-sizing: border-box;
             }
             
             .menu-toggle {
                 display: block;
             }
-            
-            .content {
-                padding-top: 70px;
-            }
-            
-            .slide-container {
-                padding: 0 5px;
-                margin-bottom: 15px;
-            }
-            
-            iframe {
-                transform: scale(0.5);
-            }
-            
-            .responsive-iframe-wrapper {
-                height: 360px; /* 720 * 0.5 */
-            }
-            
-            .slide-divider {
-                margin: 20px auto;
-                width: 90%;
-            }
-            
-            .back-to-top {
-                width: 45px;
-                height: 45px;
-                bottom: 15px;
-                right: 15px;
-                font-size: 18px;
-            }
-        }
-
-        /* 작은 모바일 스타일 (361px - 480px) */
-        @media (max-width: 480px) and (min-width: 361px) {
-            .navbar {
-                padding: 10px 12px;
-            }
-            
-            .navbar-brand {
-                font-size: 16px;
-            }
-            
-            .content {
-                padding-top: 60px;
-            }
-            
-            .slide-container {
-                padding: 0 3px;
-            }
-            
-            iframe {
-                transform: scale(0.4);
-            }
-            
-            .responsive-iframe-wrapper {
-                height: 288px; /* 720 * 0.4 */
-                border-radius: 8px;
-            }
-            
-            .back-to-top {
-                width: 40px;
-                height: 40px;
-                font-size: 16px;
-            }
-        }
-
-        /* 매우 작은 화면 (360px 이하) */
-        @media (max-width: 360px) {
-            iframe {
-                transform: scale(0.35);
-            }
-            
-            .responsive-iframe-wrapper {
-                height: 252px; /* 720 * 0.35 */
-            }
-            
-            .slide-container {
-                margin-bottom: 12px;
-            }
-            
-            .slide-divider {
-                margin: 15px auto;
-            }
-        }
-
-        /* 로딩 스타일 */
-        .loading {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: #FFD700;
-            font-size: 18px;
-            z-index: 2;
-        }
-        
-        .loading::after {
-            content: '...';
-            animation: loading 1.5s infinite;
-        }
-        
-        @keyframes loading {
-            0%, 20% { opacity: 0; }
-            50% { opacity: 1; }
-            100% { opacity: 0; }
         }
 
         /* 인쇄용 스타일 */
         @media print {
+            /* 기본 페이지 여백 설정 */
             @page {
                 margin: 0.5cm;
                 size: A4 portrait;
             }
             
+            /* 페이지 나누기 방지 */
             .slide-container {
                 page-break-after: always;
                 margin: 0;
                 padding: 0;
                 width: 100%;
                 max-width: none;
+                overflow: visible;
             }
             
+            /* iframe 인쇄 설정 */
             iframe {
                 width: 100% !important;
                 height: auto !important;
-                transform: none !important;
+                transform-origin: top left;
+                transform: scale(1) !important;
+                overflow: visible;
                 page-break-inside: avoid;
             }
             
+            /* 배경색 및 그라데이션 인쇄 */
             body {
                 -webkit-print-color-adjust: exact !important;
                 print-color-adjust: exact !important;
-                background: #1a1c3b !important;
+                color-adjust: exact !important;
+                background: #1a1c3b !important; /* 배경색 변경 */
             }
             
+            /* 불필요한 요소 숨기기 */
             .navbar, .back-to-top, .slide-divider, .menu-toggle {
                 display: none !important;
             }
             
+            /* 컨텐츠 영역 패딩 제거 */
             .content {
                 padding-top: 0;
             }
-        }
-
-        /* 부드러운 스크롤 */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* 접근성 향상 */
-        @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
-            }
-            
-            .navbar-menu {
-                transition: none;
-            }
-            
-            .back-to-top {
-                transition: none;
-            }
-        }
-
-        /* 특정 슬라이드별 높이 조정 */
-        #slide2 iframe { height: 777px; }
-        #slide2 .responsive-iframe-wrapper { height: 777px; }
-
-        #slide4 iframe { height: 887px; }
-        #slide4 .responsive-iframe-wrapper { height: 887px; }
-
-        #slide5 iframe { height: 952px; }
-        #slide5 .responsive-iframe-wrapper { height: 952px; }
-
-        #slide6 iframe { height: 756px; }
-        #slide6 .responsive-iframe-wrapper { height: 756px; }
-
-        #slide7 iframe { height: 763px; }
-        #slide7 .responsive-iframe-wrapper { height: 763px; }
-
-        #slide8 iframe { height: 821px; }
-        #slide8 .responsive-iframe-wrapper { height: 821px; }
-
-        #slide9 iframe { height: 933px; }
-        #slide9 .responsive-iframe-wrapper { height: 933px; }
-
-        /* 모바일에서 특정 슬라이드 높이 조정 */
-        @media (max-width: 767px) and (min-width: 481px) {
-            #slide2 .responsive-iframe-wrapper { height: 388px; } /* 777 * 0.5 */
-            #slide4 .responsive-iframe-wrapper { height: 444px; } /* 887 * 0.5 */
-            #slide5 .responsive-iframe-wrapper { height: 476px; } /* 952 * 0.5 */
-            #slide6 .responsive-iframe-wrapper { height: 378px; } /* 756 * 0.5 */
-            #slide7 .responsive-iframe-wrapper { height: 382px; } /* 763 * 0.5 */
-            #slide8 .responsive-iframe-wrapper { height: 411px; } /* 821 * 0.5 */
-            #slide9 .responsive-iframe-wrapper { height: 467px; } /* 933 * 0.5 */
-        }
-
-        @media (max-width: 480px) and (min-width: 361px) {
-            #slide2 .responsive-iframe-wrapper { height: 311px; } /* 777 * 0.4 */
-            #slide4 .responsive-iframe-wrapper { height: 355px; } /* 887 * 0.4 */
-            #slide5 .responsive-iframe-wrapper { height: 381px; } /* 952 * 0.4 */
-            #slide6 .responsive-iframe-wrapper { height: 302px; } /* 756 * 0.4 */
-            #slide7 .responsive-iframe-wrapper { height: 305px; } /* 763 * 0.4 */
-            #slide8 .responsive-iframe-wrapper { height: 328px; } /* 821 * 0.4 */
-            #slide9 .responsive-iframe-wrapper { height: 373px; } /* 933 * 0.4 */
-        }
-
-        @media (max-width: 360px) {
-            #slide2 .responsive-iframe-wrapper { height: 272px; } /* 777 * 0.35 */
-            #slide4 .responsive-iframe-wrapper { height: 310px; } /* 887 * 0.35 */
-            #slide5 .responsive-iframe-wrapper { height: 333px; } /* 952 * 0.35 */
-            #slide6 .responsive-iframe-wrapper { height: 265px; } /* 756 * 0.35 */
-            #slide7 .responsive-iframe-wrapper { height: 267px; } /* 763 * 0.35 */
-            #slide8 .responsive-iframe-wrapper { height: 287px; } /* 821 * 0.35 */
-            #slide9 .responsive-iframe-wrapper { height: 327px; } /* 933 * 0.35 */
         }
     </style>
 </head>
 <body>
     <!-- 네비게이션 바 -->
     <nav class="navbar">
-        <a href="#slide1" class="navbar-brand">
+        <a href="#" class="navbar-brand">
             <i class="fas fa-rocket"></i>HighCrypto
         </a>
-        <button class="menu-toggle" aria-label="메뉴 토글">
+        <button class="menu-toggle">
             <i class="fas fa-bars"></i>
         </button>
         <ul class="navbar-menu">
-            <li><a href="#slide1">Home</a></li>
+            <li><a href="#slide1" class="active">Home</a></li>
             <li><a href="#slide3">Overview</a></li>
             <li><a href="#slide4">Korean Market</a></li>
             <li><a href="#slide5">Listing</a></li>
@@ -511,17 +280,7 @@
         <!-- 슬라이드 1 -->
         <div id="slide1" class="slide-container">
             <div class="responsive-iframe-wrapper">
-                <div class="loading">슬라이드 로딩 중</div>
-                <iframe 
-                    id="slide1-frame" 
-                    src="slide 1.html" 
-                    scrolling="no" 
-                    frameborder="0" 
-                    allowfullscreen="true" 
-                    sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
-                    loading="lazy"
-                    style="display: none;">
-                </iframe>
+                <iframe id="slide1-frame" src="slide 1.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
             </div>
         </div>
         
@@ -530,17 +289,7 @@
         <!-- 슬라이드 2 -->
         <div id="slide2" class="slide-container">
             <div class="responsive-iframe-wrapper">
-                <div class="loading">슬라이드 로딩 중</div>
-                <iframe 
-                    id="slide2-frame" 
-                    src="slide 2.html" 
-                    scrolling="no" 
-                    frameborder="0" 
-                    allowfullscreen="true" 
-                    sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
-                    loading="lazy"
-                    style="display: none;">
-                </iframe>
+                <iframe id="slide2-frame" src="slide 2.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
             </div>
         </div>
         
@@ -549,17 +298,7 @@
         <!-- 슬라이드 3 -->
         <div id="slide3" class="slide-container">
             <div class="responsive-iframe-wrapper">
-                <div class="loading">슬라이드 로딩 중</div>
-                <iframe 
-                    id="slide3-frame" 
-                    src="slide 3.html" 
-                    scrolling="no" 
-                    frameborder="0" 
-                    allowfullscreen="true" 
-                    sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
-                    loading="lazy"
-                    style="display: none;">
-                </iframe>
+                <iframe id="slide3-frame" src="slide 3.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
             </div>
         </div>
         
@@ -568,17 +307,7 @@
         <!-- 슬라이드 4 -->
         <div id="slide4" class="slide-container">
             <div class="responsive-iframe-wrapper">
-                <div class="loading">슬라이드 로딩 중</div>
-                <iframe 
-                    id="slide4-frame" 
-                    src="slide 4-17.html" 
-                    scrolling="no" 
-                    frameborder="0" 
-                    allowfullscreen="true" 
-                    sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
-                    loading="lazy"
-                    style="display: none;">
-                </iframe>
+                <iframe id="slide4-frame" src="slide 4-17.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
             </div>
         </div>
         
@@ -587,17 +316,7 @@
         <!-- 슬라이드 5 -->
         <div id="slide5" class="slide-container">
             <div class="responsive-iframe-wrapper">
-                <div class="loading">슬라이드 로딩 중</div>
-                <iframe 
-                    id="slide5-frame" 
-                    src="slide 5-5.html" 
-                    scrolling="no" 
-                    frameborder="0" 
-                    allowfullscreen="true" 
-                    sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
-                    loading="lazy"
-                    style="display: none;">
-                </iframe>
+                <iframe id="slide5-frame" src="slide 5-5.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
             </div>
         </div>
         
@@ -606,17 +325,7 @@
         <!-- 슬라이드 6 -->
         <div id="slide6" class="slide-container">
             <div class="responsive-iframe-wrapper">
-                <div class="loading">슬라이드 로딩 중</div>
-                <iframe 
-                    id="slide6-frame" 
-                    src="slide 6-3.html" 
-                    scrolling="no" 
-                    frameborder="0" 
-                    allowfullscreen="true" 
-                    sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
-                    loading="lazy"
-                    style="display: none;">
-                </iframe>
+                <iframe id="slide6-frame" src="slide 6-3.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
             </div>
         </div>
         
@@ -625,17 +334,7 @@
         <!-- 슬라이드 7 -->
         <div id="slide7" class="slide-container">
             <div class="responsive-iframe-wrapper">
-                <div class="loading">슬라이드 로딩 중</div>
-                <iframe 
-                    id="slide7-frame" 
-                    src="slide 7-4.html" 
-                    scrolling="no" 
-                    frameborder="0" 
-                    allowfullscreen="true" 
-                    sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
-                    loading="lazy"
-                    style="display: none;">
-                </iframe>
+                <iframe id="slide7-frame" src="slide 7-4.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
             </div>
         </div>
         
@@ -644,17 +343,7 @@
         <!-- 슬라이드 8 -->
         <div id="slide8" class="slide-container">
             <div class="responsive-iframe-wrapper">
-                <div class="loading">슬라이드 로딩 중</div>
-                <iframe 
-                    id="slide8-frame" 
-                    src="slide 8-1.html" 
-                    scrolling="no" 
-                    frameborder="0" 
-                    allowfullscreen="true" 
-                    sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
-                    loading="lazy"
-                    style="display: none;">
-                </iframe>
+                <iframe id="slide8-frame" src="slide 8-1.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
             </div>
         </div>
         
@@ -663,178 +352,170 @@
         <!-- 슬라이드 9 -->
         <div id="slide9" class="slide-container">
             <div class="responsive-iframe-wrapper">
-                <div class="loading">슬라이드 로딩 중</div>
-                <iframe 
-                    id="slide9-frame" 
-                    src="slide 9.html" 
-                    scrolling="no" 
-                    frameborder="0" 
-                    allowfullscreen="true" 
-                    sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
-                    loading="lazy"
-                    style="display: none;">
-                </iframe>
+                <iframe id="slide9-frame" src="slide 9.html" scrolling="no" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
             </div>
         </div>
     </div>
 
     <!-- 맨 위로 가기 버튼 -->
-    <a href="#slide1" class="back-to-top" aria-label="맨 위로 가기">
-        <i class="fas fa-chevron-up"></i>
-    </a>
+    <a href="#slide1" class="back-to-top">↑</a>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Intersection Observer를 사용한 레이지 로딩
-            const observerOptions = {
-                root: null,
-                rootMargin: '100px',
-                threshold: 0.1
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const iframe = entry.target.querySelector('iframe');
-                        const loading = entry.target.querySelector('.loading');
+            // 슬라이드 프레임 목록 - 기본 높이 제거하고 실제 높이 감지
+            const slideFrames = [
+                { id: 'slide1-frame' },
+                { id: 'slide2-frame' },
+                { id: 'slide3-frame' },
+                { id: 'slide4-frame' },
+                { id: 'slide5-frame' },
+                { id: 'slide6-frame' },
+                { id: 'slide7-frame' },
+                { id: 'slide8-frame' },
+                { id: 'slide9-frame' }
+            ];
+            
+            // 실제 iframe 내용 높이를 감지하는 함수 - 원래 함수 유지하고 추가 로직만 포함
+            function detectIframeHeight(iframe) {
+                try {
+                    // iframe 내부 document에 접근
+                    const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+                    
+                    // 슬라이드 컨테이너 또는 body의 스크롤 높이 찾기
+                    const slideElement = iframeDocument.querySelector('.slide-container') || 
+                                         iframeDocument.querySelector('.slide') || 
+                                         iframeDocument.body;
+                    
+                    // 실제 콘텐츠 높이 측정 (복수의 방법 시도)
+                    const contentHeight = Math.max(
+                        slideElement.scrollHeight,
+                        slideElement.offsetHeight,
+                        slideElement.clientHeight,
+                        iframeDocument.documentElement.scrollHeight,
+                        iframeDocument.documentElement.offsetHeight,
+                        iframeDocument.documentElement.clientHeight
+                    );
+                    
+                    // 슬라이드별 높이 조정 - 여백 문제 수정
+                    if (iframe.id === 'slide5-frame') {
+                        // 5번 슬라이드 여백 조정 (값 변경)
+                        return contentHeight - 100; // 100px 정도만 제거
+                    } else if (iframe.id === 'slide7-frame') {
+                        // 7번 슬라이드에는 약간 더 추가 여백 제거
+                        return contentHeight - 150;
+                    } else if (iframe.id === 'slide9-frame') {
+                        // 9번 슬라이드에는 약간 더 추가 여백 제거
+                        return contentHeight - 100;
+                    }
+                    
+                    // 기본 높이는 그대로 유지
+                    return contentHeight;
+                    
+                } catch (e) {
+                    console.error('iframe 높이 감지 오류:', e);
+                    return 720; // 오류 시 기본값 반환
+                }
+            }
+            
+            // 반응형 처리 함수 - 기존 함수 유지
+            function adjustIframes() {
+                const containerWidths = {};
+                const containers = document.querySelectorAll('.slide-container');
+                
+                // 각 컨테이너의 실제 너비 측정
+                containers.forEach(container => {
+                    const id = container.id;
+                    containerWidths[id] = container.offsetWidth;
+                });
+                
+                slideFrames.forEach(function(frame) {
+                    const iframe = document.getElementById(frame.id);
+                    const wrapper = iframe.parentElement;
+                    const container = wrapper.parentElement;
+                    const containerWidth = container.offsetWidth;
+                    
+                    if (iframe) {
+                        // 항상 1280px 기준으로 비율 계산 (원본 슬라이드 너비)
+                        const scale = containerWidth / 1280;
                         
-                        if (iframe && iframe.style.display === 'none') {
-                            iframe.style.display = 'block';
-                            iframe.onload = function() {
-                                if (loading) {
-                                    loading.style.display = 'none';
-                                }
-                            };
+                        // iframe 스타일 설정 - 중앙 정렬
+                        iframe.style.transform = `scale(${scale})`;
+                        iframe.style.transformOrigin = 'top center';
+                        iframe.style.position = 'relative';
+                        iframe.style.left = '50%';
+                        iframe.style.marginLeft = '-640px'; // 1280px 너비의 절반
+                        
+                        // iframe이 이미 로드된 경우
+                        if (iframe.complete || iframe.contentWindow) {
+                            const realHeight = detectIframeHeight(iframe);
+                            iframe.style.height = `${realHeight}px`;
+                            wrapper.style.height = `${realHeight * scale}px`;
                         }
-                        
-                        observer.unobserve(entry.target);
                     }
                 });
-            }, observerOptions);
-
-            // 모든 슬라이드 컨테이너 관찰
-            document.querySelectorAll('.slide-container').forEach(container => {
-                observer.observe(container);
-            });
-
-            // 첫 번째 슬라이드는 즉시 로드
-            const firstSlide = document.querySelector('#slide1-frame');
-            const firstLoading = document.querySelector('#slide1 .loading');
-            if (firstSlide) {
-                firstSlide.style.display = 'block';
-                firstSlide.onload = function() {
-                    if (firstLoading) {
-                        firstLoading.style.display = 'none';
-                    }
-                };
             }
+            
+            // 각 iframe의 로드 이벤트 처리 - 로딩 확인 관련 코드 제거
+            slideFrames.forEach(function(frame) {
+                const iframe = document.getElementById(frame.id);
+                
+                if (iframe) {
+                    iframe.onload = function() {
+                        // iframe 높이 감지 및 설정
+                        const realHeight = detectIframeHeight(iframe);
+                        iframe.style.height = `${realHeight}px`;
+                        
+                        // 반응형 조정 적용
+                        adjustIframes();
+                    };
+                }
+            });
+            
+            // 초기 실행 및 리사이즈 이벤트에 연결
+            window.addEventListener('load', adjustIframes);
+            window.addEventListener('resize', adjustIframes);
             
             // 네비게이션 바 메뉴 활성화 설정
             const navLinks = document.querySelectorAll('.navbar-menu a');
             const sections = document.querySelectorAll('.slide-container');
             
-            function updateActiveNav() {
+            // 스크롤 이벤트로 현재 보이는 섹션에 따라 메뉴 활성화
+            window.addEventListener('scroll', function() {
                 let current = '';
-                const scrollPosition = window.pageYOffset + 200;
                 
-                sections.forEach(section => {
+                sections.forEach(function(section) {
                     const sectionTop = section.offsetTop;
                     const sectionHeight = section.clientHeight;
-                    
-                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    if(pageYOffset >= (sectionTop - 200)) {
                         current = section.getAttribute('id');
                     }
                 });
                 
-                navLinks.forEach(link => {
+                navLinks.forEach(function(link) {
                     link.classList.remove('active');
-                    if (link.getAttribute('href') === '#' + current) {
+                    if(link.getAttribute('href') === '#' + current) {
                         link.classList.add('active');
                     }
                 });
-            }
-            
-            // 스크롤 이벤트 최적화 (쓰로틀링)
-            let scrollTimer = null;
-            window.addEventListener('scroll', function() {
-                if (scrollTimer !== null) {
-                    clearTimeout(scrollTimer);
-                }
-                scrollTimer = setTimeout(updateActiveNav, 100);
             });
-            
-            // 초기 활성화
-            updateActiveNav();
             
             // 모바일 메뉴 토글
             const menuToggle = document.querySelector('.menu-toggle');
             const navbarMenu = document.querySelector('.navbar-menu');
             
-            if (menuToggle && navbarMenu) {
+            if (menuToggle) {
                 menuToggle.addEventListener('click', function() {
                     navbarMenu.classList.toggle('active');
-                    
-                    // 아이콘 변경
-                    const icon = menuToggle.querySelector('i');
-                    if (navbarMenu.classList.contains('active')) {
-                        icon.className = 'fas fa-times';
-                    } else {
-                        icon.className = 'fas fa-bars';
-                    }
-                });
-                
-                // 외부 클릭시 메뉴 닫기
-                document.addEventListener('click', function(e) {
-                    if (!menuToggle.contains(e.target) && !navbarMenu.contains(e.target)) {
-                        navbarMenu.classList.remove('active');
-                        menuToggle.querySelector('i').className = 'fas fa-bars';
-                    }
                 });
             }
             
             // 메뉴 링크 클릭시 모바일 메뉴 닫기
             navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
+                link.addEventListener('click', function() {
                     if (window.innerWidth <= 768) {
                         navbarMenu.classList.remove('active');
-                        menuToggle.querySelector('i').className = 'fas fa-bars';
                     }
                 });
-            });
-            
-            // 부드러운 스크롤 폴리필 (구형 브라우저 지원)
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    const href = this.getAttribute('href');
-                    if (href.startsWith('#')) {
-                        e.preventDefault();
-                        const target = document.querySelector(href);
-                        if (target) {
-                            const offsetTop = target.offsetTop - 80;
-                            window.scrollTo({
-                                top: offsetTop,
-                                behavior: 'smooth'
-                            });
-                        }
-                    }
-                });
-            });
-            
-            // 리사이즈 이벤트 최적화
-            let resizeTimer = null;
-            window.addEventListener('resize', function() {
-                if (resizeTimer !== null) {
-                    clearTimeout(resizeTimer);
-                }
-                resizeTimer = setTimeout(function() {
-                    // 모바일 메뉴가 열려있으면 닫기
-                    if (window.innerWidth > 768) {
-                        navbarMenu.classList.remove('active');
-                        if (menuToggle.querySelector('i')) {
-                            menuToggle.querySelector('i').className = 'fas fa-bars';
-                        }
-                    }
-                }, 250);
             });
         });
     </script>
